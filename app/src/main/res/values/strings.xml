@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">test</string>
+    <string name="OtdeliBank">Отделение и банкоматы</string>
+    <string name="open">ВОЙТИ</string>
 </resources>
