@@ -50,19 +50,121 @@
         app:iconSize="35dp"
         app:iconTint="@color/purple_200" />
 
-
-    <Button
-        android:id="@+id/button2"
-        style="@style/Widget.MaterialComponents.Button"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_marginBottom="70dp"
-        android:backgroundTint="@color/white"
-        android:text="Курсы валют"
-        android:textColor="@color/black"
+        android:layout_height="101dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="80dp"
+        android:padding="10dp"
+        android:background="@drawable/layout_bg"
 
-        android:textSize="15sp"
-        app:cornerRadius="10dp" />
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="30dp">
+
+            <ImageView
+                android:id="@+id/imageView9"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                app:srcCompat="@drawable/dollar1"/>
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="185dp"
+                android:layout_height="wrap_content"
+                android:text="Курсы валют"
+                android:textColor="@android:color/background_dark"
+                android:textSize="18sp"
+                />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:layout_weight="1"
+                android:text="09.11.2020" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="10dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:text="USD"
+                        android:textColor="@android:color/background_dark"
+                        android:textStyle="bold"
+                        android:layout_marginRight="5dp"/>
+
+                    <TextView
+                        android:id="@+id/textView4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="76,12"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView5"
+                        android:layout_width="10dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:text="EUR"
+                        android:textColor="@android:color/background_dark"
+                        android:layout_marginRight="5dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textView6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="89,89"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
 
     <Button
         android:id="@+id/button3"
