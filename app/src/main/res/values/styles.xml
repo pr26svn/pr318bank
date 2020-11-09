@@ -7,4 +7,8 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="ButtonMain">
+        <item name="android:background">@drawable/buttin_main</item>
+    </style>
+
 </resources>
