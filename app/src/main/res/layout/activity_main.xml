@@ -16,7 +16,7 @@
             android:gravity="center"
             android:orientation="horizontal"
             android:paddingTop="50dp">
-            <!--Иконка Банка-->
+            <!--Иконка-->
             <ImageView
                 android:id="@+id/BankImage"
                 android:layout_width="wrap_content"
