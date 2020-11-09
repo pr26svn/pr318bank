@@ -4,15 +4,92 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
+    android:background="@drawable/_379050160_2022xiphone"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingTop="70dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="76dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="0.3"
+            android:paddingStart="20dp"
+            android:paddingLeft="20dp"
+            android:src="@drawable/icons8_museum_100"
+            tools:ignore="RtlSymmetry" />
+
+        <ImageView
+            android:layout_width="287dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="0.7"
+            android:paddingTop="20dp"
+            android:src="@drawable/worldskills_bank" />
+    </LinearLayout>
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout">
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+
+            android:text="Отделения и банкоматы"
+            android:textColor="@color/black"
+            app:backgroundTint="#FFFFFF"
+            app:cornerRadius="10dp"
+            app:icon="@drawable/icons8_map_pin_100"
+            app:iconGravity="start"
+            app:iconSize="60dp"
+            app:iconTint="#B706F8" />
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:gravity="top"
+            android:text="@string/preview_content"
+
+            android:textColor="#000000"
+            app:backgroundTint="#FFFFFF"
+            app:cornerRadius="10dp"
+
+            app:icon="@drawable/dollar"
+            app:iconGravity="start"
+            app:iconSize="50dp"
+            app:iconTint="#9900FF"
+            app:iconTintMode="src_in"></Button>
+
+        <Button
+            android:layout_marginTop="20dp"
+            android:id="@+id/button6"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:text="вход"
+            android:textColor="#000000"
+            app:backgroundTint="#7B00A8" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
