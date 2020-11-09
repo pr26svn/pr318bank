@@ -4,4 +4,61 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"/>
+    android:background="@drawable/Background"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/IconPin"
+        tools:layout_editor_absoluteX="36dp"
+        tools:layout_editor_absoluteY="247dp" />
+
+    <Button
+        android:id="@+id/btnEnter"
+        android:layout_width="378dp"
+        android:layout_height="81dp"
+        android:foreground="@drawable/BtnEnter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="475dp" />
+
+    <Button
+        android:id="@+id/btnATMs"
+        android:layout_width="384dp"
+        android:layout_height="92dp"
+        android:foreground="@drawable/SecondButtton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="216dp" />
+
+    <Button
+        android:id="@+id/btnCurrency"
+        android:layout_width="384dp"
+        android:layout_height="92dp"
+        android:foreground="@drawable/Currency"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="329dp" />
+
+    <ImageView
+        android:id="@+id/imgIconMuseum"
+        android:layout_width="80dp"
+        android:layout_height="73dp"
+        app:srcCompat="@drawable/IconMuseum"
+        tools:layout_editor_absoluteX="57dp"
+        tools:layout_editor_absoluteY="113dp" />
+
+    <ImageView
+        android:id="@+id/imgIconHeader"
+        android:layout_width="227dp"
+        android:layout_height="38dp"
+        app:srcCompat="@drawable/Header"
+        tools:layout_editor_absoluteX="149dp"
+        tools:layout_editor_absoluteY="131dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
