@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">firstproject</string>
+    <string name="bankomats">Отделения и банкоматы</string>
+    <string name="courseValues">Курсы валют</string>
+    <string name="login">Войти</string>
 </resources>
