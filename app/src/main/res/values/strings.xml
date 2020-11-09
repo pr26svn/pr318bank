@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MobileBank</string>
+    <string name="bank_icon">bank_image</string>
 </resources>
