@@ -1,2 +1,2 @@
-include ':app'
+include ':Bank'
 rootProject.name = "My Application"
