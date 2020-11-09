@@ -1,4 +1,4 @@
-package com.example.bank;
+package com.example.bank2;
 
 import org.junit.Test;
 
