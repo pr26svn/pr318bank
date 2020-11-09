@@ -5,14 +5,138 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/backmain"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingTop="50dp">
+            <!--Иконка Банка-->
+            <ImageView
+                android:id="@+id/BankImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="left"
+                app:srcCompat="@drawable/museum" />
+            <!--Название--><!--Надо больше-->
+            <ImageView
+                android:id="@+id/BankText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="left"
+                app:srcCompat="@drawable/worldskillsbank" />
+        </LinearLayout>
+        <!--Отделения и Банкоматы--><!-- ТУТ ДОЛЖНА БЫТЬ КНОПКА НО КАК КНОПКУ С КАРТИНКАМИ СДЕЛАТЬ НАДО УЗНАТЬ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@color/White"
+            android:orientation="horizontal"
+            android:padding="30dp">
+            <!--Иконка с лупой--> <!--БОЛЬШЕ-->
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/mappin" />
+            <!--Иконка Банкоматы-->
+            <ImageView
+                android:id="@+id/One_Button_TextView"
+                android:layout_width="261dp"
+                android:layout_height="62dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/otdelenia" />
+        </LinearLayout>
+        <!--Курсы валют--><!-- ТУТ ДОЛЖНА БЫТЬ КНОПКА НО КАК КНОПКУ С КАРТИНКАМИ СДЕЛАТЬ НАДО УЗНАТЬ -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_margin="10dp"
+        android:background="@color/White"
+        android:orientation="vertical"
+        android:padding="30dp">
+        <!--Иконка и описание-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+            <!--Доллар-->
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/mappin" />
+
+            <!--Текст: Курсы валют-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:text="Курсы валют"
+                android:textSize="20dp" />
+
+            <!--Актуальное время-->
+            <TextView
+                android:id="@+id/main_time_View"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="-----------"
+                android:textSize="10dp" />
+        </LinearLayout>
+        <!--Курсы валют-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/View_USD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="-----------" />
+
+            <TextView
+                android:id="@+id/View_EUR"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="-----------" />
+        </LinearLayout>
+    </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="30dp">
+            <!--Кнопка Входа-->
+            <Button
+                android:id="@+id/Button_Login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/buttonvoiti"
+                />
+        </LinearLayout>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
