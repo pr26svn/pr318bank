@@ -4,15 +4,91 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="246dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="19dp"
+        android:layout_marginLeft="19dp"
+        android:layout_marginEnd="49dp"
+        android:layout_marginRight="49dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/ATMSearchButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        app:srcCompat="@drawable/worldskills_bank"
+        android:contentDescription="TODO" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/ATMSearchButton"
+        app:layout_constraintEnd_toStartOf="@+id/imageView3"
+        app:layout_constraintHorizontal_bias="0.24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/museum"
+        android:contentDescription="TODO" />
+
+    <Button
+        android:id="@+id/ATMSearchButton"
+        android:layout_width="383dp"
+        android:layout_height="101dp"
+
+        android:background="@drawable/button_search_atm"
+        android:drawableLeft="@drawable/magnifier"
+        android:scrollbarAlwaysDrawHorizontalTrack="false"
+        android:scrollbarAlwaysDrawVerticalTrack="false"
+        android:text="@string/BranchesAndBanks"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="133dp" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="383dp"
+        android:layout_height="101dp"
+        android:layout_marginTop="20dp"
+
+        android:layout_marginBottom="376dp"
+        android:background="@drawable/button_exchange_rates"
+        android:text="@string/ExchangeRates"
+        android:textAllCaps="false"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ATMSearchButton" />
+
+    <Button
+        android:id="@+id/button9"
+        android:layout_width="383dp"
+        android:layout_height="101dp"
+
+        android:layout_marginTop="90dp"
+        android:layout_marginBottom="176dp"
+        android:background="@drawable/button_sign_in"
+        android:text="@string/SignIn"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
