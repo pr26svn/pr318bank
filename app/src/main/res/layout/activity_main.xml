@@ -1,18 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <TableRow
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_weight="0.4">
+        <ImageView
+            android:layout_weight="1"
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:layout_marginLeft="30dp"
+            android:src="@drawable/bank_logo"/>
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textSize="36dp"
+            android:textColor="#cc55cc"
+            android:text="WorldSkills Bank"
+            android:gravity="bottom"
+            android:layout_marginBottom="90dp"
+            />
+    </TableRow>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/border_settings"
+        android:textSize="14dp"
+        android:textColor="#000000"
+        android:text="Отделения и банкоматы"
+        android:drawableLeft="@drawable/icon_1"
+        />
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="100dp"
+        android:background="@drawable/border_settings"
+        android:textSize="14dp"
+        android:textColor="#000000"
+        android:text="Курсы валют"
+        />
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="70dp"
+        android:background="@drawable/border_settings_two"
+        android:textSize="18dp"
+        android:textColor="#ffffff"
+        android:text="ВОЙТИ"
+        />
+
+</LinearLayout>
