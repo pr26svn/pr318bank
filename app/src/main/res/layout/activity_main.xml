@@ -33,12 +33,13 @@
     </LinearLayout>
 
     <Button
+
         android:id="@+id/button"
         android:layout_width="match_parent"
 
         android:layout_height="80dp"
         android:layout_marginBottom="20dp"
-        android:backgroundTint="@color/white"
+        android:backgroundTint="@color/colorWhite"
         android:isScrollContainer="false"
         android:text="Отделения и банкоматы"
         android:textColor="@color/black"
@@ -172,7 +173,7 @@
         android:layout_height="80dp"
         android:backgroundTint="@color/purple_700"
         android:text="Войти"
-        android:textColor="@color/white"
+        android:textColor="@color/colorWhite"
         app:cornerRadius="10dp" />
 
 </LinearLayout>
