@@ -23,15 +23,15 @@ import java.util.Locale;
 import javax.net.ssl.HttpsURLConnection;
 
 public class MainActivity extends AppCompatActivity {
-    TextView tv2;
+    TextView tv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
-        tv2 = findViewById(R.id.textView2);
-        tv2.setText(dateFormat.format(new Date()));
+        tv = findViewById(R.id.textView2);
+        tv.setText(dateFormat.format(new Date()));
 
         AsyncTask.execute(new Runnable() {
             @Override public void run() {
