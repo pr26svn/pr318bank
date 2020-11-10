@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:layout_width="76dp"
+            android:layout_width="65dp"
             android:layout_height="60dp"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
@@ -53,7 +53,7 @@
         <Button
             android:id="@+id/button"
             android:layout_width="350dp"
-            android:layout_height="100dp"
+            android:layout_height="90dp"
             android:text="Отделения и банкоматы"
             app:backgroundTint="#FFFFFF"
             android:textColor="#000000"
@@ -62,29 +62,107 @@
             app:iconSize="@android:dimen/app_icon_size"
             app:iconTint="@color/purple_200" />
 
-        <Button
-            android:id="@+id/button2"
+        <LinearLayout
             android:layout_width="350dp"
-            android:layout_height="100dp"
-            android:text="Курсы валют"
-            android:textColor="@color/black"
-            android:textIsSelectable="false"
-            app:backgroundTint="@color/white"
-            app:icon="@drawable/_489436639_moneyrecycledollarcurrency_81883"
-            app:iconGravity="start"
-            app:iconSize="60dp"
-            app:iconTint="@color/purple_200" />
+            android:layout_height="90dp"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_marginLeft="20dp"
+                        android:foreground="@drawable/_489436639_moneyrecycledollarcurrency_81883" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:gravity="left|top"
+                        android:text="Курсы валют"
+                        android:textAllCaps="true"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/date"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="50dp"
+                        android:gravity="right"
+                        android:text="дата" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="50dp"
+                            android:text="USD:"
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="знач" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="50dp"
+                        android:layout_weight="0.5"
+                        android:gravity="right">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="right"
+                            android:text="EUR:"
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="знач" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
 
         <Button
             android:id="@+id/button3"
             android:layout_width="350dp"
-            android:layout_height="100dp"
+            android:layout_height="90dp"
             android:layout_marginTop="50dp"
             android:baselineAligned="false"
-            android:foreground="@drawable/controls___buttons___dark___shape_button__custom_"
             android:text="Войти"
             android:textSize="25dp"
-            app:backgroundTint="@color/purple_700" />
+            app:backgroundTint="#394BE3" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
