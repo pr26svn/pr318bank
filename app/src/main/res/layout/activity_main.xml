@@ -49,6 +49,7 @@
             android:layout_marginTop="50dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
+            android:onClick="OnClickBankomats"
             android:background="@drawable/buttons"
             android:orientation="horizontal">
 
@@ -80,6 +81,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="15dp"
             android:layout_marginRight="15dp"
+            android:onClick="OnClickCurrency"
             android:background="@drawable/buttons"
             android:orientation="vertical">
 
@@ -110,8 +112,7 @@
                     android:id="@+id/textView5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:text="9.11.2020" />
+                    android:layout_weight="2" />
 
             </LinearLayout>
 
