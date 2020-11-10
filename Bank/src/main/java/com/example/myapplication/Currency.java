@@ -12,13 +12,13 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-public class MainActivity extends AppCompatActivity{
+public class Currency extends AppCompatActivity implements View.OnClickListener {
 
     TextView dateView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_currency);
         dateView = (TextView) findViewById(R.id.tvDate);
         // Текущее время
         Date currentDate = new Date();
@@ -28,13 +28,9 @@ public class MainActivity extends AppCompatActivity{
         dateView.setText(dateText);
     }
 
-    public void onClickCurrency(View view) {
-        Intent intent = new Intent(this, Currency.class);
-        startActivity(intent);
-    }
-
-    public void onClickAtms(View view) {
-        Intent intent = new Intent(this, Atms.class);
+    @Override
+    public void onClick(View v) {
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 }
