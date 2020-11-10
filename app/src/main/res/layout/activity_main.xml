@@ -179,7 +179,7 @@
                     android:gravity="center"
                     android:text="ВОЙТИ"
                     android:textColor="@color/white"
-                    android:textSize="18sp" />
+                    android:textSize="20sp" />
             </LinearLayout>
         </LinearLayout>
 
