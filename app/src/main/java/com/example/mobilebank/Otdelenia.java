@@ -5,12 +5,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class Otdelenia extends AppCompatActivity {
 
 
-    String[] names = { "Иван", "Марья", "Петр", "Антон", "Даша", "Борис",
-            "Костя", "Игорь", "Анна", "Денис", "Андрей" };
+    ArrayList<Otdelenie> otdelenies = new ArrayList<Otdelenie>();
+    BoxAdapter boxAdapter;
+
+    Otdelenie otd = new Otdelenie("г. Москва, ул. Вавилова, д. 4", "00:00-00:00", "Работает");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,14 +23,21 @@ public class Otdelenia extends AppCompatActivity {
         setContentView(R.layout.activity_otdelenia);
 
 
-        // находим список
-        ListView lvMain = (ListView) findViewById(R.id.lvMain);
-
         // создаем адаптер
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, names);
+        fillData();
+        boxAdapter = new BoxAdapter(this, otdelenies);
 
-        // присваиваем адаптер списку
-        lvMain.setAdapter(adapter);
+        // настраиваем список
+        ListView lvMain = (ListView) findViewById(R.id.lvMain);
+        lvMain.setAdapter(boxAdapter);
     }
+
+    // генерируем данные для адаптера
+    void fillData() {
+        for (int i = 1; i <= 20; i++) {
+            otdelenies.add(otd);
+        }
+    }
+
+
 }
