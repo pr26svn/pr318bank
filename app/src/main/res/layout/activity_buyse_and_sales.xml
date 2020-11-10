@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
-    android:background="#FFFFFF"
-    tools:context="com.example.mobilebank.Branches">
+    android:background="@android:color/white"
+    tools:context=".BuyseAndSales">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,16 +14,20 @@
 
         <LinearLayout
             android:id="@+id/forMain"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
             android:background="#FFFFFF"
-            android:onClick="onClick"
+            android:onClick="MainPage"
             android:orientation="horizontal">
 
             <ImageView
                 android:id="@+id/imageView"
+
                 android:layout_width="43dp"
                 android:layout_height="wrap_content"
+
                 android:background="#EEEEEE"
                 app:srcCompat="@drawable/prev" />
 
@@ -36,24 +39,38 @@
                 android:gravity="center_vertical"
                 android:text="На главную"
                 android:textColor="#1A64A3"
-                android:textStyle="bold"
-                />
+                android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="29dp"
+            android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/search"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="15dp"
-                android:paddingTop="10dp"
-                android:text="Отделения и банкоматы"
+                android:id="@+id/dateTextView"
+
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+
+                android:gravity="bottom"
+                android:paddingLeft="10dp"
+                android:text=""
+                android:textColor="@android:color/darker_gray" />
+
+            <TextView
+                android:id="@+id/buyse"
+
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+
+                android:gravity="bottom"
+
+                android:text="Покупка"
                 android:textColor="@android:color/darker_gray"
-                android:textSize="18dp" />
+                />
         </LinearLayout>
 
         <LinearLayout
@@ -66,4 +83,5 @@
                 android:layout_height="match_parent" />
         </LinearLayout>
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
