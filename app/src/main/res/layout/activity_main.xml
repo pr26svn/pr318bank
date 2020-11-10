@@ -36,16 +36,17 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/btn_otdelenia"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
 
+            android:layout_margin="10dp"
             android:background="@drawable/layout_bg"
             android:backgroundTint="@color/white"
             android:orientation="horizontal"
             android:paddingLeft="15dp"
-            android:paddingRight="15dp"
             android:paddingTop="25dp"
+            android:paddingRight="15dp"
             android:paddingBottom="25dp">
 
             <ImageView
@@ -67,11 +68,12 @@
 
 
         <LinearLayout
+            android:id="@+id/btn_currency"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:background="@drawable/layout_bg"
 
+            android:background="@drawable/layout_bg"
             android:backgroundTint="@color/white"
             android:orientation="vertical"
             android:padding="15dp">
@@ -113,9 +115,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
                 android:layout_weight="1"
-                android:orientation="horizontal"
-                android:layout_marginTop="10dp">
+                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/textView3"
@@ -143,23 +145,21 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
             android:layout_marginTop="30dp"
-            >
+            android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button4"
-                android:layout_width="wrap_content"
+                android:id="@+id/btn_enter"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/layout_bg"
                 android:backgroundTint="#142FEA"
-                android:text="ВОЙТИ"
-                android:textColor="@color/white"
-                android:textSize="18sp"
                 android:padding="30dp"
-                />
+                android:text="@string/btn_enter"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
         </LinearLayout>
 
     </LinearLayout>

@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">MobileBank</string>
     <string name="bank_icon">bank_image</string>
+    <string name="btn_enter">ВОЙТИ</string>
+    <string name="some_text">Some text some text</string>
 </resources>
