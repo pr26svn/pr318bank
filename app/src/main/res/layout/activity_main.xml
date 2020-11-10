@@ -9,74 +9,249 @@
     tools:context=".MainActivity"
     tools:ignore="ExtraText">
 
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/text"
-        android:textColor="@android:color/holo_purple"
-        android:textSize="35dp"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.828"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.178" />
+        app:layout_constraintVertical_bias="1.0">
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="383dp"
-        android:layout_height="101dp"
-        android:layout_marginBottom="424dp"
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="125dp"
+            android:layout_marginTop="45dp"
+            android:gravity="center"
+            android:orientation="horizontal">
 
-        android:background="@drawable/rounded_button_1"
-        android:drawableLeft="@drawable/lupa"
-        android:text="@string/OtdelAndBank"
-        android:textColor="@android:color/background_dark"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.571"
-        app:layout_constraintStart_toStartOf="parent" />
+            <ImageView
+                android:id="@+id/museum"
+                android:layout_width="125dp"
+                android:layout_height="54dp"
+                app:srcCompat="@drawable/museum" />
 
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="383dp"
-        android:layout_height="101dp"
-        android:layout_marginBottom="164dp"
+            <ImageView
+                android:id="@+id/bank"
+                android:layout_width="wrap_content"
+                android:layout_height="29dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/bank" />
+        </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="63dp"
+        android:orientation="vertical"
+        android:paddingLeft="15dp">
 
-        android:background="@drawable/rounded_button_3"
-        android:text="@string/Open"
-        android:textColor="@android:color/background_light"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <LinearLayout
+            android:layout_width="363dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/rounded_ll_1"
+            android:onClick="StartBranchAtm"
+            android:orientation="horizontal"
+            android:paddingLeft="15dp"
+            android:paddingTop="17dp">
 
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="383dp"
-        android:layout_height="101dp"
-        android:layout_marginBottom="312dp"
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="43dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/loop" />
 
-        android:background="@drawable/rounded_button_2"
-        android:text="@string/Open"
-        android:textColor="@android:color/background_light"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+            <TextView
+                android:id="@+id/otdel_and_bank"
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="80dp"
-        android:layout_height="87dp"
+                android:layout_width="290dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
 
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.078"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.15"
-        tools:srcCompat="@drawable/build" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+                android:gravity="center"
+                android:text="Отделения и банкоматы"
+                android:textAllCaps="true"
+                android:textColor="@android:color/black"
+
+                android:textSize="18dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="363dp"
+            android:layout_height="62dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="17dp"
+            android:background="@drawable/rounded_ll_2"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="34dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="66dp"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/dollar"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            app:srcCompat="@drawable/dollar" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="140dp"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/course"
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+
+                            android:gravity="center"
+                            android:onClick="StartKursBalut"
+                            android:text="Курсы валют"
+                            android:textAllCaps="true"
+                            android:textColor="@android:color/black"
+                            android:textSize="16dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/data"
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+
+                            android:gravity="center"
+
+                            android:text=""
+                            android:textColor="@android:color/black"
+
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="188dp"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/usd"
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+
+                            android:gravity="center"
+                            android:text="USD"
+                            android:textColor="@android:color/black"
+
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/course_usd"
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+
+                            android:gravity="center"
+
+                            android:text=""
+                            android:textColor="@android:color/black"
+
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/uer"
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+
+                            android:gravity="center"
+                            android:text="UER"
+                            android:textColor="@android:color/black"
+
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/course_uer"
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+
+                            android:gravity="center"
+
+                            android:text=""
+                            android:textColor="@android:color/black"
+
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="363dp"
+            android:layout_height="79dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/rounded_ll_3"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/login"
+
+                android:layout_width="342dp"
+                android:layout_height="match_parent"
+
+                android:gravity="center"
+                android:onClick="AlertDialog"
+                android:text="Войти"
+                android:textAllCaps="true"
+                android:textColor="@android:color/white"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+   </androidx.constraintlayout.widget.ConstraintLayout>
+
