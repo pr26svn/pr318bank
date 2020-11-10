@@ -1,6 +1,12 @@
 <resources>
-    <string name="app_name">firstproject</string>
+    <string name="app_name">Bank</string>
     <string name="bankomats">Отделения и банкоматы</string>
     <string name="courseValues">Курсы валют</string>
     <string name="login">Войти</string>
+    <string name="address">Москва, ул. Вавилова, д. 7</string>
+    <string name="staff">Отделение</string>
+    <string name="ATM">Банкомат</string>
+    <string name="staff_close">Закрыто</string>
+    <string name="staff_work">Работает</string>
+    <string name="main_screen">Главный экран</string>
 </resources>
