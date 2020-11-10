@@ -21,6 +21,8 @@ import java.util.Locale;
 
 import javax.net.ssl.HttpsURLConnection;
 
+import static space.dorzhu.test.R.style.AppCompatAlertDialogStyle;
+
 
 public class MainActivity extends AppCompatActivity {
     TextView mainDate;
@@ -81,8 +83,9 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void Dialog(View view) {
-        AlertDialog.Builder a_bulder= new AlertDialog.Builder(MainActivity.this);
-        a_bulder.setMessage("Авторизация")
+
+        AlertDialog.Builder a_bulder= new AlertDialog.Builder(MainActivity.this, AppCompatAlertDialogStyle);
+        a_bulder.setMessage("Введите ваш логин и пароль")
                 .setCancelable(false)
                 .setPositiveButton("Войти", new DialogInterface.OnClickListener() {
                     @Override
