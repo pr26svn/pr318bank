@@ -2,53 +2,71 @@
 <project version="4">
   <component name="AndroidLayouts">
     <shared>
-      <config>
-        <device id="pixel_xl" />
-      </config>
+      <config />
     </shared>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f9c24d11-0bed-4907-90c4-813cf07628fd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/bank2/ATM.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v24/dollar.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v24/layout_bg.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/background.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/kruglie_ugly.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/mappin.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/museum.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_a_t_m.xml" afterDir="false" />
+    <list default="true" id="5d24a94f-fba8-46d0-b47e-44c198370e83" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Bank/src/main/java/com/example/myapplication/Dialog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/currency.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/bank2/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/bank2/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_a_t_m.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_a_t_m.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[Pixel_XL_API_29]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
   </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="resourceFile" />
+        <option value="layoutResourceFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1k2i6cyGFjl23GsFmIpMt91CSHZ" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectId" id="1k5lPDcuuJh8xLU26LMA0TGlAQn" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -58,28 +76,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/pr318bank-PR318Nenaydenko" />
-    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
-  </component>
-  <component name="RecentsManager">
-    <key name="android.template.-1668434515">
-      <recent name="com.example.bank2" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\daoda\AndroidStudioProjects\pr318bank\app\src\main\res\drawable-v24" />
-      <recent name="C:\Users\daoda\AndroidStudioProjects\pr318bank\app\src\main\res\drawable" />
-    </key>
-  </component>
-  <component name="RunAnythingCache">
-    <myKeys>
-      <visibility group="Gradle tasks" flag="true" />
-      <visibility group="Recent projects" flag="true" />
-      <visibility group="Run configurations" flag="true" />
-      <visibility group="com.intellij.ide.actions.runAnything.RunAnythingRunConfigurationProvider" flag="false" />
-      <visibility group="com.intellij.ide.actions.runAnything.activity.RunAnythingRecentProjectProvider" flag="false" />
-      <visibility group="org.jetbrains.plugins.gradle.execution.GradleRunAnythingProvider" flag="false" />
-    </myKeys>
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
@@ -89,8 +86,8 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
-      <module name="bank2.app" />
+    <configuration name="Bank" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+      <module name="My_Application.Bank" />
       <option name="DEPLOY" value="true" />
       <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
       <option name="DEPLOY_AS_INSTANT" value="false" />
@@ -146,92 +143,79 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="My_Application" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="My_Application" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="f9c24d11-0bed-4907-90c4-813cf07628fd" name="Default Changelist" comment="" />
-      <created>1604904912399</created>
+      <changelist id="5d24a94f-fba8-46d0-b47e-44c198370e83" name="Default Changelist" comment="" />
+      <created>1604998306373</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1604904912399</updated>
+      <updated>1604998306373</updated>
     </task>
-    <task id="LOCAL-00001" summary="Проверка работы приложения">
-      <created>1604906024176</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1604906024180</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Проверка работы приложения" />
-    <option name="LAST_COMMIT_MESSAGE" value="Проверка работы приложения" />
-  </component>
   <component name="WindowStateProjectService">
-    <state x="92" y="122" width="1736" height="866" key="AVDManager" timestamp="1604929279548">
+    <state x="540" y="310" key="AndroidCreateResourceFileDialog" timestamp="1605004274195">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
-    <state x="92" y="122" width="1736" height="866" key="AVDManager/0.30.1920.1050/-1280.501.1280.994@0.30.1920.1050" timestamp="1604929279548" />
-    <state x="634" y="313" width="834" height="450" key="AndroidCreateResourceFileDialog" timestamp="1604933320785">
+    <state x="540" y="310" key="AndroidCreateResourceFileDialog/0.30.1920.1050/-1280.501.1280.994@0.30.1920.1050" timestamp="1605004274195" />
+    <state x="740" y="310" key="FileChooserDialogImpl" timestamp="1605006227076">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
-    <state x="634" y="313" width="834" height="450" key="AndroidCreateResourceFileDialog/0.30.1920.1050/-1280.501.1280.994@0.30.1920.1050" timestamp="1604933320785" />
-    <state x="804" y="345" key="AndroidCreateXmlResourceDialog" timestamp="1604925400143">
-      <screen x="0" y="30" width="1920" height="1050" />
+    <state x="740" y="310" key="FileChooserDialogImpl/0.30.1920.1050/-1280.501.1280.994@0.30.1920.1050" timestamp="1605006227076" />
+    <state x="-984" y="479" key="run.anything.popup" timestamp="1604999178500">
+      <screen x="-1280" y="501" width="1280" height="994" />
     </state>
-    <state x="804" y="345" key="AndroidCreateXmlResourceDialog/0.30.1920.1050/-1280.501.1280.994@0.30.1920.1050" timestamp="1604925400143" />
-    <state x="587" y="124" width="1029" height="862" key="CommitChangelistDialog2" timestamp="1604906023279">
-      <screen x="0" y="30" width="1920" height="1050" />
-    </state>
-    <state x="587" y="124" width="1029" height="862" key="CommitChangelistDialog2/0.30.1920.1050/-1280.501.1280.994@0.30.1920.1050" timestamp="1604906023279" />
-    <state x="449" y="403" key="FileChooserDialogImpl" timestamp="1604931418979">
-      <screen x="0" y="30" width="1920" height="1050" />
-    </state>
-    <state x="449" y="403" key="FileChooserDialogImpl/0.30.1920.1050/-1280.501.1280.994@0.30.1920.1050" timestamp="1604931418979" />
-    <state width="1876" height="285" key="GridCell.Tab.0.bottom" timestamp="1604916739834">
-      <screen x="0" y="30" width="1920" height="1050" />
-    </state>
-    <state width="1876" height="285" key="GridCell.Tab.0.bottom/0.30.1920.1050/-1280.501.1280.994@0.30.1920.1050" timestamp="1604916739834" />
-    <state width="1876" height="285" key="GridCell.Tab.0.center" timestamp="1604916739834">
-      <screen x="0" y="30" width="1920" height="1050" />
-    </state>
-    <state width="1876" height="285" key="GridCell.Tab.0.center/0.30.1920.1050/-1280.501.1280.994@0.30.1920.1050" timestamp="1604916739834" />
-    <state width="1876" height="285" key="GridCell.Tab.0.left" timestamp="1604916739834">
-      <screen x="0" y="30" width="1920" height="1050" />
-    </state>
-    <state width="1876" height="285" key="GridCell.Tab.0.left/0.30.1920.1050/-1280.501.1280.994@0.30.1920.1050" timestamp="1604916739834" />
-    <state width="1876" height="285" key="GridCell.Tab.0.right" timestamp="1604916739834">
-      <screen x="0" y="30" width="1920" height="1050" />
-    </state>
-    <state width="1876" height="285" key="GridCell.Tab.0.right/0.30.1920.1050/-1280.501.1280.994@0.30.1920.1050" timestamp="1604916739834" />
-    <state x="540" y="298" key="IDE.errors.dialog" timestamp="1604932730698">
-      <screen x="0" y="30" width="1920" height="1050" />
-    </state>
-    <state x="540" y="298" key="IDE.errors.dialog/0.30.1920.1050/-1280.501.1280.994@0.30.1920.1050" timestamp="1604932730698" />
-    <state x="732" y="275" key="RollbackChangesDialog" timestamp="1604913673225">
-      <screen x="0" y="30" width="1920" height="1050" />
-    </state>
-    <state x="732" y="275" key="RollbackChangesDialog/0.30.1920.1050/-1280.501.1280.994@0.30.1920.1050" timestamp="1604913673225" />
-    <state width="254" height="198" key="RunAnythingAction_Filter_Popup" timestamp="1604906893160">
-      <screen x="0" y="30" width="1920" height="1050" />
-    </state>
-    <state width="254" height="198" key="RunAnythingAction_Filter_Popup/0.30.1920.1050/-1280.501.1280.994@0.30.1920.1050" timestamp="1604906893160" />
-    <state x="552" y="275" key="Vcs.Push.Dialog.v2" timestamp="1604906031096">
-      <screen x="0" y="30" width="1920" height="1050" />
-    </state>
-    <state x="552" y="275" key="Vcs.Push.Dialog.v2/0.30.1920.1050/-1280.501.1280.994@0.30.1920.1050" timestamp="1604906031096" />
-    <state x="870" y="336" key="chooseDestDirectoryDialog" timestamp="1604914036650">
-      <screen x="0" y="30" width="1920" height="1050" />
-    </state>
-    <state x="870" y="336" key="chooseDestDirectoryDialog/0.30.1920.1050/-1280.501.1280.994@0.30.1920.1050" timestamp="1604914036650" />
-    <state x="616" y="258" key="run.anything.popup" timestamp="1604919760011">
-      <screen x="0" y="30" width="1920" height="1050" />
-    </state>
-    <state x="616" y="258" key="run.anything.popup/0.30.1920.1050/-1280.501.1280.994@0.30.1920.1050" timestamp="1604919760011" />
+    <state x="-984" y="479" key="run.anything.popup/0.30.1920.1050/-1280.501.1280.994@-1280.501.1280.994" timestamp="1604999178500" />
   </component>
 </project>
