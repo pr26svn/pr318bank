@@ -17,11 +17,12 @@
             android:text="Главный экран"
             android:textColor="#0411F8"
             app:backgroundTint="#00FFFFFF"
+            android:onClick="onClick_Home"
             app:icon="@drawable/abc_vector_test"
             app:iconTint="#0222F6" />
 
         <TextView
-            android:id="@+id/textView5"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Отделения и банкоматы" />
@@ -29,6 +30,12 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal"></LinearLayout>
+            android:orientation="horizontal" >
+
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/listBank"/>
+        </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
