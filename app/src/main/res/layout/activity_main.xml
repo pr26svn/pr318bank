@@ -42,18 +42,20 @@
 
         <LinearLayout
             android:layout_width="356dp"
-            android:layout_height="351dp"
+            android:layout_height="360dp"
             android:layout_gravity="center"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:orientation="vertical">
 
             <LinearLayout
+                android:id="@+id/branchesAndAtms"
                 android:layout_width="match_parent"
                 android:layout_height="115dp"
                 android:background="@drawable/tests"
-                android:orientation="horizontal"
-                >
+                android:onClick="onClickFirst"
+                android:orientation="horizontal">
+
                 <ImageView
                     android:id="@+id/imageView8"
                     android:layout_width="70dp"
@@ -67,10 +69,11 @@
                 <TextView
                     android:id="@+id/textView2"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="115dp"
                     android:layout_gravity="center"
                     android:layout_weight="6"
-                    android:gravity="center"
+                    android:gravity="center|left"
+                    android:onClick="onClickFirst"
                     android:text="Отделения и банкоматы"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="@android:color/background_dark"
@@ -79,10 +82,11 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="101dp"
+                android:layout_height="107dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="50dp"
                 android:background="@drawable/tests"
+                android:onClick="onClickCurancy"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -92,14 +96,14 @@
 
                     <ImageView
                         android:id="@+id/imageView9"
-                        android:layout_width="61dp"
+                        android:layout_width="83dp"
                         android:layout_height="wrap_content"
                         app:srcCompat="@drawable/savemain" />
 
                     <TextView
                         android:id="@+id/textView3"
                         android:layout_width="185dp"
-                        android:layout_height="match_parent"
+                        android:layout_height="35dp"
                         android:text="Курсы валют"
                         android:textColor="@android:color/background_dark"
                         android:textSize="18sp"
@@ -107,10 +111,11 @@
 
                     <TextView
                         android:id="@+id/textView6"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="150dp"
+                        android:layout_height="23dp"
                         android:layout_weight="1"
-                        android:text="09.11.2020" />
+                        android:textColor="@color/design_default_color_on_secondary"
+                        android:textSize="14sp" />
 
                 </LinearLayout>
 
@@ -147,6 +152,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="88.32"
+                                android:textColor="@color/design_default_color_on_secondary"
                                 android:textSize="18sp" />
 
                         </LinearLayout>
@@ -182,6 +188,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="77.99"
+                                android:textColor="@color/design_default_color_on_secondary"
                                 android:textSize="18sp" />
 
                         </LinearLayout>
