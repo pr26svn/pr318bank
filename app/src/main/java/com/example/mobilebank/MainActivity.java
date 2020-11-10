@@ -7,12 +7,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     LinearLayout btn_otdelenia, btn_currency;
     Button btn_enter;
+
+    TextView tvDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +28,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_otdelenia = (LinearLayout) findViewById(R.id.btn_otdelenia);
         btn_currency = (LinearLayout) findViewById(R.id.btn_currency);
         btn_enter = (Button) findViewById(R.id.btn_enter);
+
+        tvDate = (TextView) findViewById(R.id.tvDate);
+
+
+
+        SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
+        String date = sdf.format(new Date(System.currentTimeMillis()));
+        tvDate.setText(date);
+
 
         btn_otdelenia.setOnClickListener(this);
         btn_currency.setOnClickListener(this);
@@ -41,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                  startActivity(intent2);
                  break;
             case R.id.btn_enter:
-                Toast.makeText( this, "Вход...", Toast.LENGTH_LONG ).show();
+
                 break;
             default:
                 throw new IllegalStateException("Unexpected value: " + v.getId());
