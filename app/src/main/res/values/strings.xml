@@ -3,4 +3,9 @@
     <string name="bank_icon">bank_image</string>
     <string name="btn_enter">ВОЙТИ</string>
     <string name="some_text">Some text some text</string>
+    <string name="dialog_title">Введите данные</string>
+    <string name="enter_login">Введите логин</string>
+    <string name="enter_password">Введите пароль</string>
+    <string name="avtorization">Авторизация</string>
+    <string name="enter_data">Введите Ваш логин и пароль</string>
 </resources>
