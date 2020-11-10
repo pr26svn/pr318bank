@@ -31,7 +31,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <Button
         android:id="@+id/exchange_rates"
@@ -81,6 +81,6 @@
         app:layout_constraintStart_toStartOf="@+id/branches"
         app:layout_constraintTop_toTopOf="@+id/branches"
         app:srcCompat="@drawable/branchesicon"
-        android:elevation="2dp"/>
+        android:elevation="2dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

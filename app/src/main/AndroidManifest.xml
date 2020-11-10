@@ -9,6 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".activity_exchange_rate">
+            <action android:name=".activity_exchange_rate" />
+
+            <category android:name="android.intent.category.DEFAULT" />
+        </activity>
+        <activity android:name=".ActivityBranchesInfo">
+            <action android:name=".ActivityBranchesInfo" />
+
+            <category android:name="android.intent.category.DEFAULT" />
+        </activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
