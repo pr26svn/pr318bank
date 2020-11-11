@@ -3,4 +3,7 @@
     <string name="branches_and_banks">Отделения и банкоматы</string>
     <string name="exchange_rates">Курсы валют</string>
     <string name="sign_in">ВОЙТИ</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="authorization">Авторизация</string>
 </resources>

@@ -7,4 +7,9 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="DialogTheme">
+        <item name="android:background">#E1E1E1</item>
+        <item name="android:textColor">#3C3F41</item>
+    </style>
+
 </resources>

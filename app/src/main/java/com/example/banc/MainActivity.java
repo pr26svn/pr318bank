@@ -1,16 +1,22 @@
 package com.example.banc;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.JsonReader;
+import android.view.ContextThemeWrapper;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -89,5 +95,27 @@ public class MainActivity<TextView> extends AppCompatActivity {
                 }
             }
         });*/
+    }
+
+    public void signin_Click(View view) {
+        final EditText editText = findViewById(R.id.username);
+        AlertDialog.Builder builder = new AlertDialog.Builder(new ContextThemeWrapper(MainActivity.this, R.style.DialogTheme));
+        LayoutInflater inflater = MainActivity.this.getLayoutInflater();
+        builder.setView(inflater.inflate(R.layout.dialog_signin, null))
+                .setPositiveButton("Войти", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int id) {
+                        if (editText == null) {
+                            Toast.makeText(getApplicationContext(),"Ошибка. Вы ничего не ввели", Toast.LENGTH_SHORT);
+                        }
+                    }
+                })
+                .setNegativeButton("Отмена", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int id) {
+                        dialogInterface.dismiss();
+                    }
+                });
+        builder.show();
     }
 }
