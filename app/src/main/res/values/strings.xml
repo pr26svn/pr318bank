@@ -1,9 +1,17 @@
 <resources>
     <string name="app_name">Mobile Bank</string>
+
+    <string name="worldskills_bank">WorldSkills Bank</string>
     <string name="branches_and_banks">Отделения и банкоматы</string>
     <string name="exchange_rates">Курсы валют</string>
     <string name="sign_in">ВОЙТИ</string>
+    <string name="main_screen"><![CDATA[< Главный экран]]></string>
+
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="authorization">Авторизация</string>
+    <string name="au">Введите Ваш логин и пароль</string>
+
+    <string name="usd">USD</string>
+    <string name="eur">EUR</string>
 </resources>

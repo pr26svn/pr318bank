@@ -2,39 +2,52 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
     android:orientation="vertical"
+
+    android:background="@drawable/image_background"
+
     tools:context=".MainActivity" >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="89dp"
+        android:orientation="horizontal"
         android:layout_marginTop="50sp"
         android:layout_marginBottom="12sp"
-        android:orientation="horizontal"
+
         tools:layout_editor_absoluteY="47dp">
 
         <ImageView
             android:id="@+id/imageBank"
-            android:layout_width="70sp"
-            android:layout_height="70sp"
-            android:layout_gravity="bottom"
-            android:layout_marginLeft="20sp"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/bank"
-            android:layout_marginStart="20sp" />
 
-        <ImageView
-            android:id="@+id/imageWorldSkillsBank"
-            android:layout_width="240dp"
-            android:layout_height="49dp"
-            android:layout_gravity="bottom"
+            android:layout_width="65sp"
+            android:layout_height="65sp"
             android:layout_marginLeft="20sp"
-            android:layout_marginRight="20sp"
+            android:layout_marginStart="20sp"
+            android:layout_gravity="bottom"
             android:layout_weight="1"
-            app:srcCompat="@drawable/worldskills_bank" />
+
+            app:srcCompat="@drawable/image_bank" />
+
+        <TextView
+            android:id="@+id/txtWorldSkillsBank"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20sp"
+            android:layout_marginLeft="5sp"
+            android:layout_marginEnd="20sp"
+            android:layout_marginStart="5sp"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+
+            android:text="@string/worldskills_bank"
+            android:textColor="#BF9B39AC"
+            android:textSize="30sp" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -44,39 +57,44 @@
 
         <LinearLayout
             android:id="@+id/buttonBranchesAndATMs"
+
             android:layout_width="match_parent"
             android:layout_height="85dp"
+            android:orientation="vertical"
             android:layout_marginLeft="12sp"
             android:layout_marginTop="12sp"
             android:layout_marginRight="12sp"
-            android:background="@drawable/white_rounded"
-            android:orientation="vertical">
+
+            android:background="@drawable/white_rounded_button"
+
+            android:onClick="branchesAndATMs_Click">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
+
                 android:paddingLeft="15dp"
                 android:paddingRight="15dp">
 
                 <ImageView
                     android:id="@+id/imageMagnifier"
-                    android:layout_width="0sp"
-                    android:layout_height="40dp"
+
+                    android:layout_width="55sp"
+                    android:layout_height="55sp"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
-                    app:srcCompat="@drawable/magnifier"
-                    android:contentDescription="TODO" />
+
+                    app:srcCompat="@drawable/image_magnifier" />
 
                 <TextView
-                    android:id="@+id/branchesAndATMs"
+                    android:id="@+id/txtBranchesAndATMs"
 
-                    android:layout_width="261dp"
+                    android:layout_width="283dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
 
-                    android:gravity="center"
                     android:text="@string/branches_and_banks"
                     android:textColor="@android:color/black"
                     android:textSize="18sp" />
@@ -93,16 +111,21 @@
             android:layout_marginLeft="12sp"
             android:layout_marginTop="10sp"
             android:layout_marginRight="12sp"
+            android:orientation="vertical"
 
-            android:background="@drawable/white_rounded"
-            android:orientation="vertical">
+            android:background="@drawable/white_rounded_button"
+
+            android:onClick="exchangeRates_Click">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:orientation="vertical">
+                android:layout_marginLeft="10sp"
+                android:layout_marginRight="15sp"
+                android:layout_marginStart="10sp"
+                android:layout_marginEnd="15sp"
+                android:orientation="vertical"
+                tools:ignore="UselessParent">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -117,13 +140,12 @@
                         <ImageView
                             android:id="@+id/imageDollar"
 
-                            android:layout_width="match_parent"
+                            android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:layout_margin="4sp"
-
                             android:layout_weight="1"
-                            app:srcCompat="@drawable/dollars"
-                            android:contentDescription="TODO" />
+                            android:layout_margin="5sp"
+
+                            app:srcCompat="@drawable/image_dollar" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -132,16 +154,16 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/exchangeRates"
+                            android:id="@+id/txtExchangeRates"
 
-                            android:layout_width="match_parent"
+                            android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
 
                             android:gravity="center_vertical"
                             android:text="@string/exchange_rates"
                             android:textColor="@android:color/black"
-                            android:textSize="16sp" />
+                            android:textSize="18sp" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -150,12 +172,12 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/date"
+                            android:id="@+id/txtDate"
 
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-
                             android:layout_weight="1"
+
                             android:gravity="center|end"
                             android:text="00.00.0000"
                             android:textColor="#777272"
@@ -175,28 +197,30 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/usd"
+                            android:id="@+id/txtUsd"
 
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
 
                             android:gravity="center|end"
-                            android:text="USD"
-                            android:textColor="@android:color/black" />
+                            android:text="@string/usd"
+                            android:textColor="@android:color/black"
+                            android:textSize="16sp" />
 
                         <TextView
-                            android:id="@+id/usdRate"
+                            android:id="@+id/txtUsdRate"
 
                             android:layout_width="120dp"
                             android:layout_height="28dp"
                             android:layout_marginStart="5sp"
-
                             android:layout_marginLeft="5sp"
                             android:layout_weight="1"
+
                             android:gravity="center|start"
                             android:text="00.0"
-                            android:textColor="#777272" />
+                            android:textColor="#777272"
+                            android:textSize="16sp" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -205,32 +229,34 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/eur"
+                            android:id="@+id/txtEur"
 
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
 
                             android:gravity="center|end"
-                            android:text="EUR"
-                            android:textColor="@android:color/black" />
+                            android:text="@string/eur"
+                            android:textColor="@android:color/black"
+                            android:textSize="16sp" />
 
                         <TextView
-                            android:id="@+id/eurRate"
+                            android:id="@+id/txtEurRate"
 
                             android:layout_width="1dp"
                             android:layout_height="28dp"
                             android:layout_marginStart="5sp"
-
                             android:layout_marginLeft="5sp"
                             android:layout_weight="1"
+
                             android:gravity="center|start"
                             android:text="00.0"
-                            android:textColor="#777272" />
+                            android:textColor="#777272"
+                            android:textSize="16sp" />
+
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
-
         </LinearLayout>
 
         <Button
@@ -242,12 +268,13 @@
             android:layout_marginTop="70sp"
             android:layout_marginRight="12sp"
 
-            android:background="@drawable/blue_rounded"
+            android:background="@drawable/blue_rounded_button"
             android:text="@string/sign_in"
             android:textColor="#FFFFFF"
 
 
             android:onClick="signin_Click"/>
+
     </LinearLayout>
 
 </LinearLayout>

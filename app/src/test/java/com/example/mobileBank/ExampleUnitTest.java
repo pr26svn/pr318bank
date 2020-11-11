@@ -1,4 +1,4 @@
-package com.example.banc;
+package com.example.mobileBank;
 
 import org.junit.Test;
 
