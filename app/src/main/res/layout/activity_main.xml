@@ -44,8 +44,10 @@
         android:background="@drawable/exchangerates"
         app:layout_constraintBottom_toTopOf="@+id/enter_button"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/branches" />
+        app:layout_constraintTop_toBottomOf="@+id/branches"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/museum"
@@ -82,5 +84,41 @@
         app:layout_constraintTop_toTopOf="@+id/branches"
         app:srcCompat="@drawable/branchesicon"
         android:elevation="2dp" />
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="36dp"
+        android:elevation="2dp"
+        android:text="TextView"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/exchange_rates"
+        app:layout_constraintTop_toTopOf="@+id/exchange_rates" />
+
+    <TextView
+        android:id="@+id/usd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="65dp"
+        android:layout_marginBottom="14dp"
+        android:elevation="2dp"
+        android:text="TextView"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/exchange_rates"
+        app:layout_constraintStart_toStartOf="@+id/exchange_rates" />
+
+    <TextView
+        android:id="@+id/eur"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="14dp"
+        android:elevation="2dp"
+        android:text="TextView"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/exchange_rates"
+        app:layout_constraintEnd_toEndOf="@+id/exchange_rates" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

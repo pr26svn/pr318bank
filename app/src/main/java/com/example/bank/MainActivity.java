@@ -7,6 +7,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.content.DialogInterface;
 import android.widget.Button;
+import android.widget.TextView;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,6 +23,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         addListenerOnButton();
+
+        Date date;
+        TextView setDate;
+        date = new Date();
+        DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
+        String dateText = dateFormat.format(date);
+        setDate = (TextView) findViewById(R.id.date);
+        setDate.setText(dateText);
     }
 
     public void addListenerOnButton () {
