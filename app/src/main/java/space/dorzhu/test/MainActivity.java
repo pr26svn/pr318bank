@@ -72,14 +72,14 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClick(View view) {
 
-        Intent intent = new Intent(this, branches.class);
+        Intent intent = new Intent(this, secondpage.class);
         startActivity(intent);
     }
 
     public void onClick2(View view) {
 
-        Intent intent = new Intent(this, thirdactivity.class);
-        startActivity(intent);
+        Intent intent2 = new Intent(this, thirdactivity.class);
+        startActivity(intent2);
     }
 
 
