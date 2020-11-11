@@ -1,11 +1,15 @@
 package com.example.myapplication;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -38,4 +42,55 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, firstActivity.class);
         startActivity(intent);
     }
-}
+
+
+        public void showAlertDialogButtonClicked(View view)
+        {
+
+            // Create an alert builder
+            AlertDialog.Builder builder
+                    = new AlertDialog.Builder(this, R.style.mainLogin);
+
+            // set the custom layout
+            final View customLayout
+                    = getLayoutInflater()
+                    .inflate(
+                            R.layout.custom_layout,
+                            null);
+            builder.setView(customLayout);
+
+            // add a button
+            builder
+                    .setPositiveButton("Войти", new DialogInterface.OnClickListener() {
+
+                                @Override
+                                public void onClick(DialogInterface dialog, int which)
+                                {
+                                    dialog.cancel();
+                                }
+                            })
+                    .setNegativeButton("Отмена", new DialogInterface.OnClickListener(){
+                                @Override
+                                public void  onClick(DialogInterface dialog, int which)
+                                {
+                                    dialog.cancel();
+                                }
+                            });
+
+            // create and show
+            // the alert dialog
+            AlertDialog dialog
+                    = builder.create();
+            dialog.show();
+        }
+
+        // Do something with the data
+        // coming from the AlertDialog
+        private void sendDialogDataToActivity(String data)
+        {
+            Toast.makeText(this,
+                    data,
+                    Toast.LENGTH_SHORT)
+                    .show();
+        }
+    }
