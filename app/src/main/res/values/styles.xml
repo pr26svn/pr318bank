@@ -8,8 +8,8 @@
     </style>
 
     
-    <style name="AppCompatAlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
-        <item name="colorAccent">#3BA3D0</item>
-        <item name="android:background">#FFFFFF</item>
+    <style name="builder" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">@android:color/black</item>
+        <item name="android:windowBackground">@drawable/rectangle_loginin</item>
     </style>
 </resources>

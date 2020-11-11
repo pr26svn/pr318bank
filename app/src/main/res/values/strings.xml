@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MobileBank</string>
+    <string name="login">Авторизация</string>
+    <string name="logandpas">Введите логин и пароль</string>
 </resources>

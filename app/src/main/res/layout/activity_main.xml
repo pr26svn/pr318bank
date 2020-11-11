@@ -252,6 +252,7 @@
 
                     android:gravity="center"
 
+                    android:onClick="forLogin"
                     android:text="Войти"
                     android:textAllCaps="true"
                     android:textColor="@android:color/white"

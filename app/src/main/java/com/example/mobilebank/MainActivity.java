@@ -47,32 +47,13 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-
-    public void dialog(View view) {
-        String title="Авторизация";
-        String message = "Введите Ваш логин и пароль";
-        String pb="Войти";
-        String nb="Отмена";
-
-        AlertDialog.Builder a_builder = new AlertDialog.Builder(this, R.style.AppCompatAlertDialogStyle);
-        a_builder.setMessage(message)
-
-
-                .setCancelable(false)
-                .setPositiveButton(pb, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        dialogInterface.cancel();
-                    }
-                })
-                .setNegativeButton(nb, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        dialogInterface.cancel();
-                    }
-                });
-        AlertDialog alert = a_builder.create();
-        alert.setTitle(title);
-        alert.show();
+    public void forLogin(View view) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.builder);
+        final View customLayout = getLayoutInflater().inflate(R.layout.loginin, null);
+        builder.setView(customLayout);
+        builder.setPositiveButton("Войти", (dialog, which) -> dialog.cancel());
+        builder.setNegativeButton("Отмена", (dialog, which) -> dialog.cancel());
+        AlertDialog dialog=builder.create();
+        dialog.show();
     }
 }
