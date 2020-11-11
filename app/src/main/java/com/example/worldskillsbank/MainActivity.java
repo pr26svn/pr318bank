@@ -3,57 +3,51 @@ package com.example.worldskillsbank;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
-import android.os.AsyncTask;
 import android.os.Bundle;
 
-import android.util.JsonReader;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import javax.net.ssl.HttpsURLConnection;
+import android.content.Intent;
 
 public class MainActivity extends AppCompatActivity {
-    TextView tv;
+    TextView tv2;
+    Button b1;
+    Intent intent;
+    Date date;
+    Dialog dialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        date = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
-        tv = findViewById(R.id.textView2);
-        tv.setText(dateFormat.format(new Date()));
+        tv2 = findViewById(R.id.textView2);
+        tv2.setText(dateFormat.format(date));
 
-        AsyncTask.execute(new Runnable() {
-            @Override public void run() {
-                // All your networking logic // should be here
-            }
-        });
-        URL url;
-        Dialog dialog = new Dialog(MainActivity.this);
-        try {
-            url = new URL("http://www.cbr.ru/scripts/XML_daily.asp?date_req=" + new Date());
-            HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
-            connection.connect();
-        } catch (Exception e) {
-            // Установите заголовок
-            dialog.setTitle("Ошибка");
-            // Передайте ссылку на разметку
-            dialog.setContentView(R.layout.dialog_view);
-            // Найдите элемент TextView внутри вашей разметки
-            // и установите ему соответствующий текст
-            TextView text = (TextView) dialog.findViewById(R.id.textView5);
-            text.setText(e.getMessage());
-            dialog.show();
-        }
+        b1 = findViewById(R.id.button1);
+
+        dialog = new Dialog(MainActivity.this);
+    }
+
+    public void onClick_button1(View view){
+        intent = new Intent(this, otdandban.class);
+        startActivity(intent);
+    }
+
+    public void onClick_button2(View view){
+        intent = new Intent(this, kurval.class);
+        startActivity(intent);
+    }
+
+    public void onClick_button3(View view){
+        dialog.setContentView(R.layout.activity_login);
+        dialog.show();
     }
 }
