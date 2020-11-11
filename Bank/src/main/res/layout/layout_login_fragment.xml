@@ -1,20 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/gray">
 
-
-    <LinearLayout
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="131dp"
-        android:background="@drawable/layout_bg"
-        android:orientation="vertical">
+        android:layout_height="195dp"
+        android:orientation="vertical"
+        android:background="@color/mercury">
+
+        <TextView
+            android:id="@+id/txtTitle"
+            style="@style/TextAppearance.AppCompat.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="15dp"
+            android:text="Авторизация"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/txtSub"
+            style="@style/TextAppearance.AppCompat.SearchResult.Subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:text="Введите Ваш логин и пароль"
+            android:textColor="@color/black" />
 
         <EditText
             android:id="@+id/edit_username"
-            android:layout_width="match_parent"
+            android:layout_width="374dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
             android:background="@drawable/borders_background"
             android:hint="Username"
             android:textColor="@color/gray"
@@ -22,8 +39,9 @@
 
         <EditText
             android:id="@+id/edit_password"
-            android:layout_width="fill_parent"
+            android:layout_width="374dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:layout_marginStart="0dp"
             android:layout_marginLeft="0dp"
             android:layout_marginTop="-1dp"
@@ -32,6 +50,5 @@
             android:inputType="textPassword"
             android:textColor="@color/black"
             android:textColorHint="@color/gray" />
-    </LinearLayout>
 
-</RelativeLayout>
+    </LinearLayout>
