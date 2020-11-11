@@ -22,7 +22,7 @@
             app:srcCompat="@drawable/left_arrow" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/tvTest"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="5dp"

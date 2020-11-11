@@ -2,120 +2,196 @@ package com.example.mobilebank;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.net.http.HttpResponseCache;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.JsonReader;
+import android.util.Log;
+import android.util.Xml;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.ListView;
+import android.widget.TextView;
 
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
+
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.MalformedURLException;
+import java.io.StringReader;
 import java.net.URL;
+import java.util.ArrayList;
 
 import javax.net.ssl.HttpsURLConnection;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 
 public class Currency extends AppCompatActivity {
 
+    ImageButton btn_back;
+    private static final String TAG = "myLogs";
+    ListView lvMain;
+    ArrayList<String> arrayList = new ArrayList<String>();
+
+    ArrayList<Valuta> currensies = new ArrayList<Valuta>();
+    CurrencyAdapter currencyAdapter;
+
+    //Valuta vlt = new Valuta( "R1093","USD", "Американский доллар", 12.12, 54.34);
+
+    TextView tv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_currency);
 
+        btn_back = (ImageButton)findViewById(R.id.btn_back2);
+        btn_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+        currencyAdapter = new CurrencyAdapter(this, currensies);
+
+
+        ListView Currency_lv = (ListView) findViewById(R.id.Currency_lv);
+
+
+        StringBuilder sb = new StringBuilder();
+        tv = (TextView)findViewById(R.id.tvTest);
+
 
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
-                // Create URL
-                URL githubEndpoint = null;
+                String query = "https://www.cbr.ru/scripts/XML_daily.asp?date_req=09/11/2020";
+
+                HttpsURLConnection connection = null;
                 try {
-                    githubEndpoint = new URL("https://api.github.com/");
-                } catch (MalformedURLException e) {
-                    e.printStackTrace();
-                }
+                    connection = (HttpsURLConnection) new URL(query).openConnection();
 
-                // Create connection
-                try {
-                    HttpsURLConnection myConnection =
-                            (HttpsURLConnection) githubEndpoint.openConnection();
+                    connection.setRequestMethod("GET");
+                    connection.setRequestProperty("User-Agent", "my-rest-app-v0.1");
 
-                    myConnection.setRequestProperty("User-Agent", "my-rest-app-v0.1");
+                    connection.connect();
 
-                    myConnection.setRequestProperty("Accept",
-                            "application/vnd.github.v3+json");
-                    myConnection.setRequestProperty("Contact-Me",
-                            "hathibelagal@example.com");
+                    if (HttpsURLConnection.HTTP_OK == connection.getResponseCode()){
+                        BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream(), "cp1251"));
+                        String line;
 
 
-                    if (myConnection.getResponseCode() == 200) {
-                        InputStream responseBody = myConnection.getInputStream();
-                        InputStreamReader responseBodyReader =
-                                new InputStreamReader(responseBody, "UTF-8");
-
-                        JsonReader jsonReader = new JsonReader(responseBodyReader);
 
 
-                        jsonReader.beginObject(); // Start processing the JSON object
-                        while (jsonReader.hasNext()) { // Loop through all keys
-                            String key = jsonReader.nextName(); // Fetch the next key
-                            if (key.equals("organization_url")) { // Check if desired key
-                                // Fetch the value as a String
-                                String value = jsonReader.nextString();
+                        while ((line = in.readLine()) != null){
+                            Log.d(TAG, "Processing...");
 
-                                // Do something with the value
-                                // ...
+                            sb.append(line);
+                            sb.append("\n");
 
-                                break; // Break out of the loop
-                            } else {
-                                jsonReader.skipValue(); // Skip values of other keys
-                            }
                         }
 
-                        jsonReader.close();
-                        myConnection.disconnect();
+                        Log.d(TAG, "SB" + sb.toString());
 
+                        runOnUiThread(new Runnable() {
 
+                            @Override
+                            public void run() {
 
-                    } else {
-                        // Error handling code goes here
+                                try {
+                                    InputSource is = new InputSource(new StringReader(sb.toString()));
+                                    is.setEncoding("Cp1251");
+                                    Parsing(is);
+                                    Currency_lv.setAdapter(currencyAdapter);
+                                } catch (ParserConfigurationException e) {
+                                    e.printStackTrace();
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                } catch (SAXException e) {
+                                    e.printStackTrace();
+                                }
+                                //tv.setText(sb.toString());
+
+                            }
+                        });
+                    }else{
+                        Log.d(TAG, "error");
                     }
 
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-
-                URL httpbinEndpoint = null;
-                try {
-                    httpbinEndpoint = new URL("https://httpbin.org/post");
-                } catch (MalformedURLException e) {
-                    e.printStackTrace();
-                }
-                HttpsURLConnection myConnection
-                        = null;
-                try {
-                    myConnection = (HttpsURLConnection) httpbinEndpoint.openConnection();
-                    myConnection.setRequestMethod("POST");
-
-                    HttpResponseCache myCache = HttpResponseCache.install(
-                            getCacheDir(), 100000L);
-
-                    if (myCache.getHitCount() > 0) {
-                        // The cache is working
+                } catch (Throwable cause){
+                    cause.printStackTrace();
+                }finally {
+                    if (connection != null){
+                        connection.disconnect();
                     }
-
-
-                } catch (IOException e) {
-                    e.printStackTrace();
                 }
-
-
-
             }
         });
 
+
+
+
+
+
     }
 
+    private void Parsing(InputSource file_for_parsing) throws ParserConfigurationException, IOException, SAXException {
+        Log.d(TAG, "Starting parsing");
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder builder = factory.newDocumentBuilder();
+        Document document  = builder.parse(file_for_parsing);
+
+
+        Element wrapper = (Element) document.getElementsByTagName("ValCurs").item(0);
+        //String wrapper_id = wrapper.getAttribute("ID");
+
+        NodeList nodeListValute = document.getElementsByTagName("Valute");
+
+
+        for (int i = 0; i < nodeListValute.getLength(); i++){
+            if (nodeListValute.item(i).getNodeType() == Node.ELEMENT_NODE){
+                Log.d(TAG, "Прошел проверку");
+                Element curr = (Element) nodeListValute.item(i);
+
+                Valuta valuta = new Valuta(curr.getAttribute("ID"), "", "", "", "");
+
+                NodeList childNotes = curr.getChildNodes();
+                for (int j = 0; j < childNotes.getLength(); j++){
+                    if (childNotes.item(j).getNodeType() == Node.ELEMENT_NODE){
+                        Element childElement = (Element) childNotes.item(j);
+
+                        switch (childElement.getNodeName()){
+                            case "CharCode":
+                                valuta.SetName(childElement.getTextContent());
+                                break;
+                            case "Name":
+                                valuta.SetFullName(childElement.getTextContent());
+                                break;
+                            case "Value":
+                                valuta.SetBuy(childElement.getTextContent());
+                                break;
+                        }
+                        Log.d(TAG, "Прошелся по свичу");
+                    }
+                }
+                currensies.add(valuta);
+                Log.d(TAG, "Добавил элемент в список");
+            }
+
+        }
+        Log.d(TAG, "Ending parsing");
+
+    }
+
+    void fillData() {
+        for (int i = 1; i <= 19; i++) {
+           // currensies.add(vlt);
+        }
+    }
 
 
 }
