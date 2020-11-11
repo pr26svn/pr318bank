@@ -11,5 +11,7 @@
     <color name="gray">#808080</color>
     <color name="lgray">#d7d7d7</color>
     <color name="bordergray">#FF6A6767</color>
+    <color name="aquamarine">#54e5ba</color>
+    <color name="hanBlue">#4665c6</color>
 
 </resources>
