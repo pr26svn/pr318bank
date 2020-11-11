@@ -22,6 +22,7 @@ import java.util.Locale;
 import javax.net.ssl.HttpsURLConnection;
 
 import static space.dorzhu.test.R.style.AppCompatAlertDialogStyle;
+import static space.dorzhu.test.R.style.Theme_AppCompat;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -84,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void Dialog(View view) {
 
-        AlertDialog.Builder a_bulder= new AlertDialog.Builder(MainActivity.this, AppCompatAlertDialogStyle);
+        /*AlertDialog.Builder a_bulder= new AlertDialog.Builder(MainActivity.this, AppCompatAlertDialogStyle);
         a_bulder.setMessage("Введите ваш логин и пароль")
                 .setCancelable(false)
                 .setPositiveButton("Войти", new DialogInterface.OnClickListener() {
@@ -101,7 +102,16 @@ public class MainActivity extends AppCompatActivity {
                 });
         AlertDialog alert=a_bulder.create();
         alert.setTitle("Авторизация");
-        alert.show();
+        alert.show();*/
+        AlertDialog.Builder bulBuilder=new AlertDialog.Builder(this,R.style.mainLogin);
+        final View customLayout= getLayoutInflater().inflate(R.layout.activity_login,null);
+        bulBuilder.setView(customLayout);
+        bulBuilder
+                .setPositiveButton("Ок", (dialog, which) -> dialog.cancel())
+                .setNegativeButton("Отмена", (dialog, which) -> dialog.cancel());
+        AlertDialog dialog=bulBuilder.create();
+        dialog.show();
+
 
     }
 }
