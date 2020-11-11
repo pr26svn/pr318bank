@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Clone</string>
     <string name="Hello">Hello</string>
+    <string name="Login">Авторизация</string>
+    <string name="SecondLogin">Введите логин и пароль</string>
+    <string name="hintUsername">Имя пользователя</string>
+    <string name="hintPassword">Пароль</string>
 </resources>
