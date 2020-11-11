@@ -8,12 +8,12 @@
     tools:context=".SecondActivity"
     android:orientation="vertical">
 
-    <LinearLayout
+      <LinearLayout
         android:id="@+id/layout1"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:orientation="horizontal"
-        android:background="@color/colorGray">
+        android:background="@drawable/main_border_bg">
 
         <ImageView
             android:id="@+id/imageView3"
@@ -38,7 +38,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:background="@drawable/main_border_bg">
 
         <TextView
             android:id="@+id/textView"
@@ -46,7 +47,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/bankomats"
-            android:background="@color/colorGray"
             android:padding="20dp"/>
     </LinearLayout>
 
