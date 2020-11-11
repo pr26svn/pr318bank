@@ -3,6 +3,7 @@ package com.example.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -36,5 +37,10 @@ public class MainActivity extends AppCompatActivity{
     public void onClickAtms(View view) {
         Intent intent = new Intent(this, Atms.class);
         startActivity(intent);
+    }
+
+    public void openDialog(View v) {
+        ExampleDialog exampleDialog = new ExampleDialog();
+        exampleDialog.show(getSupportFragmentManager(), "example dialog");
     }
 }
