@@ -3,4 +3,7 @@
     <string name="Open">ВОЙТИ</string>
     <string name="OtdelAndBank">Отделения и банкоматы</string>
     <string name="text">WorldSkills Bank</string>
+    <string name="Avtoriz">Авторизация</string>
+    <string name="PutLoginParol">Введите Ваш логин и пароль</string>
+
 </resources>

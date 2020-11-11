@@ -45,24 +45,12 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void AlertDialog(View view) {
-        AlertDialog.Builder a_builder = new AlertDialog.Builder(MainActivity.this);
-        a_builder.setMessage("Введите ваш логин и пароль")
-
-                .setCancelable(false)
-                .setPositiveButton("Вход", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        dialogInterface.cancel();
-                    }
-                })
-                .setNegativeButton("Отмена", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        dialogInterface.cancel();
-                    }
-                });
-        AlertDialog alert = a_builder.create();
-        alert.setTitle("Авторизация");
-        alert.show();
+        AlertDialog.Builder builder = new AlertDialog.Builder(this,R.style.builder);
+        final View customLayout = getLayoutInflater().inflate(R.layout.login_activity, null);
+        builder.setView(customLayout);
+        builder.setPositiveButton("Войти", (dialog, which) -> dialog.cancel());
+        builder.setNegativeButton("Отмена", (dialog, which) -> dialog.cancel());
+        AlertDialog dialog=builder.create();
+        dialog.show();
     }
 }
