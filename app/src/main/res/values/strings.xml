@@ -3,4 +3,7 @@
     <string name="Title">WorldSkills Bank</string>
     <string name="LogInButton">Войти</string>
     <string name="CancelButton">Отмена</string>
+    <string name="Banks_and_ATMs_title">Отделения и банкоматы</string>
+    <string name="Exchange_rates_title">Курсы валют</string>
+    <string name="Main_title">WorldSkills bank</string>
 </resources>
