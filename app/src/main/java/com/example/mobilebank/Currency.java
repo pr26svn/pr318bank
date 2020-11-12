@@ -23,7 +23,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.StringReader;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.net.ssl.HttpsURLConnection;
 import javax.xml.parsers.DocumentBuilder;
@@ -33,6 +35,7 @@ import javax.xml.parsers.ParserConfigurationException;
 public class Currency extends AppCompatActivity {
 
     ImageButton btn_back;
+    TextView curr_date;
     private static final String TAG = "myLogs";
     ListView lvMain;
     ArrayList<String> arrayList = new ArrayList<String>();
@@ -48,7 +51,9 @@ public class Currency extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_currency);
 
-        btn_back = (ImageButton)findViewById(R.id.btn_back2);
+        curr_date = (TextView)findViewById(R.id.curr_date);
+
+                btn_back = (ImageButton)findViewById(R.id.btn_back2);
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,7 +74,9 @@ public class Currency extends AppCompatActivity {
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
-                String query = "https://www.cbr.ru/scripts/XML_daily.asp?date_req=09/11/2020";
+                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                String date = sdf.format(new Date(System.currentTimeMillis()));
+                String query = "https://www.cbr.ru/scripts/XML_daily.asp?date_req=" + date;
 
                 HttpsURLConnection connection = null;
                 try {
@@ -174,6 +181,8 @@ public class Currency extends AppCompatActivity {
                             case "Value":
                                 valuta.SetBuy(childElement.getTextContent());
                                 break;
+                            case "Nominal":
+                                valuta.SetSell(childElement.getTextContent());
                         }
                         Log.d(TAG, "Прошелся по свичу");
                     }
@@ -186,13 +195,6 @@ public class Currency extends AppCompatActivity {
         Log.d(TAG, "Ending parsing");
 
     }
-
-    void fillData() {
-        for (int i = 1; i <= 19; i++) {
-           // currensies.add(vlt);
-        }
-    }
-
 
 }
 

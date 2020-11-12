@@ -54,7 +54,7 @@ public class CurrencyAdapter extends BaseAdapter {
         ((TextView) view.findViewById(R.id.tvName)).setText(p.name);
         ((TextView) view.findViewById(R.id.tvFullName)).setText(p.full_name);
         ((TextView) view.findViewById(R.id.tvBuy)).setText(p.buy);
-        //((TextView) view.findViewById(R.id.tvSell)).setText(p.sell);
+        ((TextView) view.findViewById(R.id.tvSell)).setText(p.sell);
 
         return view;
     }
