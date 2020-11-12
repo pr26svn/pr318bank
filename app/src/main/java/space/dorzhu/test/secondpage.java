@@ -6,6 +6,15 @@ import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import javax.net.ssl.HttpsURLConnection;
+
 public class secondpage extends AppCompatActivity implements View.OnClickListener {
     LinearLayout linearLayout;
     @Override
@@ -23,4 +32,6 @@ public class secondpage extends AppCompatActivity implements View.OnClickListene
                 finish();
         }
     }
+
+
 }
