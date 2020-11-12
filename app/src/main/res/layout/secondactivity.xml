@@ -7,6 +7,7 @@
     android:layout_height="match_parent">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="400dp"
         android:layout_height="30dp"
         android:layout_marginBottom="630dp"
@@ -34,4 +35,24 @@
             android:text="Главный экран"
             android:textColor="@color/blue_arrow" />
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="400dp"
+        android:layout_height="630dp"
+        android:layout_marginBottom="630dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.545"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
