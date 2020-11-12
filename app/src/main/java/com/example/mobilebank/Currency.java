@@ -53,6 +53,10 @@ public class Currency extends AppCompatActivity {
 
         curr_date = (TextView)findViewById(R.id.curr_date);
 
+        SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
+        String date = sdf.format(new Date(System.currentTimeMillis()));
+        curr_date.setText(date);
+
                 btn_back = (ImageButton)findViewById(R.id.btn_back2);
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -114,6 +118,9 @@ public class Currency extends AppCompatActivity {
                                     is.setEncoding("Cp1251");
                                     Parsing(is);
                                     Currency_lv.setAdapter(currencyAdapter);
+
+
+
                                 } catch (ParserConfigurationException e) {
                                     e.printStackTrace();
                                 } catch (IOException e) {
