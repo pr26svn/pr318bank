@@ -1,12 +1,15 @@
 package com.example.mobilebank;
 
 public class Otdelenie {
-    String Adress, Time_work, Is_working, Type;
+    String fullAddressRu, tw;
 
-    Otdelenie(String adress, String time_work, String is_working, String type ) {
-        Adress = adress;
-        Time_work = time_work;
-        Is_working = is_working;
-        Type = type;
+    Otdelenie(String adress, String time_work) {
+        fullAddressRu = adress;
+        tw = time_work;
+    }
+
+    @Override
+    public String toString(){
+        return "[ Adress: " + String.valueOf(fullAddressRu) + ", Time: " + String.valueOf(tw) +" ]";
     }
 }

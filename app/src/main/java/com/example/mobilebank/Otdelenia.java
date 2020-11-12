@@ -15,10 +15,23 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+
+import org.json.JSONException;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
 import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -27,8 +40,11 @@ import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 
 import javax.net.ssl.HttpsURLConnection;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
 public class Otdelenia extends AppCompatActivity implements View.OnClickListener {
@@ -40,7 +56,7 @@ public class Otdelenia extends AppCompatActivity implements View.OnClickListener
     ArrayList<Otdelenie> otdelenies = new ArrayList<Otdelenie>();
     BoxAdapter boxAdapter;
 
-    Otdelenie otd = new Otdelenie("г. Москва, ул. Вавилова, д. 4", "00:00-00:00", "Работает", "Банкомат");
+    Otdelenie otd = new Otdelenie("г. Москва, ул. Вавилова, д. 4", "00:00-00:00");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,20 +66,18 @@ public class Otdelenia extends AppCompatActivity implements View.OnClickListener
         btn_back = (ImageButton) findViewById(R.id.btn_back);
         btn_back.setOnClickListener(this);
 
-        // создаем адаптер
-        fillData();
         boxAdapter = new BoxAdapter(this, otdelenies);
 
         // настраиваем список
         ListView lvMain = (ListView) findViewById(R.id.lvMain);
-        lvMain.setAdapter(boxAdapter);
 
-        otdelenies.add(new Otdelenie("г. Омск", "08:00-20:00", "Не работает", "Отделение"));
+
+        //otdelenies.add(new Otdelenie("г. Омск", "08:00-20:00"));
 
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
-                String query = "https://api.areas.su/";
+                String query = "https://api.privatbank.ua/p24api/infrastructure?json&atm&address=&city=";
 
                 HttpsURLConnection connection = null;
                 try {
@@ -76,32 +90,25 @@ public class Otdelenia extends AppCompatActivity implements View.OnClickListener
                     connection.connect();
 
                     if (HttpsURLConnection.HTTP_OK == connection.getResponseCode()){
-                        Log.d(TAG, "Подключение создано успешно!!!");
-                        InputStream responseBody = connection.getInputStream();
-                        InputStreamReader responseBodyReader =
-                                new InputStreamReader(responseBody, "UTF-8");
 
-                        JsonReader jsonReader = new JsonReader(responseBodyReader);
-
-                        jsonReader.beginObject();
-
-                        while (jsonReader.hasNext()) { // Loop through all keys
-                            Log.d(TAG, "Начинаю извлечение строк из json");
-                            String value = jsonReader.nextString();
-                            Log.d(TAG, "Value " +  value);
+                        BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+                        String inputLine;
+                        StringBuffer response = new StringBuffer();
+                        while((inputLine = in.readLine()) != null){
+                            response.append(inputLine);
                         }
 
-
-                        jsonReader.close();
-
-                        connection.disconnect();
-                        Log.d(TAG, "Конец");
+                        in.close();
+                        Log.d(TAG, "JSON = " + response);
                         runOnUiThread(new Runnable() {
 
                             @Override
                             public void run() {
 
                                 try {
+
+                                    Parsing(response.toString());
+                                    lvMain.setAdapter(boxAdapter);
 
                                 } catch (Exception e) {
                                     e.printStackTrace();
@@ -145,17 +152,39 @@ public class Otdelenia extends AppCompatActivity implements View.OnClickListener
 
     }
 
-    // генерируем данные для адаптера
-    void fillData() {
-        for (int i = 1; i <= 19; i++) {
-            otdelenies.add(otd);
-        }
-    }
+
 
 
 
     @Override
     public void onClick(View v) {
         finish();
+    }
+
+
+
+    private void Parsing(String file_for_parsing) throws ParserConfigurationException, IOException, SAXException, ParseException, JSONException {
+        Object obj = new JSONParser().parse(file_for_parsing);
+        org.json.simple.JSONObject jo = (org.json.simple.JSONObject) obj;
+
+        //org.json.simple.JSONObject tw = (org.json.simple.JSONObject) jo.get("mon");
+
+        JSONArray devices = (JSONArray) jo.get("devices");
+
+        Iterator devices_itr = devices.iterator();
+
+
+        while (devices_itr.hasNext()) {
+            org.json.simple.JSONObject adress_obj = (org.json.simple.JSONObject) devices_itr.next();
+
+
+            JSONObject tw = (JSONObject) adress_obj.get("tw");
+            String timetable = "00-00";
+            timetable = tw.get("mon").toString();
+
+
+            Otdelenie otdelenie = new Otdelenie(adress_obj.get("fullAddressRu").toString(), timetable);
+            otdelenies.add(otdelenie);
+        }
     }
 }

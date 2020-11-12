@@ -54,10 +54,11 @@ public class BoxAdapter extends BaseAdapter {
         Otdelenie p = getOtdelenie(position);
 
         // заполняем View в пункте списка данными из отделения: адресс, работает ли, часы работы
-        ((TextView) view.findViewById(R.id.tvAdress)).setText(p.Adress);
-        ((TextView) view.findViewById(R.id.tvIsWorking)).setText(p.Is_working);
-        ((TextView) view.findViewById(R.id.tvTimeWork)).setText("Часы работы " + p.Time_work);
-        ((TextView) view.findViewById(R.id.tvType)).setText(p.Type);
+        ((TextView) view.findViewById(R.id.tvAdress)).setText(p.fullAddressRu);
+        ((TextView) view.findViewById(R.id.tvTimeWork)).setText(p.tw);
+        ((TextView) view.findViewById(R.id.tvIsWorking)).setText("Работает");
+        //((TextView) view.findViewById(R.id.tvTimeWork)).setText("Часы работы " + p.Time_work);
+        //((TextView) view.findViewById(R.id.tvType)).setText(p.Type);
 
         return view;
     }
