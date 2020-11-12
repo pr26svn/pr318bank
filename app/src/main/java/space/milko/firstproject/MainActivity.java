@@ -2,6 +2,7 @@ package space.milko.firstproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -35,20 +36,37 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        Button button_for_login  = (Button) findViewById(R.id.button_login);
+        LinearLayout linearLayout_course  = (LinearLayout) findViewById(R.id.layout_course);
+        LinearLayout linearLayout_banks  = (LinearLayout) findViewById(R.id.layout_banks);
 
         DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
         String dateText = dateFormat.format(currentDate);
         TextView date = findViewById(R.id.textView2);
         date.setText(dateText);
-        LinearLayout linearLayout_main  = (LinearLayout) findViewById(R.id.layout_main);
-        linearLayout_main.setOnClickListener(new View.OnClickListener(){
+
+        linearLayout_banks.setOnClickListener(new View.OnClickListener(){
             @Override
             public  void onClick(View v){
                 Intent intent = new Intent(MainActivity.this, SecondActivity.class);
                 startActivity(intent);
             }
         });
+
+        linearLayout_course.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public  void onClick(View v){
+                Intent intent = new Intent(MainActivity.this, ThirdActivity.class);
+                startActivity(intent);
+            }
+        });
+
+//        button_for_login .setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View v){
+//                AlertDialog(v);
+//            }
+//        });
 //        DownloadData downloadData = new DownloadData();
 //        downloadData.execute("http://www.cbr.ru/scripts/XML_daily.asp?date_req=10/11/2020");
 
@@ -81,6 +99,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-
+    public void AlertDialog(View view) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this,R.style.builder);
+        final View customLayout = getLayoutInflater().inflate(R.layout.activity_voiti, null);
+        builder.setView(customLayout);
+        builder.setPositiveButton("Войти", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        builder.setNegativeButton("Отмена", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        AlertDialog dialog=builder.create();
+        dialog.show();
     }
+}

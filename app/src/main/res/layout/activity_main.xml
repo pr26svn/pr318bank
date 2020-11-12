@@ -9,7 +9,7 @@
     android:background="@drawable/b1379050160_2022xiphone"
     android:orientation="vertical"
     android:paddingLeft="10dp"
-    android:paddingTop="80dp"
+    android:paddingTop="60dp"
     android:paddingRight="10dp"
     tools:context=".MainActivity">
     <!--        ЛОГОТИП        -->
@@ -35,7 +35,7 @@
 
     <!--        КНОПКА ОТДЕЛЕНИЯ И БАНКОМАТЫ         -->
     <LinearLayout
-        android:id="@+id/layout_main"
+        android:id="@+id/layout_banks"
         android:layout_width="match_parent"
         android:layout_height="101dp"
         android:layout_gravity="center"
@@ -68,13 +68,14 @@
                 android:textColor="@android:color/background_dark"
                 android:textSize="18sp"
                 android:gravity="left"
-                android:layout_marginLeft="25dp"/>
+                android:layout_marginLeft="26dp"/>
 
         </LinearLayout>
     </LinearLayout>
 
     <!--        КНОПКА КУРСЫ ВАЛЮТ         -->
     <LinearLayout
+        android:id="@+id/layout_course"
         android:layout_width="match_parent"
         android:layout_height="101dp"
         android:layout_gravity="center"
@@ -191,11 +192,12 @@
     </LinearLayout>
     <!--        КНОПКА ВОЙТИ        -->
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/button_login"
         style="@style/ButtonMain"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:backgroundTint="@color/colorBlue"
+        android:onClick="AlertDialog"
         android:text="@string/login"
         android:textColor="@color/colorWhite"
         android:textSize="20sp" />
