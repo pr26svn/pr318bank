@@ -1,51 +1,35 @@
 package com.example.test;
 
-import javax.net.ssl.HttpsURLConnection;
-
 public class Banks {
-    String streets;
-    String atm;
-    String jobs;
-    String hours;
+    private String mStreet;
+    private String mWorkTime;
 
-    public Banks(String streets, String atm, String jobs, String hours) {
-        this.streets = streets;
-        this.atm = atm;
-        this.jobs = jobs;
-        this.hours = hours;
+    public Banks() {
+        mStreet= "";
+        mWorkTime = "";
+    }
+    public Banks(String street, String workTime) {
+        mStreet = street;
+        mWorkTime=workTime;
     }
 
-    public String getStreets() {
-        return streets;
+    public void setStreet(String street) {
+        mStreet = street;
+    }
+    public String getStreet() {
+        return mStreet;
     }
 
-    public void setStreets(String streets) {
-        this.streets = streets;
+    public void setWorkTime(String workTime) {
+        mWorkTime = workTime;
+    }
+    public String getWorkTime() {
+        return mWorkTime;
     }
 
-    public String getAtm() {
-        return atm;
+    public String getAllData() {
+        return mStreet + "\t" + mWorkTime;
     }
 
-    public void setAtm(String atm) {
-        this.atm = atm;
-    }
-
-    public String getJobs() {
-        return jobs;
-    }
-
-    public void setJobs(String jobs) {
-        this.jobs = jobs;
-    }
-
-    public String getHours() {
-        return hours;
-    }
-
-    public void setHours(String hours) {
-        this.hours = hours;
-    }
 }
-
 
