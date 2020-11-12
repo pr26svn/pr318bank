@@ -34,30 +34,47 @@ import javax.xml.parsers.ParserConfigurationException;
 
 public class Currency extends AppCompatActivity {
 
+    //Объявляю элементы интерфейса
     ImageButton btn_back;
     TextView curr_date;
-    private static final String TAG = "myLogs";
-    ListView lvMain;
-    ArrayList<String> arrayList = new ArrayList<String>();
+    ListView Currency_lv;
+    TextView tv;
 
+
+    // это тэг для того, чтобы различать мои записи в Logcat
+    private static final String TAG = "myLogs";
+
+
+    //Это массив валют. В дальнейшем буду просто в него добавлять элементы
+    // и скармливать его ListView
     ArrayList<Valuta> currensies = new ArrayList<Valuta>();
+
+    //а поможет мне в этом мой Adapter для ListView
     CurrencyAdapter currencyAdapter;
 
-    //Valuta vlt = new Valuta( "R1093","USD", "Американский доллар", 12.12, 54.34);
 
-    TextView tv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_currency);
 
+        //Инициализирую элементы интерфейса и поля
+        tv = (TextView)findViewById(R.id.tvTest);
         curr_date = (TextView)findViewById(R.id.curr_date);
+        btn_back = (ImageButton)findViewById(R.id.btn_back2);
+        Currency_lv = (ListView) findViewById(R.id.Currency_lv);
+        currencyAdapter = new CurrencyAdapter(this, currensies);
 
+
+        //получаю текущую дату
         SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
         String date = sdf.format(new Date(System.currentTimeMillis()));
+
+        // и вывожу
         curr_date.setText(date);
 
-                btn_back = (ImageButton)findViewById(R.id.btn_back2);
+        // кнопка всего одна на активити
+        // поэтому при нажатии сразу же уничтожаю текущее окно через finish()
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,58 +82,71 @@ public class Currency extends AppCompatActivity {
             }
         });
 
-        currencyAdapter = new CurrencyAdapter(this, currensies);
-
-
-        ListView Currency_lv = (ListView) findViewById(R.id.Currency_lv);
-
-
+        //этот билдер нужен для того, что бы добавлять в него строки из XML
         StringBuilder sb = new StringBuilder();
-        tv = (TextView)findViewById(R.id.tvTest);
 
 
+
+        // код, выполняемый в фоне
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
-                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-                String date = sdf.format(new Date(System.currentTimeMillis()));
+                // получаю котировки именно на сегодняшний день
+                // query - URL в котором лежит XML с данными
                 String query = "https://www.cbr.ru/scripts/XML_daily.asp?date_req=" + date;
 
+
+                //объявляю HTTPS соединение
                 HttpsURLConnection connection = null;
                 try {
+                    //открываю соединение
                     connection = (HttpsURLConnection) new URL(query).openConnection();
 
+                    // для ясности добавил, что нужно использовать GET
+                    // но он и так стоит по умолчанию
                     connection.setRequestMethod("GET");
+
+                    //установил заголовок, чтобы сервер понимал, кто к нему обращается
                     connection.setRequestProperty("User-Agent", "my-rest-app-v0.1");
 
+
+                    //начинаю соединение
                     connection.connect();
 
+                    // проверка на успешность соединения
                     if (HttpsURLConnection.HTTP_OK == connection.getResponseCode()){
+                        //объявляют reader, который будет читать мой XMl и передаю кодировку ch1251(иначе будут знаки вопроса за место русских букв)
                         BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream(), "cp1251"));
+
+                        //вспомогательная переменная
                         String line;
 
-
-
-
+                        //цикл
+                        // проверяем значение из XML
+                        // и довабляем в наш builder с переносом для красоты
                         while ((line = in.readLine()) != null){
-                            Log.d(TAG, "Processing...");
-
                             sb.append(line);
                             sb.append("\n");
-
                         }
 
-                        Log.d(TAG, "SB" + sb.toString());
 
+                        // просто так передать данные ListView не получится
+                        // это нельзя делать в основном потоке
+                        // поэтому использую метод ниже
                         runOnUiThread(new Runnable() {
 
                             @Override
                             public void run() {
 
                                 try {
+                                    //объявляю источник данных (наш builder)
                                     InputSource is = new InputSource(new StringReader(sb.toString()));
-                                    is.setEncoding("Cp1251");
+
+                                    //мой метод для парсинга
                                     Parsing(is);
+
+                                    //и вот теперь, когда все запарсили
+                                    //данные получены, мы можем вывести их в ListView
                                     Currency_lv.setAdapter(currencyAdapter);
 
 
@@ -128,8 +158,6 @@ public class Currency extends AppCompatActivity {
                                 } catch (SAXException e) {
                                     e.printStackTrace();
                                 }
-                                //tv.setText(sb.toString());
-
                             }
                         });
                     }else{
@@ -139,6 +167,7 @@ public class Currency extends AppCompatActivity {
                 } catch (Throwable cause){
                     cause.printStackTrace();
                 }finally {
+                    //В конце обязятельно отключаемся
                     if (connection != null){
                         connection.disconnect();
                     }
@@ -153,54 +182,63 @@ public class Currency extends AppCompatActivity {
 
     }
 
+    //мой метод для парсинга
     private void Parsing(InputSource file_for_parsing) throws ParserConfigurationException, IOException, SAXException {
         Log.d(TAG, "Starting parsing");
+
+
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
         Document document  = builder.parse(file_for_parsing);
 
-
-        Element wrapper = (Element) document.getElementsByTagName("ValCurs").item(0);
-        //String wrapper_id = wrapper.getAttribute("ID");
-
+        // это будет списко валют
         NodeList nodeListValute = document.getElementsByTagName("Valute");
 
 
+        //прохожу по всем элементам списка
         for (int i = 0; i < nodeListValute.getLength(); i++){
             if (nodeListValute.item(i).getNodeType() == Node.ELEMENT_NODE){
-                Log.d(TAG, "Прошел проверку");
+
                 Element curr = (Element) nodeListValute.item(i);
 
-                Valuta valuta = new Valuta(curr.getAttribute("ID"), "", "", "", "");
 
                 NodeList childNotes = curr.getChildNodes();
+
+                String CharCode = "", Name = "", Value = "", Nominal = "", NumCode = "";
+
+
                 for (int j = 0; j < childNotes.getLength(); j++){
                     if (childNotes.item(j).getNodeType() == Node.ELEMENT_NODE){
                         Element childElement = (Element) childNotes.item(j);
 
                         switch (childElement.getNodeName()){
+                            case "NumCode":
+                                NumCode = childElement.getTextContent();
                             case "CharCode":
-                                valuta.SetName(childElement.getTextContent());
+                                CharCode = childElement.getTextContent();
                                 break;
                             case "Name":
-                                valuta.SetFullName(childElement.getTextContent());
+                                Name = childElement.getTextContent();
                                 break;
                             case "Value":
-                                valuta.SetBuy(childElement.getTextContent());
+                                Value = childElement.getTextContent();
                                 break;
                             case "Nominal":
-                                valuta.SetSell(childElement.getTextContent());
+                                Nominal = childElement.getTextContent();
+                                break;
                         }
-                        Log.d(TAG, "Прошелся по свичу");
+
                     }
                 }
+                //создаю объект с изъятыми данными
+                Valuta valuta = new Valuta(NumCode, CharCode, Name, Value, Nominal);
+
+                // и добавляю его в мой массив
+                //этот массив потом скормлю адаптеру
                 currensies.add(valuta);
-                Log.d(TAG, "Добавил элемент в список");
             }
 
         }
-        Log.d(TAG, "Ending parsing");
-
     }
 
 }

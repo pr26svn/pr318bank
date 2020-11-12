@@ -49,65 +49,84 @@ import javax.xml.parsers.ParserConfigurationException;
 
 public class Otdelenia extends AppCompatActivity implements View.OnClickListener {
 
-    String toast_result;
-
+    //Объявляю элементы интерфейса
     ImageButton btn_back;
-    private static final String TAG = "myLogs";
-    ArrayList<Otdelenie> otdelenies = new ArrayList<Otdelenie>();
+    ListView lvMain;
+    //Адаптер для кастомного ListView
     BoxAdapter boxAdapter;
 
-    Otdelenie otd = new Otdelenie("г. Москва, ул. Вавилова, д. 4", "00:00-00:00");
+    // тэг для Logcat
+    private static final String TAG = "myLogs";
+
+    //мой список отделений, в дальнейшем буду сюда добавлять объекты "Отделение"
+    ArrayList<Otdelenie> otdelenies = new ArrayList<Otdelenie>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_otdelenia);
 
+
+        //инициализирую элементы интерфейса и объекты
         btn_back = (ImageButton) findViewById(R.id.btn_back);
         btn_back.setOnClickListener(this);
-
         boxAdapter = new BoxAdapter(this, otdelenies);
+        lvMain = (ListView) findViewById(R.id.lvMain);
 
-        // настраиваем список
-        ListView lvMain = (ListView) findViewById(R.id.lvMain);
-
-
-        //otdelenies.add(new Otdelenie("г. Омск", "08:00-20:00"));
-
+        // код для фонового выполнения
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
+                // URL в котором лежи JSON
                 String query = "https://api.privatbank.ua/p24api/infrastructure?json&atm&address=&city=";
 
                 HttpsURLConnection connection = null;
                 try {
+                    //объявляю HTTPS соединение
                     Log.d(TAG, "Создаю подключение...");
+                    //открываю соединение
                     connection = (HttpsURLConnection) new URL(query).openConnection();
 
+                    // для ясности добавил, что нужно использовать GET
+                    // но он и так стоит по умолчанию
                     connection.setRequestMethod("GET");
+
+                    //установил заголовок, чтобы сервер понимал, кто к нему обращается
                     connection.setRequestProperty("User-Agent", "my-rest-app-v0.1");
 
+                    //начинаю соединение
                     connection.connect();
 
-                    if (HttpsURLConnection.HTTP_OK == connection.getResponseCode()){
 
+                    // проверка на успешность соединения
+                    if (HttpsURLConnection.HTTP_OK == connection.getResponseCode()){
+                        //объявляют reader, который будет читать мой XMl и передаю кодировку ch1251(иначе будут знаки вопроса за место русских букв)
                         BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+
+                        //вспомогательная переменная
                         String inputLine;
+
+                        // аналог StringBuilder из Currency.java
                         StringBuffer response = new StringBuffer();
                         while((inputLine = in.readLine()) != null){
                             response.append(inputLine);
                         }
 
                         in.close();
-                        Log.d(TAG, "JSON = " + response);
-                        runOnUiThread(new Runnable() {
 
+
+                        // просто так передать данные ListView не получится
+                        // это нельзя делать в основном потоке
+                        // поэтому использую метод ниже
+                        runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
 
                                 try {
-
+                                    //метод для парсинга JSON
                                     Parsing(response.toString());
+
+                                    //передаю данные из JSON в адаптер, а он в ListView
                                     lvMain.setAdapter(boxAdapter);
 
                                 } catch (Exception e) {
@@ -124,6 +143,8 @@ public class Otdelenia extends AppCompatActivity implements View.OnClickListener
                 } catch (Throwable cause){
                     cause.printStackTrace();
                 }finally {
+
+                    // отключаемся
                     if (connection != null){
                         connection.disconnect();
                     }
@@ -131,7 +152,7 @@ public class Otdelenia extends AppCompatActivity implements View.OnClickListener
             }
         });
 
-
+        //обработчик нажатия по элементу списка
         lvMain.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -163,14 +184,23 @@ public class Otdelenia extends AppCompatActivity implements View.OnClickListener
 
 
 
+
+    //метод для парсинга
+
+    // в параметры передаю строку JSON
     private void Parsing(String file_for_parsing) throws ParserConfigurationException, IOException, SAXException, ParseException, JSONException {
+        /*
+         * Для парсинга использую JSON-SIMPLE
+         * скачал его с интернета
+         */
         Object obj = new JSONParser().parse(file_for_parsing);
         org.json.simple.JSONObject jo = (org.json.simple.JSONObject) obj;
 
-        //org.json.simple.JSONObject tw = (org.json.simple.JSONObject) jo.get("mon");
-
+        // инициализирую объект devices
+        // так как в нем, в JSON хранится вся инфа
         JSONArray devices = (JSONArray) jo.get("devices");
 
+        //итератор для цикла
         Iterator devices_itr = devices.iterator();
 
 
@@ -182,8 +212,10 @@ public class Otdelenia extends AppCompatActivity implements View.OnClickListener
             String timetable = "00-00";
             timetable = tw.get("mon").toString();
 
-
+            //создаем otdelenie, а в параметры передаем атрибуты из JSON
             Otdelenie otdelenie = new Otdelenie(adress_obj.get("fullAddressRu").toString(), timetable);
+
+            // добавляем в общий список
             otdelenies.add(otdelenie);
         }
     }

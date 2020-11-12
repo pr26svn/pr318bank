@@ -13,6 +13,12 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class BoxAdapter extends BaseAdapter {
+
+
+    /**
+     * Адаптер для Отделений
+     * стандартный адаптер для списков не подойдет
+     */
     Context ctx;
     LayoutInflater lInflater;
     ArrayList<Otdelenie> objects;
@@ -48,6 +54,7 @@ public class BoxAdapter extends BaseAdapter {
         // используем созданные, но не используемые view
         View view = convertView;
         if (view == null) {
+            //меняю layout на свой собственный
             view = lInflater.inflate(R.layout.item, parent, false);
         }
 

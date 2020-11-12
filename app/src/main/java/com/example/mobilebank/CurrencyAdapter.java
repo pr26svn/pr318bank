@@ -10,7 +10,12 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class CurrencyAdapter extends BaseAdapter {
+    /**
+     * Этот адаптер для ListView в котором будут отображаться валюты
+     */
 
+
+    // Объявляют нужные мне переменные
     Context ctx;
     LayoutInflater lInflater;
     ArrayList<Valuta> objects;
@@ -45,6 +50,8 @@ public class CurrencyAdapter extends BaseAdapter {
         // используем созданные, но не используемые view
         View view = convertView;
         if (view == null) {
+
+            // меняю layout  на свой собственный
             view = lInflater.inflate(R.layout.currency_item, parent, false);
         }
 
