@@ -6,31 +6,52 @@
     android:layout_height="match_parent"
     tools:context=".Valute">
 
-    <Button
-        android:id="@+id/button8"
-        android:layout_width="174dp"
-        android:layout_height="44dp"
-        android:background="#00FFFFFF"
-        android:gravity="left|center_vertical"
-        android:text="Главный экран"
-        android:textColor="#1E8ADF"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.126"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="364dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/ty2" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF">
+
+            <Button
+                android:id="@+id/button8"
+                android:layout_width="233dp"
+                android:layout_height="39dp"
+
+                android:layout_marginLeft="40dp"
+                android:background="#00FFFFFF"
+                android:gravity="left|center_vertical"
+                android:text="Главный экран"
+                android:textColor="#1E8ADF"
+                android:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="364dp"
+                app:srcCompat="@drawable/ty2" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#00FFFFFF"
+            android:orientation="vertical">
+
+            <ListView
+                android:id="@+id/listView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#FFFFFF">
+
+            </ListView>
+        </LinearLayout>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
