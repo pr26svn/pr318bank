@@ -51,11 +51,11 @@ public class changeBank extends AppCompatActivity {
 
         banksArray = new ArrayList<String>();
 
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, banksArray);
+        adapter = new ArrayAdapter<String>(this, R.layout.list_view_modify_item, banksArray);
         listView = (ListView) findViewById(R.id.listView_1);
         listView.setAdapter(adapter);
 
-        try {
+        /*try {
             parsingJSONFiles(downloadJSONFile());
         } catch (ParserConfigurationException e) {
             e.printStackTrace();
@@ -67,7 +67,7 @@ public class changeBank extends AppCompatActivity {
             e.printStackTrace();
         } catch (JSONException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
     public String downloadJSONFile() {

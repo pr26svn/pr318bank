@@ -1,42 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="@drawable/border_settings"
     tools:context=".activity_login">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Авторизация"
-        android:textColor="@color/design_default_color_on_secondary"
-        android:textSize="19dp"
-        android:textStyle="bold" />
+        android:orientation="vertical">
 
-    <TextView
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Авторизация"
+            android:textColor="@color/design_default_color_on_secondary"
+            android:textSize="19dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="Введите Ваш логин и пароль"
+            android:textColor="@color/design_default_color_on_secondary" />
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="45dp"
-        android:gravity="center"
-        android:text="Введите Ваш логин и пароль"
-        android:textColor="@color/design_default_color_on_secondary" />
+        android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/editText_1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:hint="Логин" />
+        <EditText
+            android:id="@+id/editText_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="#111111"
+            android:hint="Логин" />
+        <EditText
+            android:id="@+id/editText_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textColorHint="#111111"
+            android:hint="Пароль" />
+    </LinearLayout>
 
-    <EditText
-        android:id="@+id/editText_2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="145dp"
-        android:hint="Пароль" />
-
-
-</RelativeLayout>
+</LinearLayout>
