@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="5dp"
             android:fontFamily="sans-serif-medium"
-            android:text="Банкомат"
+            android:text="Отделение"
             android:textSize="12sp"
             android:textStyle="bold" />
 
