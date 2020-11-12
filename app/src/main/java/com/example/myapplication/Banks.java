@@ -6,6 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 public class Banks extends AppCompatActivity {
 
@@ -23,5 +26,26 @@ public class Banks extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        ListView listView;
+        listView = findViewById(R.id.listView);
+        ArrayList<bba> arrayList = new ArrayList<>();
+
+        arrayList.add(new bba( "Москва", "Бонкомат", "Работает", "00:00-00:00" ));
+        arrayList.add(new bba( "Москва", "Бонкомат", "Работает", "09:00-20:00" ));
+        arrayList.add(new bba( "Москва", "Бонкомат", "Работает", "00:00-00:00" ));
+        arrayList.add(new bba( "Москва", "Бонкомат", "Работает", "00:00-00:00" ));
+        arrayList.add(new bba( "Москва", "Бонкомат", "Работает", "00:00-00:00" ));
+        arrayList.add(new bba( "Москва", "Бонкомат", "Работает", "00:00-00:00" ));
+        arrayList.add(new bba( "Москва", "Бонкомат", "Работает", "09:00-20:00" ));
+        arrayList.add(new bba( "Москва", "Бонкомат", "Работает", "00:00-00:00" ));
+        arrayList.add(new bba( "Москва", "Бонкомат", "Работает", "00:00-00:00" ));
+        arrayList.add(new bba( "Москва", "Бонкомат", "Работает", "00:00-00:00" ));
+        arrayList.add(new bba( "Москва", "Бонкомат", "Работает", "00:00-00:00" ));
+        arrayList.add(new bba( "Москва", "Бонкомат", "Работает", "09:00-20:00" ));
+
+        BanksAdapter banksAdapter = new BanksAdapter(this,R.layout.vvv,arrayList);
+
+        listView.setAdapter(banksAdapter);
+
     }
 }
