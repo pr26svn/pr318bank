@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
         textViewDate = findViewById(R.id.txtDate);
 
+        //добавление даны на стартовый экран
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
         textViewDate.setText(dateFormat.format(new Date()));
     }
@@ -45,12 +46,12 @@ public class MainActivity extends AppCompatActivity {
 
     //метод нажатия на кнопку "Войти" и вызова диалогового окна авторизации
     public void signin_Click(View view) {
-        final EditText editText = findViewById(R.id.username);
         AlertDialog.Builder builder = new AlertDialog.Builder(new ContextThemeWrapper(MainActivity.this, R.style.DialogTheme));
         LayoutInflater inflater = MainActivity.this.getLayoutInflater();
         builder.setView(inflater.inflate(R.layout.dialog_signin, null));
         builder.setCancelable(false);
 
+        //кнопка Войти
         builder.setPositiveButton("Войти", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int id) {
@@ -58,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //кнопка Отмена
         builder.setNegativeButton("Отмена", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int id) {

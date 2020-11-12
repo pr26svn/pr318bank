@@ -4,37 +4,33 @@
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingLeft="8dp"
+    android:paddingTop="8dp"
+    android:paddingRight="8dp"
 
-    android:background="#FFFFFF"
-    android:padding="8sp">
+    android:background="@android:color/white">
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="3dp"
             android:orientation="vertical">
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/txtAddress"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/txtAddress"
-
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-
-                    android:textColor="@android:color/black"
-                    android:textSize="12sp"
-                    tools:text="address" />
-
-            </LinearLayout>
+                android:textColor="@android:color/black"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                tools:text="Москва, улю Вавилова, д.7" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -42,29 +38,31 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/txtAtms"
+                    android:id="@+id/txtType"
 
-                    android:layout_width="78dp"
+                    android:layout_width="72dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
 
                     android:textColor="@android:color/black"
                     android:textSize="12sp"
-                    tools:text="atm" />
+                    android:textStyle="bold"
+                    tools:text="Банкомат" />
 
                 <TextView
-                    android:id="@+id/txtJobs"
+                    android:id="@+id/txtWorking"
 
                     android:layout_width="124dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
 
-                    android:textColor="#34CA8E"
+                    android:textColor="@color/turquoise"
                     android:textSize="12sp"
-                    tools:text="open/close" />
+                    android:textStyle="bold"
+                    tools:text="Работает" />
 
                 <TextView
-                    android:id="@+id/txtHours"
+                    android:id="@+id/txtWorkingHours"
 
                     android:layout_width="164dp"
                     android:layout_height="wrap_content"
@@ -73,7 +71,8 @@
                     android:gravity="right"
                     android:textColor="@android:color/black"
                     android:textSize="12sp"
-                    tools:text="working hours" />
+                    tools:text="Часы работы 00:00-00:00"
+                    tools:ignore="RtlHardcoded" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

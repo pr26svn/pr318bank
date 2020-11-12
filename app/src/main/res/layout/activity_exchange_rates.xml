@@ -1,28 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
 
-    android:background="#FFFFFF"
+    android:background="@android:color/white"
 
-    tools:context=".ExchangeRatesActivity">
+    tools:context=".AtmActivity">
 
     <TextView
-        android:id="@+id/buttonBack1"
+        android:id="@+id/buttonBack2"
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8sp"
 
-        android:background="#FFFFFF"
-
         android:gravity="start|center_vertical"
         android:text="@string/main_screen"
-        android:textColor="#1279CA"
+        android:textColor="@color/pacific_blue"
+        android:textStyle="bold"
 
         android:onClick="returnBack_Click"/>
 
@@ -32,23 +30,72 @@
 
         android:background="@android:color/darker_gray" />
 
-    <TextView
-        android:id="@+id/top_panel2"
-
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8sp"
+        android:orientation="horizontal"
+        android:layout_margin="8sp">
 
-        android:background="#FFFFFF"
+        <TextView
+            android:id="@+id/txtDateRates"
 
-        android:gravity="start|center_vertical"
-        android:text="@string/exchange_rates"
-        android:textColor="@android:color/darker_gray" />
+            android:layout_width="150sp"
+            android:layout_height="wrap_content"
+
+            android:text="00.00.0000"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="10sp"
+
+            tools:ignore="HardcodedText,SmallSp" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txtBuy"
+
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+
+                android:gravity="center"
+                android:text="Покупка"
+                android:textSize="10sp"
+                android:textColor="@android:color/darker_gray"
+
+                tools:ignore="HardcodedText,NestedWeights,SmallSp" />
+
+            <TextView
+                android:id="@+id/txtSell"
+
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+
+                android:gravity="center"
+                android:text="Продажа"
+                android:textSize="10sp"
+                android:textColor="@android:color/darker_gray"
+
+                tools:ignore="HardcodedText,SmallSp" />
+        </LinearLayout>
+    </LinearLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
 
         android:background="@android:color/darker_gray" />
+
+    <ListView
+        android:id="@+id/listViewExchangeRates"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="1sp" />
 
 </LinearLayout>

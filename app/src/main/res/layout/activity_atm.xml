@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
 
-    android:background="#FFFFFF"
+    android:background="@android:color/white"
 
     tools:context=".AtmActivity">
 
@@ -18,11 +17,10 @@
         android:layout_height="wrap_content"
         android:layout_margin="8sp"
 
-        android:background="#FFFFFF"
-
         android:gravity="start|center_vertical"
         android:text="@string/main_screen"
-        android:textColor="#1279CA"
+        android:textColor="@color/pacific_blue"
+        android:textStyle="bold"
 
         android:onClick="returnBack_Click"/>
 
@@ -39,8 +37,6 @@
         android:layout_height="wrap_content"
         android:layout_margin="8sp"
 
-        android:background="#FFFFFF"
-
         android:gravity="start|center_vertical"
         android:text="@string/branches_and_banks"
         android:textColor="@android:color/darker_gray" />
@@ -55,6 +51,8 @@
         android:id="@+id/listViewAtms"
 
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="1sp" />
 
 </LinearLayout>

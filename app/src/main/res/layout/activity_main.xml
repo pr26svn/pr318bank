@@ -45,7 +45,7 @@
             android:layout_weight="1"
 
             android:text="@string/worldskills_bank"
-            android:textColor="#BF9B39AC"
+            android:textColor="@color/violet"
             android:textSize="30sp" />
 
     </LinearLayout>
@@ -270,7 +270,7 @@
 
             android:background="@drawable/blue_rounded_button"
             android:text="@string/sign_in"
-            android:textColor="#FFFFFF"
+            android:textColor="@android:color/white"
 
 
             android:onClick="signin_Click"/>

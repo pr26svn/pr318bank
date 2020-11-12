@@ -15,6 +15,7 @@ public class ExchangeRatesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_exchange_rates);
     }
 
+    //метод нажатия на кнопку "Главное меню"
     public void returnBack_Click(View view) {
         Intent intent = new Intent(ExchangeRatesActivity.this, MainActivity.class);
         startActivity(intent);
