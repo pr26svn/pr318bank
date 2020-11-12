@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">bank</string>
+    <string name="enter_button">Войти</string>
+    <string name="branches">Отделения и банкоматы</string>
+    <string name="rates">Курсы валют</string>
+    <string name="usd">USD</string>
+    <string name="eur">EUR</string>
+    <string name="login">Авторизация</string>
+    <string name="login_info">Введите Ваш логин и пароль</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="buy">Покупка</string>
+    <string name="sell">Продажа</string>
+    <string name="on_main">На главную</string>
 </resources>

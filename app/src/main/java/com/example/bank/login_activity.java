@@ -6,15 +6,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class ActivityBranchesInfo extends AppCompatActivity {
+public class login_activity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_branches_info);
+        setContentView(R.layout.activity_login_activity);
     }
 
-    public void onClick(View view) {
+    public void onCancel(View view) {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }

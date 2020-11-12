@@ -4,121 +4,205 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/background"
     android:orientation="vertical"
+    android:background="@drawable/background"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/branches"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="55dp"
-        android:layout_marginEnd="34dp"
-        android:background="@drawable/branches"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/museum" />
-
-    <Button
-        android:id="@+id/enter_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="35dp"
-        android:layout_marginEnd="34dp"
-        android:layout_marginBottom="164dp"
-        android:background="@drawable/enterbutton"
+    <LinearLayout
+        android:id="@+id/mainLayout"
+        android:layout_width="409dp"
+        android:layout_height="729dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"/>
-
-    <Button
-        android:id="@+id/exchange_rates"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="42dp"
-        android:layout_marginEnd="34dp"
-        android:layout_marginBottom="67dp"
-        android:background="@drawable/exchangerates"
-        app:layout_constraintBottom_toTopOf="@+id/enter_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/branches"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <ImageView
-        android:id="@+id/museum"
-        android:layout_width="62dp"
-        android:layout_height="81dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="52dp"
-        android:contentDescription="museum"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/museum" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            android:padding="40dp">
 
-    <ImageView
-        android:id="@+id/worldskills_bank"
-        android:layout_width="235dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="60dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/museum"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/worldskillsbank" />
+            <ImageView
+                android:id="@+id/appLogo"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/museum" />
 
-    <ImageView
-        android:id="@+id/branches_icon"
-        android:layout_width="46dp"
-        android:layout_height="49dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="21dp"
-        app:layout_constraintBottom_toBottomOf="@+id/branches"
-        app:layout_constraintStart_toStartOf="@+id/branches"
-        app:layout_constraintTop_toTopOf="@+id/branches"
-        app:srcCompat="@drawable/branchesicon"
-        android:elevation="2dp" />
+            <ImageView
+                android:id="@+id/appTitle"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="3"
+                android:paddingTop="15dp"
+                app:srcCompat="@drawable/worldskillsbank" />
 
-    <TextView
-        android:id="@+id/date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="36dp"
-        android:elevation="2dp"
-        android:text="TextView"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/exchange_rates"
-        app:layout_constraintTop_toTopOf="@+id/exchange_rates" />
+        </LinearLayout>
 
-    <TextView
-        android:id="@+id/usd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="65dp"
-        android:layout_marginBottom="14dp"
-        android:elevation="2dp"
-        android:text="TextView"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/exchange_rates"
-        app:layout_constraintStart_toStartOf="@+id/exchange_rates" />
+        <LinearLayout
+            android:id="@+id/contentLayout"
+            android:layout_width="359dp"
+            android:layout_height="325dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="15dp"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/eur"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="12dp"
-        android:layout_marginBottom="14dp"
-        android:elevation="2dp"
-        android:text="TextView"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/exchange_rates"
-        app:layout_constraintEnd_toEndOf="@+id/exchange_rates" />
+            <LinearLayout
+                android:id="@+id/branchesLayout"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@drawable/buttonstyle"
+                android:orientation="horizontal">
 
+                <ImageView
+                    android:id="@+id/branchesIcon"
+                    android:layout_width="90dp"
+                    android:layout_height="match_parent"
+                    android:padding="25dp"
+                    app:srcCompat="@drawable/branchesicon" />
+
+                <TextView
+                    android:id="@+id/branchesTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="@string/branches"
+                    android:textColor="@color/buttonColor"
+                    android:textStyle="bold"
+                    android:textSize="15sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/exchangeRateLayout"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/buttonstyle"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/dateTitleLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/exchangeRatesIcon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:padding="4dp"
+                        app:srcCompat="@drawable/exchangeratesicon" />
+
+                    <TextView
+                        android:id="@+id/ratesTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:gravity="center_vertical"
+                        android:text="@string/rates"
+                        android:textColor="@color/buttonColor"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/today"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3"
+                        android:textSize="13sp"
+                        android:gravity="center_vertical|end" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/currenciesLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:orientation="horizontal"
+                    android:baselineAligned="false">
+
+                    <LinearLayout
+                        android:id="@+id/usdLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/usdTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical|end"
+                            android:text="@string/usd"
+                            android:textColor="@color/buttonColor"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/usdRate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/eurLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/eurTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical|end"
+                            android:text="@string/eur"
+                            android:textColor="@color/buttonColor"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/eurRate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:textSize="13sp" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/enterLayout"
+            android:layout_width="359dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/enterbuttonstyle"
+            android:orientation="vertical"
+            android:onClick="showAlertDialogButtonClicked">
+
+            <TextView
+                android:id="@+id/enterButtonText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/enter_button"
+                android:textColor="@color/enterButtonColor"
+                android:textSize="22sp" />
+        </LinearLayout>
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
