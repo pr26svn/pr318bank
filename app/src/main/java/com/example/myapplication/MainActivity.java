@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void StartKursBalut(View view) {
-        Intent intent = new Intent(MainActivity.this, KursValut.class);
+        Intent intent = new Intent(MainActivity.this, usd_uer_Kurs_valut.class);
         startActivity(intent);
     }
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".KursValut">
+    tools:context=".usd_uer_Kurs_valut">
 
     <LinearLayout
         android:id="@+id/linearLayout3"
@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#FFFFFF"
-            android:onClick="onClick"
+            android:onClick="onMain"
             android:orientation="horizontal"
             tools:ignore="OnClick">
 
