@@ -32,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
         mainDate = (TextView) findViewById(R.id.textView6);
         mainDate.setText(dateText);
 
+
+
     }
     public void onClickFirst(View view) {
         intent = new Intent(this, SecondActivity.class);
@@ -44,11 +46,9 @@ public class MainActivity extends AppCompatActivity {
     public void showAlertDialogButtonClicked(View view)
     {
 
-        // Create an alert builder
         AlertDialog.Builder builder
                 = new AlertDialog.Builder(this, R.style.mainLogin);
 
-        // set the custom layout
         final View customLayout
                 = getLayoutInflater()
                 .inflate(
@@ -56,7 +56,6 @@ public class MainActivity extends AppCompatActivity {
                         null);
         builder.setView(customLayout);
 
-        // add a button
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which)
@@ -74,15 +73,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // create and show
-        // the alert dialog
         AlertDialog dialog
             = builder.create();
         dialog.show();
     }
-
-    // Do something with the data
-    // coming from the AlertDialog
     private void sendDialogDataToActivity(String data)
     {
         Toast.makeText(this,
