@@ -1,0 +1,942 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="10dp"
+    android:paddingTop="10dp"
+    android:paddingRight="10dp"
+    tools:context=".MainActivity">
+
+<LinearLayout
+    android:id="@+id/layout1"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="@color/cardview_shadow_end_color"
+    tools:ignore="MissingConstraints">
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="76dp"
+        android:layout_height="43dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_weight="1"
+        android:color="@color/colorWhite"
+        app:srcCompat="@drawable/arrowleft2" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:gravity="left"
+        android:paddingLeft="10dp"
+        android:text="@string/main_screen"
+        android:textColor="#03A9F4"
+        android:textSize="18dp" />
+
+</LinearLayout>
+
+<LinearLayout
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:background="@color/cardview_shadow_end_color"
+android:orientation="horizontal"
+tools:layout_editor_absoluteX="65dp"
+tools:layout_editor_absoluteY="50dp"
+tools:ignore="MissingConstraints">
+
+<TextView
+    android:id="@+id/textView1"
+    android:layout_width="170dp"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="5dp"
+    android:layout_marginLeft="5dp"
+    android:layout_marginTop="20dp"
+    android:layout_weight="1"
+    android:text=" 12.11.2020" />
+
+<TextView
+    android:id="@+id/textView2"
+    android:layout_width="100dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="20dp"
+    android:layout_weight="1"
+    android:text="Покупка" />
+
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:text="Продажа"
+        android:layout_marginTop="20dp"
+        android:layout_weight="1"/>
+
+</LinearLayout>
+
+<LinearLayout
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:orientation="vertical"
+tools:layout_editor_absoluteX="468dp"
+tools:layout_editor_absoluteY="89dp"
+tools:ignore="MissingConstraints">
+<View
+    android:id="@+id/divider51"
+    android:layout_width="match_parent"
+    android:layout_height="1dp"
+    android:background="?android:attr/listDivider"
+    tools:ignore="MissingConstraints"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="90dp" />
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    tools:layout_editor_absoluteX="16dp"
+    tools:layout_editor_absoluteY="90dp"
+    tools:ignore="MissingConstraints">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="76dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        app:srcCompat="@drawable/flag_ssha" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="128dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="USD"
+        android:textColor="#000000"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="18dp"
+        android:layout_marginTop="25dp"
+        android:text="64,95"
+        android:textColor="#3F51B5" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="22dp"
+        android:layout_height="18dp"
+        android:layout_marginTop="25dp"
+        app:srcCompat="@drawable/_485969920_1_up_78901_1" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="39dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="25dp"
+        android:text="64,95"
+        android:textColor="#3F51B5" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        app:srcCompat="@drawable/_485969918_2_down_78899_1" />
+
+</LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:ignore="MissingConstraints"
+    tools:layout_editor_absoluteX="1dp"
+    tools:layout_editor_absoluteY="152dp">
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:text="Американский доллар"
+        android:textColor="#3F51B5" />
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider" />
+</LinearLayout>
+</LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="90dp"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/imageView14"
+            android:layout_width="76dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            app:srcCompat="@drawable/flag_ssha" />
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="128dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="USD"
+            android:textColor="#000000"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="wrap_content"
+            android:layout_height="18dp"
+            android:layout_marginTop="25dp"
+            android:text="64,95"
+            android:textColor="#3F51B5" />
+
+        <ImageView
+            android:id="@+id/imageVie17"
+            android:layout_width="22dp"
+            android:layout_height="18dp"
+            android:layout_marginTop="25dp"
+            app:srcCompat="@drawable/_485969920_1_up_78901_1" />
+
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="39dp"
+            android:layout_height="18dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="25dp"
+            android:text="64,95"
+            android:textColor="#3F51B5" />
+
+        <ImageView
+            android:id="@+id/imageView19"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginRight="30dp"
+            app:srcCompat="@drawable/_485969918_2_down_78899_1" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="152dp">
+
+        <TextView
+            android:id="@+id/textView20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="Американский доллар"
+            android:textColor="#3F51B5" />
+
+        <View
+            android:id="@+id/divider21"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="90dp"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/imageView22"
+            android:layout_width="76dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            app:srcCompat="@drawable/flag_ssha" />
+
+        <TextView
+            android:id="@+id/textView23"
+            android:layout_width="128dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="USD"
+            android:textColor="#000000"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView24"
+            android:layout_width="wrap_content"
+            android:layout_height="18dp"
+            android:layout_marginTop="25dp"
+            android:text="64,95"
+            android:textColor="#3F51B5" />
+
+        <ImageView
+            android:id="@+id/imageVie25"
+            android:layout_width="22dp"
+            android:layout_height="18dp"
+            android:layout_marginTop="25dp"
+            app:srcCompat="@drawable/_485969920_1_up_78901_1" />
+
+        <TextView
+            android:id="@+id/textView26"
+            android:layout_width="39dp"
+            android:layout_height="18dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="25dp"
+            android:text="64,95"
+            android:textColor="#3F51B5" />
+
+        <ImageView
+            android:id="@+id/imageView27"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginRight="30dp"
+            app:srcCompat="@drawable/_485969918_2_down_78899_1" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="152dp">
+
+        <TextView
+            android:id="@+id/textView28"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="Американский доллар"
+            android:textColor="#3F51B5" />
+
+        <View
+            android:id="@+id/divider29"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="90dp"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/imageView30"
+            android:layout_width="76dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            app:srcCompat="@drawable/flag_ssha" />
+
+        <TextView
+            android:id="@+id/textView31"
+            android:layout_width="128dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="USD"
+            android:textColor="#000000"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView32"
+            android:layout_width="wrap_content"
+            android:layout_height="18dp"
+            android:layout_marginTop="25dp"
+            android:text="64,95"
+            android:textColor="#3F51B5" />
+
+        <ImageView
+            android:id="@+id/imageVie33"
+            android:layout_width="22dp"
+            android:layout_height="18dp"
+            android:layout_marginTop="25dp"
+            app:srcCompat="@drawable/_485969920_1_up_78901_1" />
+
+        <TextView
+            android:id="@+id/textView34"
+            android:layout_width="39dp"
+            android:layout_height="18dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="25dp"
+            android:text="64,95"
+            android:textColor="#3F51B5" />
+
+        <ImageView
+            android:id="@+id/imageView35"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginRight="30dp"
+            app:srcCompat="@drawable/_485969918_2_down_78899_1" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="152dp">
+
+        <TextView
+            android:id="@+id/textView36"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="Американский доллар"
+            android:textColor="#3F51B5" />
+
+        <View
+            android:id="@+id/divider37"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="90dp"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/imageView37"
+            android:layout_width="76dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            app:srcCompat="@drawable/flag_ssha" />
+
+        <TextView
+            android:id="@+id/textView38"
+            android:layout_width="128dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="USD"
+            android:textColor="#000000"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView39"
+            android:layout_width="wrap_content"
+            android:layout_height="18dp"
+            android:layout_marginTop="25dp"
+            android:text="64,95"
+            android:textColor="#3F51B5" />
+
+        <ImageView
+            android:id="@+id/imageVie40"
+            android:layout_width="22dp"
+            android:layout_height="18dp"
+            android:layout_marginTop="25dp"
+            app:srcCompat="@drawable/_485969920_1_up_78901_1" />
+
+        <TextView
+            android:id="@+id/textView41"
+            android:layout_width="39dp"
+            android:layout_height="18dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="25dp"
+            android:text="64,95"
+            android:textColor="#3F51B5" />
+
+        <ImageView
+            android:id="@+id/imageView42"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginRight="30dp"
+            app:srcCompat="@drawable/_485969918_2_down_78899_1" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="152dp">
+
+        <TextView
+            android:id="@+id/textView43"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="Американский доллар"
+            android:textColor="#3F51B5" />
+
+        <View
+            android:id="@+id/divider44"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="90dp"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/imageView45"
+            android:layout_width="76dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            app:srcCompat="@drawable/flag_ssha" />
+
+        <TextView
+            android:id="@+id/textView46"
+            android:layout_width="128dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="USD"
+            android:textColor="#000000"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView47"
+            android:layout_width="wrap_content"
+            android:layout_height="18dp"
+            android:layout_marginTop="25dp"
+            android:text="64,95"
+            android:textColor="#3F51B5" />
+
+        <ImageView
+            android:id="@+id/imageVie48"
+            android:layout_width="22dp"
+            android:layout_height="18dp"
+            android:layout_marginTop="25dp"
+            app:srcCompat="@drawable/_485969920_1_up_78901_1" />
+
+        <TextView
+            android:id="@+id/textView49"
+            android:layout_width="39dp"
+            android:layout_height="18dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="25dp"
+            android:text="64,95"
+            android:textColor="#3F51B5" />
+
+        <ImageView
+            android:id="@+id/imageView50"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginRight="30dp"
+            app:srcCompat="@drawable/_485969918_2_down_78899_1" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="152dp">
+
+        <TextView
+            android:id="@+id/textView51"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="Американский доллар"
+            android:textColor="#3F51B5" />
+
+        <View
+            android:id="@+id/divider52"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="90dp"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/imageView53"
+            android:layout_width="76dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            app:srcCompat="@drawable/flag_ssha" />
+
+        <TextView
+            android:id="@+id/textView54"
+            android:layout_width="128dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="USD"
+            android:textColor="#000000"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView55"
+            android:layout_width="wrap_content"
+            android:layout_height="18dp"
+            android:layout_marginTop="25dp"
+            android:text="64,95"
+            android:textColor="#3F51B5" />
+
+        <ImageView
+            android:id="@+id/imageVie56"
+            android:layout_width="22dp"
+            android:layout_height="18dp"
+            android:layout_marginTop="25dp"
+            app:srcCompat="@drawable/_485969920_1_up_78901_1" />
+
+        <TextView
+            android:id="@+id/textView57"
+            android:layout_width="39dp"
+            android:layout_height="18dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="25dp"
+            android:text="64,95"
+            android:textColor="#3F51B5" />
+
+        <ImageView
+            android:id="@+id/imageView58"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginRight="30dp"
+            app:srcCompat="@drawable/_485969918_2_down_78899_1" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="152dp">
+
+        <TextView
+            android:id="@+id/textView59"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="Американский доллар"
+            android:textColor="#3F51B5" />
+
+        <View
+            android:id="@+id/divider60"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="90dp"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/imageView60"
+            android:layout_width="76dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            app:srcCompat="@drawable/flag_ssha" />
+
+        <TextView
+            android:id="@+id/textView61"
+            android:layout_width="128dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="USD"
+            android:textColor="#000000"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView62"
+            android:layout_width="wrap_content"
+            android:layout_height="18dp"
+            android:layout_marginTop="25dp"
+            android:text="64,95"
+            android:textColor="#3F51B5" />
+
+        <ImageView
+            android:id="@+id/imageVie63"
+            android:layout_width="22dp"
+            android:layout_height="18dp"
+            android:layout_marginTop="25dp"
+            app:srcCompat="@drawable/_485969920_1_up_78901_1" />
+
+        <TextView
+            android:id="@+id/textView64"
+            android:layout_width="39dp"
+            android:layout_height="18dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="25dp"
+            android:text="64,95"
+            android:textColor="#3F51B5" />
+
+        <ImageView
+            android:id="@+id/imageView65"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginRight="30dp"
+            app:srcCompat="@drawable/_485969918_2_down_78899_1" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="152dp">
+
+        <TextView
+            android:id="@+id/textView66"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="Американский доллар"
+            android:textColor="#3F51B5" />
+
+        <View
+            android:id="@+id/divider61"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="90dp"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/imageView67"
+            android:layout_width="76dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            app:srcCompat="@drawable/flag_ssha" />
+
+        <TextView
+            android:id="@+id/textView68"
+            android:layout_width="128dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="USD"
+            android:textColor="#000000"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView69"
+            android:layout_width="wrap_content"
+            android:layout_height="18dp"
+            android:layout_marginTop="25dp"
+            android:text="64,95"
+            android:textColor="#3F51B5" />
+
+        <ImageView
+            android:id="@+id/imageView70"
+            android:layout_width="22dp"
+            android:layout_height="18dp"
+            android:layout_marginTop="25dp"
+            app:srcCompat="@drawable/_485969920_1_up_78901_1" />
+
+        <TextView
+            android:id="@+id/textView71"
+            android:layout_width="39dp"
+            android:layout_height="18dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="25dp"
+            android:text="64,95"
+            android:textColor="#3F51B5" />
+
+        <ImageView
+            android:id="@+id/imageView72"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginRight="30dp"
+            app:srcCompat="@drawable/_485969918_2_down_78899_1" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="152dp">
+
+        <TextView
+            android:id="@+id/textView67"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="Американский доллар"
+            android:textColor="#3F51B5" />
+
+        <View
+            android:id="@+id/divider73"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="90dp"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="76dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            app:srcCompat="@drawable/flag_ssha" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="128dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="USD"
+            android:textColor="#000000"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="18dp"
+            android:layout_marginTop="25dp"
+            android:text="64,95"
+            android:textColor="#3F51B5" />
+
+        <ImageView
+            android:id="@+id/imageVie8"
+            android:layout_width="22dp"
+            android:layout_height="18dp"
+            android:layout_marginTop="25dp"
+            app:srcCompat="@drawable/_485969920_1_up_78901_1" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="39dp"
+            android:layout_height="18dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="25dp"
+            android:text="64,95"
+            android:textColor="#3F51B5" />
+
+        <ImageView
+            android:id="@+id/imageView11"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginRight="30dp"
+            app:srcCompat="@drawable/_485969918_2_down_78899_1" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="152dp">
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="Американский доллар"
+            android:textColor="#3F51B5" />
+
+        <View
+            android:id="@+id/divider13"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider" />
+    </LinearLayout>
+</LinearLayout>
+
+
+
+
+

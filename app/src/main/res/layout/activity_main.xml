@@ -52,25 +52,27 @@
         app:iconTint="@color/purple_200" />
 
     <LinearLayout
+        android:id="@+id/linearlayout3"
         android:layout_width="match_parent"
         android:layout_height="101dp"
         android:layout_gravity="center"
         android:layout_marginBottom="80dp"
-        android:padding="10dp"
         android:background="@drawable/layout_bg"
 
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="10dp">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="30dp">
+            android:layout_marginBottom="30dp"
+            android:orientation="horizontal">
 
             <ImageView
                 android:id="@+id/imageView9"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
-                app:srcCompat="@drawable/dollar1"/>
+                app:srcCompat="@drawable/dollar1" />
 
             <TextView
                 android:id="@+id/textView1"
@@ -78,16 +80,15 @@
                 android:layout_height="wrap_content"
                 android:text="Курсы валют"
                 android:textColor="@android:color/background_dark"
-                android:textSize="18sp"
-                />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="right"
                 android:layout_weight="1"
-                android:text="09.11.2020" />
+                android:gravity="right"
+                android:text="12.11.2020" />
 
         </LinearLayout>
 
@@ -112,24 +113,25 @@
                         android:id="@+id/textView3"
                         android:layout_width="10dp"
                         android:layout_height="match_parent"
+                        android:layout_marginRight="5dp"
                         android:layout_weight="1"
                         android:gravity="right"
                         android:text="USD"
                         android:textColor="@android:color/background_dark"
-                        android:textStyle="bold"
-                        android:layout_marginRight="5dp"/>
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/textView4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="76,12"
+                        android:text="77,09"
                         android:textSize="14sp" />
 
                 </LinearLayout>
 
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -146,11 +148,11 @@
                         android:id="@+id/textView5"
                         android:layout_width="10dp"
                         android:layout_height="match_parent"
+                        android:layout_marginRight="5dp"
                         android:layout_weight="1"
                         android:gravity="right"
                         android:text="EUR"
                         android:textColor="@android:color/background_dark"
-                        android:layout_marginRight="5dp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -158,7 +160,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="89,89"
+                        android:text="91,03"
                         android:textSize="14sp" />
 
                 </LinearLayout>
@@ -172,6 +174,7 @@
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:backgroundTint="@color/purple_700"
+        android:onClick="AlertDialog"
         android:text="Войти"
         android:textColor="@color/colorWhite"
         app:cornerRadius="10dp" />
