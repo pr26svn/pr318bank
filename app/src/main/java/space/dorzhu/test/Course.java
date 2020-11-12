@@ -1,12 +1,14 @@
 package space.dorzhu.test;
 
+import java.text.DecimalFormat;
+
 public class Course {
     private String numCode;
-    private String charCode;
+    private  String charCode;
     private String nominal;
     private String name;
     private String value;
-    private String sell;
+    private Double sell;
 
     public String getNumCode() {
         return numCode;
@@ -48,14 +50,14 @@ public class Course {
         this.value = value;
     }
 
-    public String getSell() {
-        double a =Double.parseDouble(value);
-        double b=0.1;
-        double c=(a*(a+b));
-        return String.valueOf(c);
+    public Double getSell() {
+        double a = Double.parseDouble(value);
+        double b = 0.1;
+        double c = (a+(a*b));
+        return c;
     }
 
-    public void setSell(String sell) {
-        this.sell = sell;
+    public String result(){
+        return name + " - " + name + " - " + nominal + " - " + value;
     }
 }

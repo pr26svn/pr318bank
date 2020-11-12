@@ -27,82 +27,77 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.xml.parsers.ParserConfigurationException;
 
 public class thirdactivity extends AppCompatActivity {
-      // TextView textView;
-    public custom_list adapter;
+
     XmlParser parser = new XmlParser();
     ListView listView;
-
-
-    private static final String TAG = "myLogs";
+    public KAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_thirdactivity);
-        listView= findViewById(R.id.setadapter);
+        listView = findViewById(R.id.setadapter);
+
         DownloadData downloadData = new DownloadData();
-        downloadData.execute("https://www.cbr.ru/scripts/XML_daily.asp?date_req=09/11/2020");
+        downloadData.execute("https://www.cbr.ru/scripts/XML_daily.asp?date_req=12/11/2020");
+
+
     }
 
-    public void vivod(){
-        adapter=new custom_list(this,parser.getCourses());
-        listView.setAdapter((ListAdapter) adapter);
+    public void fuck() {
+        adapter = new KAdapter(this, parser.getCourses());
+        listView.setAdapter(adapter);
     }
 
-    public void vihod(View view) {
-        finish();
-    }
-
-    private class DownloadData extends AsyncTask<String,Void,String> implements space.dorzhu.test.DownloadData {
-        private static final String TAG="DownloadFile";
-
-
+    private class DownloadData extends AsyncTask<String, Void, String> {
+        private static final String TAG = "DownloadFile";
 
         @Override
-        protected void onPostExecute(String s){
+        protected void onPostExecute(String s) {
             super.onPostExecute(s);
-            Log.d(TAG, "xml document: "+s);
-            if(s!=null && parser.parse(s)){
-                vivod();
+            Log.d(TAG, "xml document: " + s);
+            if (s != null && parser.parse(s)) {
+                fuck();
             }
         }
 
         @Override
         protected String doInBackground(String... strings) {
             String content = null;
-            try{
+            try {
                 content = downloadXML(strings[0]);
-            }catch (IOException ex){
+            } catch (IOException ex) {
                 Log.e(TAG, "downloadXML: IO Exception reading data: " + ex.getMessage());
             }
             return content;
         }
-        private String downloadXML(String urlPath) throws IOException{
+
+        private String downloadXML(String urlPath) throws IOException {
             StringBuilder xmlResult = new StringBuilder();
             BufferedReader reader = null;
-            try{
+            try {
                 URL url = new URL(urlPath);
                 HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
                 reader = new BufferedReader(new InputStreamReader(connection.getInputStream(), "cp1251"));
                 String line = null;
-                while ((line = reader.readLine())!=null){
+                while ((line = reader.readLine()) != null) {
                     xmlResult.append(line);
                 }
                 return xmlResult.toString();
-            }catch (MalformedURLException e){
+            } catch (MalformedURLException e) {
                 Log.e(TAG, "downloadXML: InvalidUrl" + e.getMessage());
-            }catch(IOException e) {
+            } catch (IOException e) {
                 Log.e(TAG, "downloadXML: IO Exception reading data: " + e.getMessage());
-            } catch(SecurityException e) {
+            } catch (SecurityException e) {
                 Log.e(TAG, "downloadXML: Security Exception.  Needs permisson? " + e.getMessage());
-            }
-            finally {
-                if(reader != null){
+            } finally {
+                if (reader != null) {
                     reader.close();
                 }
             }
             return null;
+        }
     }
 
 }
-}
+
