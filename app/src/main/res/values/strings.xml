@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">MyApp</string>
-    <string name="Ok_button">OKbut></string>
-    <string name="NotOk_button">NoTOKbut></string>
+    <string name="Ok_button">Войти></string>
+    <string name="NotOk_button">Отмена></string>
 </resources>

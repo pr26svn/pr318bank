@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         if (Et == null){
-                            Toast.makeText(getApplicationContext(), "Ошибка. Вы ничего не ввели", Toast.LENGTH_SHORT);
+                            Toast.makeText(getApplicationContext(), "Ошибка. Пустое поле ввода", Toast.LENGTH_SHORT);
                         }
                     }
                 });
@@ -78,5 +78,6 @@ public class MainActivity extends AppCompatActivity {
                 builder.show();
             }
         });
+
     }
 }
