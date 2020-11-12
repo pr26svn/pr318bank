@@ -40,43 +40,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /*AsyncTask.execute(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    URL githubEndpoint = new URL("http://api.areas.su/");
-                    HttpsURLConnection connection = (HttpsURLConnection)githubEndpoint.openConnection();
-                    connection.setRequestProperty("User-Agent", "my-rest-app-v0.1");
-                    connection.setRequestProperty("Accept", "application/vnd.github.v3+json");
-                    connection.setRequestProperty("Contact-Me", "hathibelagal@example.com");
-                    if (connection.getResponseCode() == 200) {
-                        InputStream responseBody = connection.getInputStream();
-                        InputStreamReader responseBodyReader = new InputStreamReader(responseBody, "UTF-8");
-                        JsonReader jsonReader = new JsonReader(responseBodyReader);
-
-                        jsonReader.beginObject();
-                        while (jsonReader.hasNext()) {
-                            String key = jsonReader.nextName();
-                            if (key.equals("organization_url")) {
-                                String value = jsonReader.nextString();
-                                break;
-                            } else {
-                                jsonReader.skipValue();
-                            }
-                        }
-                        jsonReader.close();
-                    }
-                    else {
-                    }
-                    connection.disconnect();
-                } catch (MalformedURLException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });*/
-
         changeBankButton = (Button)findViewById(R.id.button_1);
         changeBankButton.setOnClickListener(new View.OnClickListener() {
             @Override
