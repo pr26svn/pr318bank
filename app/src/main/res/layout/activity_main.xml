@@ -180,7 +180,7 @@
 
                             android:gravity="center|end"
                             android:text="00.00.0000"
-                            android:textColor="#777272"
+                            android:textColor="@android:color/darker_gray"
                             android:textSize="12sp" />
                     </LinearLayout>
 
@@ -219,7 +219,7 @@
 
                             android:gravity="center|start"
                             android:text="00.0"
-                            android:textColor="#777272"
+                            android:textColor="@android:color/darker_gray"
                             android:textSize="16sp" />
                     </LinearLayout>
 
@@ -251,7 +251,7 @@
 
                             android:gravity="center|start"
                             android:text="00.0"
-                            android:textColor="#777272"
+                            android:textColor="@android:color/darker_gray"
                             android:textSize="16sp" />
 
                     </LinearLayout>

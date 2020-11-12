@@ -5,6 +5,7 @@
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
 
     android:background="#FFFFFF"
 
@@ -24,5 +25,30 @@
         android:textColor="#1279CA"
 
         android:onClick="returnBack_Click"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+
+        android:background="@android:color/darker_gray" />
+
+    <TextView
+        android:id="@+id/top_panel2"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8sp"
+
+        android:background="#FFFFFF"
+
+        android:gravity="start|center_vertical"
+        android:text="@string/exchange_rates"
+        android:textColor="@android:color/darker_gray" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+
+        android:background="@android:color/darker_gray" />
 
 </LinearLayout>
