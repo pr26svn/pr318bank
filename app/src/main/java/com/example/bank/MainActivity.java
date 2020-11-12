@@ -9,7 +9,9 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +20,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
@@ -73,29 +76,5 @@ public class MainActivity extends AppCompatActivity {
         Date_txt.setText(format.format(new Date()));
 
 
-
-        //Вывод курса валют
-        AsyncTask.execute(new Runnable() {
-            @Override
-            public void run() {
-
-                //Создание URL
-                URL website_end_point = null;
-                try {
-                    website_end_point = new URL("http://api.areas.su");
-                } catch (MalformedURLException e) {
-                    e.printStackTrace();
-                }
-
-                //Создание подключения
-                try {
-                    HttpURLConnection myConnection = (HttpURLConnection) website_end_point.openConnection();
-                    myConnection.setRequestProperty("User-Agent","pr318bank");
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-            }
-        });
     }
 }

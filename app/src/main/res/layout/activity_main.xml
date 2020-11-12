@@ -12,7 +12,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/Title"
+        android:text="@string/Main_title"
         android:textAllCaps="false"
         android:textColor="#cc55cc"
         android:textSize="35sp"
@@ -40,7 +40,8 @@
         android:layout_width="350sp"
         android:layout_height="150sp"
         android:background="@drawable/rounded_button"
-        android:text="Отделения и банкоматы"
+        android:text="@string/banks_ATMs_button"
+        android:textColor="@color/text_color"
         android:onClick="banks_atm_click"
         android:textAllCaps="false"
         android:textSize="20sp"
@@ -72,6 +73,7 @@
         android:layout_height="wrap_content"
         android:elevation="2dp"
         android:text="null"
+        android:textColor="@color/additional_text_color"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -118,10 +120,10 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.176"
+        app:layout_constraintHorizontal_bias="0.171"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.602" />
+        app:layout_constraintVertical_bias="0.599" />
 
     <TextView
         android:id="@+id/textView6"
@@ -129,6 +131,7 @@
         android:layout_height="wrap_content"
         android:elevation="2dp"
         android:text="00.0"
+        android:textColor="@color/additional_text_color"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -158,13 +161,14 @@
         android:layout_height="wrap_content"
         android:elevation="2dp"
         android:text="00.0"
+        android:textColor="@color/additional_text_color"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.859"
+        app:layout_constraintHorizontal_bias="0.846"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.602" />
+        app:layout_constraintVertical_bias="0.601" />
 
     <Button
         android:id="@+id/button7"
