@@ -7,6 +7,16 @@ public class CurrencyClass {
     String buy;
     String sell;
 
+    @Override
+    public String toString() {
+        return "CurrencyClass{" +
+                ", currency='" + currency + '\'' +
+                ", name='" + name + '\'' +
+                ", buy='" + buy + '\'' +
+                ", sell='" + sell + '\'' +
+                '}';
+    }
+
     public CurrencyClass(int flag, String currency, String name, String buy, String sell) {
         this.flag = flag;
         this.currency = currency;

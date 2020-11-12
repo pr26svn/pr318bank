@@ -9,7 +9,7 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginLeft="10dp"
-        android:src="@drawable/usaflag"/>
+        android:src="@drawable/xdr_flag"/>
 
     <TextView
         android:id="@+id/txtCurrency"
@@ -29,7 +29,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/imageViewFlag"
         android:text="Name"
-        android:textColor="@color/hanBlue"/>
+        android:textStyle="bold"
+        android:textColor="#3F5BB1"/>
 
     <TextView
         android:id="@+id/txtBuy"
@@ -40,17 +41,19 @@
         android:layout_marginTop="10dp"
         android:layout_toRightOf="@id/txtCurrency"
         android:text="Buy"
+        android:textStyle="bold"
         android:textColor="@color/hanBlue" />
 
     <TextView
         android:id="@+id/txtSell"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="117dp"
-        android:layout_marginLeft="117dp"
+        android:layout_marginStart="270dp"
+        android:layout_marginLeft="370dp"
         android:layout_marginTop="10dp"
-        android:layout_toRightOf="@id/txtBuy"
+        android:layout_toRightOf="@id/imageViewFlag"
         android:text="Sell"
-        android:textColor="@color/hanBlue" />
+        android:textColor="@color/hanBlue"
+        android:textStyle="bold" />
 
 </RelativeLayout>
