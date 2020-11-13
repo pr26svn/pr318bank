@@ -15,12 +15,14 @@ import android.widget.TextView;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.simple.parser.JSONParser;
-import org.w3c.dom.Text;
 import org.xml.sax.SAXException;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
 import java.net.URL;
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -32,13 +34,13 @@ import javax.xml.parsers.ParserConfigurationException;
 
 public class Bank extends AppCompatActivity {
 
+    ArrayAdapter<String> adapter;
     TextView textView;
-    final String TAG = "myTag";
     String text;
     ListView listView;
-    ArrayList<String>list=new ArrayList<String >();
-    ArrayList<Banks>bankArrayList=new ArrayList<Banks>();
-    ArrayAdapter<Banks>adapter;
+    ArrayList<String> bankArrayList = new ArrayList<String>();
+    final String TAG="";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,73 +54,61 @@ public class Bank extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        listView = (ListView) findViewById(R.id.listView);
-        textView=(TextView)findViewById(R.id.textView2);
-        adapter = new ArrayAdapter<Banks>(this, android.R.layout.simple_list_item_1, bankArrayList);
+        listView = (ListView) findViewById(R.id.listView1);
+        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, bankArrayList);
 
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
+                String query = "https://api.privatbank.ua/p24api/infrastructure?json&atm&address=&city=";
+
+                HttpsURLConnection connection = null;
+                final StringBuilder sb = new StringBuilder();
                 try {
-                   text= downloandData();
-                   textView.setText(text);
-                } finally {
+                    connection = (HttpsURLConnection) new URL(query).openConnection();
 
-                }
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
+                    connection.setRequestMethod("getXMLFile");
+                    connection.setRequestProperty("User-Agent", "my-rest-app-v0.1");
 
-                                try {
-                                    parsing(text);
-                                    listView.setAdapter(adapter);
+                    connection.connect();
 
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                }
-                            }
-                        });
+                    if (HttpsURLConnection.HTTP_OK == connection.getResponseCode()) {
+
+                        BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream(), "cp1251"));
+                        String line;
+                        while ((line = in.readLine()) != null) {
+                            sb.append(line);
+
+                            System.out.println(line);
+                        }
+                        in.close();
                     }
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                parsing(sb.toString());
+                                listView.setAdapter(adapter);
 
-                });
+
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    });
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                } catch (ProtocolException e) {
+                    e.printStackTrace();
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
-
-
-    private String downloandData(){
-        String query= "https://api.privatbank.ua/p24api/infrastructure?json&atm&address=&city=";
-        HttpsURLConnection connection = null;
-        StringBuilder sb= new StringBuilder();
-        try{
-            connection = (HttpsURLConnection)new URL(query).openConnection();
-
-            connection.setRequestMethod("GET");
-
-            connection.connect();
-
-            if(HttpsURLConnection.HTTP_OK==connection.getResponseCode()){
-
-                BufferedReader in= new BufferedReader(new InputStreamReader(connection.getInputStream(), "cp1251"));
-
-                String line;
-                while((line=in.readLine())!=null){
-                    sb.append(line);
-                    sb.append('\n');
-                }
-                System.out.println(sb.toString());
-
-                Log.d(TAG, sb.toString());
-            } else {
-                System.out.println("fail"+connection.getResponseCode()+ ", "+ connection.getResponseMessage());
             }
-        }
-        catch (Throwable cause){
-            cause.printStackTrace();
-        } finally {
-            if(connection!=null){
-                connection.disconnect();
-            }
-            return sb.toString();
-        }
+        });
+
+
     }
 
     private void parsing(String file_for_parsing) throws ParserConfigurationException, IOException, SAXException, ParseException, JSONException {
@@ -131,7 +121,7 @@ public class Bank extends AppCompatActivity {
         }
         org.json.simple.JSONObject jo = (org.json.simple.JSONObject) obj;
 
-        org.json.simple.JSONArray devices=(org.json.simple.JSONArray) jo.get("devices");
+        org.json.simple.JSONArray devices = (org.json.simple.JSONArray) jo.get("devices");
 
 
         Iterator devices_itr = devices.iterator();
@@ -146,12 +136,11 @@ public class Bank extends AppCompatActivity {
             timetable = tw.get("mon").toString();
 
             Banks banks = new Banks(adress_obj.get("fullAddressRu").toString(), timetable);
-            bankArrayList.add(banks);
+            bankArrayList.add(banks.getAllData());
 
-            list.add(banks.getAllData());
+
         }
     }
-
-
-
 }
+
+
