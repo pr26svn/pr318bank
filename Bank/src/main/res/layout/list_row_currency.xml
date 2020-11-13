@@ -9,7 +9,7 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginLeft="10dp"
-        android:src="@drawable/xdr_flag"/>
+        android:src="@mipmap/xdr_flag"/>
 
     <TextView
         android:id="@+id/txtCurrency"

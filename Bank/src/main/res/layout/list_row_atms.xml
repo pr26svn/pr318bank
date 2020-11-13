@@ -37,9 +37,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/txtAddress"
-        android:layout_marginLeft="74dp"
-        android:layout_marginTop="0dp"
-        android:layout_toRightOf="@id/txtState"
+        android:layout_marginStart="200dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="-1dp"
         android:singleLine="true"
         android:text="Time"
         android:textColor="@color/black" />

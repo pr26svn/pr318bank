@@ -45,6 +45,8 @@ public class AtmsAdapter extends ArrayAdapter<AtmsBuildings> {
 
             txtTime.setText(getItem(position).getTime());
 
+           txtState.setTextColor(getItem(position).getColor());
+
             return convertView;
 
         }

@@ -13,7 +13,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-
+import org.json.JSONArray;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -44,41 +44,34 @@ public class Currency extends AppCompatActivity implements View.OnClickListener 
         DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
         String dateText = dateFormat.format(currentDate);
         dateView.setText(dateText);
-
         listView = findViewById(R.id.list);
 
 
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
-
+                HttpURLConnection connection = null;
                 try {
+                    DateFormat df = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+                    String time = df.format(currentDate);
                     DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
                     DocumentBuilder builder;
-                    URL cbr = new URL("http://www.cbr.ru/scripts/XML_daily.asp?date_req=09/11/2020");
-                    HttpURLConnection myConnection = (HttpURLConnection) cbr.openConnection();
-                    myConnection.setRequestProperty("Test", "test.v1");
-                    InputStream stream = myConnection.getInputStream();
+                    URL cbr = new URL("http://www.cbr.ru/scripts/XML_daily.asp?date_req=" + time);
+                    connection = (HttpURLConnection) cbr.openConnection();
+                    connection.setRequestMethod("GET");
+                    connection.setRequestProperty("Test", "test.v1");
+                    InputStream stream = connection.getInputStream();
 
                     builder = factory.newDocumentBuilder();
                     Document document = builder.parse(stream);
 
-                    // получаем узлы с именем Language
-                    // теперь XML полностью загружен в память
-                    // в виде объекта Document
                     NodeList nodeList = document.getElementsByTagName("Valute");
 
-                    // создадим из него список объектов Language
                     List<CurrencyClass> langList = new ArrayList<CurrencyClass>();
                     for (int i = 0; i < nodeList.getLength(); i++) {
-                        langList.add(getCurrency(nodeList.item(i)));
+                        arrayList.add(getCurrency(nodeList.item(i)));
                     }
 
-                    // печатаем в консоль информацию по каждому объекту Language
-                    for (CurrencyClass cc : langList) {
-                        arrayList.add(new CurrencyClass(cc.getFlag(), cc.getCurrency(), cc.getName(), cc.getBuy(),
-                                cc.getSell()));
-                    }
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
@@ -89,6 +82,8 @@ public class Currency extends AppCompatActivity implements View.OnClickListener 
 
                 } catch (Exception exc) {
                     exc.printStackTrace();
+                } finally {
+                    connection.disconnect();
                 }
 
             }
@@ -102,115 +97,115 @@ public class Currency extends AppCompatActivity implements View.OnClickListener 
         CurrencyClass cc = null;
         if (node.getNodeType() == Node.ELEMENT_NODE) {
             Element element = (Element) node;
-//            int flag;
-//            switch (getTagValue("CharCode", element)){
-//                case "AUD":
-//                    flag = R.drawable.aud_flag;
-//                    break;
-//                case "AZN":
-//                    flag = R.drawable.azn_flag;
-//                    break;
-//                case "GBP":
-//                    flag = R.drawable.gbp_flag;
-//                    break;
-//                case "AMD":
-//                    flag = R.drawable.amd_flag;
-//                    break;
-//                case "BYN":
-//                    flag = R.drawable.byn_flag;
-//                    break;
-//                case "BGN":
-//                    flag = R.drawable.bgn_flag;
-//                    break;
-//                case "BRL":
-//                    flag = R.drawable.brl_flag;
-//                    break;
-//                case "HUD":
-//                    flag = R.drawable.huf_flag;
-//                    break;
-//                case "HKD":
-//                    flag = R.drawable.hkd_flag;
-//                    break;
-//                case "DKK":
-//                    flag = R.drawable.dkk_flag;
-//                    break;
-//                case "USD":
-//                    flag = R.drawable.usd_flag;
-//                    break;
-//                case "EUR":
-//                    flag = R.drawable.eur_flag;
-//                    break;
-//                case "INR":
-//                    flag = R.drawable.inr_flag;
-//                    break;
-//                case "KZT":
-//                    flag = R.drawable.kzt_flag;
-//                    break;
-//                case "CAD":
-//                    flag = R.drawable.cad_flag;
-//                    break;
-//                case "KGS":
-//                    flag = R.drawable.kgs_flag;
-//                    break;
-//                case "CNY":
-//                    flag = R.drawable.cny_flag;
-//                    break;
-//                case "MDL":
-//                    flag = R.drawable.mdl_flag;
-//                    break;
-//                case "NOK":
-//                    flag = R.drawable.nok_flag;
-//                    break;
-//                case "PLN":
-//                    flag = R.drawable.pln_flag;
-//                    break;
-//                case "RON":
-//                    flag = R.drawable.ron_flag;
-//                    break;
-//                case "XDR":
-//                    flag = R.drawable.xdr_flag;
-//                    break;
-//                case "SGD":
-//                    flag = R.drawable.sgd_flag;
-//                    break;
-//                case "TJS":
-//                    flag = R.drawable.tjs_flag;
-//                    break;
-//                case "TRY":
-//                    flag = R.drawable.try_flag;
-//                    break;
-//                case "TMT":
-//                    flag = R.drawable.tmt_flag;
-//                    break;
-//                case "UZS":
-//                    flag = R.drawable.uzs_flag;
-//                    break;
-//                case "UAH":
-//                    flag = R.drawable.uah_flag;
-//                    break;
-//                case "CZK":
-//                    flag = R.drawable.czk_flag;
-//                    break;
-//                case "SEK":
-//                    flag = R.drawable.sek_flag;
-//                    break;
-//                case "CHF":
-//                    flag = R.drawable.chf_flag;
-//                    break;
-//                case "ZAR":
-//                    flag = R.drawable.zar_flag;
-//                    break;
-//                case "KRW":
-//                    flag = R.drawable.krw_flag;
-//                    break;
-//                case "JPY":
-//                    flag = R.drawable.jpy_flag;
-//                    break;
-//                default:
-//                    flag = 0;
-//
-//            }
-            cc = new CurrencyClass(R.drawable.xdr_flag,
+            int flag;
+            switch (getTagValue("CharCode", element)){
+                case "AUD":
+                    flag = R.mipmap.aud_flag;
+                    break;
+                case "AZN":
+                    flag = R.mipmap.azn_flag;
+                    break;
+                case "GBP":
+                    flag = R.mipmap.gbp_flag;
+                    break;
+                case "AMD":
+                    flag = R.mipmap.amd_flag;
+                    break;
+                case "BYN":
+                    flag = R.mipmap.byn_flag;
+                    break;
+                case "BGN":
+                    flag = R.mipmap.bgn_flag;
+                    break;
+                case "BRL":
+                    flag = R.mipmap.brl_flag;
+                    break;
+                case "HUD":
+                    flag = R.mipmap.huf_flag;
+                    break;
+                case "HKD":
+                    flag = R.mipmap.hkd_flag;
+                    break;
+                case "DKK":
+                    flag = R.mipmap.dkk_flag;
+                    break;
+                case "USD":
+                    flag = R.mipmap.usd_flag;
+                    break;
+                case "EUR":
+                    flag = R.mipmap.eur_flag;
+                    break;
+                case "INR":
+                    flag = R.mipmap.inr_flag;
+                    break;
+                case "KZT":
+                    flag = R.mipmap.kzt_flag;
+                    break;
+                case "CAD":
+                    flag = R.mipmap.cad_flag;
+                    break;
+                case "KGS":
+                    flag = R.mipmap.kgs_flag;
+                    break;
+                case "CNY":
+                    flag = R.mipmap.cny_flag;
+                    break;
+                case "MDL":
+                    flag = R.mipmap.mdl_flag;
+                    break;
+                case "NOK":
+                    flag = R.mipmap.nok_flag;
+                    break;
+                case "PLN":
+                    flag = R.mipmap.pln_flag;
+                    break;
+                case "RON":
+                    flag = R.mipmap.ron_flag;
+                    break;
+                case "XDR":
+                    flag = R.mipmap.xdr_flag;
+                    break;
+                case "SGD":
+                    flag = R.mipmap.sgd_flag;
+                    break;
+                case "TJS":
+                    flag = R.mipmap.tjs_flag;
+                    break;
+                case "TRY":
+                    flag = R.mipmap.try_flag;
+                    break;
+                case "TMT":
+                    flag = R.mipmap.tmt_flag;
+                    break;
+                case "UZS":
+                    flag = R.mipmap.uzs_flag;
+                    break;
+                case "UAH":
+                    flag = R.mipmap.uah_flag;
+                    break;
+                case "CZK":
+                    flag = R.mipmap.czk_flag;
+                    break;
+                case "SEK":
+                    flag = R.mipmap.sek_flag;
+                    break;
+                case "CHF":
+                    flag = R.mipmap.chf_flag;
+                    break;
+                case "ZAR":
+                    flag = R.mipmap.zar_flag;
+                    break;
+                case "KRW":
+                    flag = R.mipmap.krw_flag;
+                    break;
+                case "JPY":
+                    flag = R.mipmap.jpy_flag;
+                    break;
+                default:
+                    flag = R.mipmap.xdr_flag;
+
+            }
+            cc = new CurrencyClass(flag,
                     getTagValue("CharCode", element),
                     getTagValue("Name", element),
                     String.format("%.2f", Double.parseDouble(getTagValue("Value", element).replace(',', '.'))).replace('.', ','),
