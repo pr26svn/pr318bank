@@ -56,10 +56,10 @@ public class thirdactivity extends AppCompatActivity {
 
 
 //вывод
-    public void vivod() {
-        adapter = new KAdapter(this, parser.getCourses());
-        listView.setAdapter(adapter);
-    }
+        public void vivod() {
+            adapter = new KAdapter(this, parser.getCourses());
+            listView.setAdapter(adapter);
+        }
     //переход на главную страницу
     public void vihod(View view) {
         finish();
