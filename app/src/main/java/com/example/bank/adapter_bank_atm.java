@@ -43,9 +43,9 @@ public class adapter_bank_atm extends ArrayAdapter<atms_and_banks> {
 
         street.setText(getItem(position).getStreet());
 
-        bank_and_atm.setText(getItem(position).getBank_and_atm());
+        //bank_and_atm.setText(getItem(position).getBank_and_atm());
 
-        is_working.setText(getItem(position).getIs_working());
+        //is_working.setText(getItem(position).getIs_working());
 
         work_hours.setText(getItem(position).getWork_hours());
 

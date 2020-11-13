@@ -3,8 +3,10 @@ package com.example.bank;
 public class Money {
     private String currency;
     private String abbreviation;
-    private double buy;
-    private double sell;
+    private String buy;
+    private String sell;
+    //private String dollars;
+    //private String euros;
 
     public String getCurrency(){
         return currency;
@@ -18,16 +20,20 @@ public class Money {
     public String setAbbreviation(String abbreviation){
         return this.abbreviation = abbreviation;
     }
-    public double getBuy(){
+    public String getBuy(){
         return buy;
     }
-    public double setBuy(double buy){
+    public String setBuy(String buy){
         return this.buy = buy;
     }
-    public double getSell(){
+    public String getSell(){
         return sell;
     }
-    public double setSell(double sell){
+    public String setSell(String sell){
         return this.sell = sell;
     }
+    /*public String getDollars() {return dollars;}
+    public String setDollars(String dollars) {return this.dollars = dollars;}
+    public String getEuros() {return euros;}
+    public String setEuros(String euros) {return this.euros = euros;}*/
 }

@@ -36,6 +36,8 @@
                     <TextView
                         android:id="@+id/textView11"
                         android:layout_width="wrap_content"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_color"
                         android:layout_height="wrap_content"
                         android:text="Аббревиатура" />
 
@@ -44,6 +46,8 @@
                         android:layout_width="136dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0"
+                        android:textStyle="bold"
+                        android:textColor="@color/menu_color"
                         android:gravity="center_horizontal"
                         android:text="Покупка" />
 
@@ -51,6 +55,8 @@
                         android:id="@+id/textView18"
                         android:layout_width="120dp"
                         android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:textColor="@color/menu_color"
                         android:gravity="center"
                         android:text="Продажа" />
 
@@ -60,6 +66,8 @@
                     android:id="@+id/textView13"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textColor="@color/menu_color"
                     android:text="Название валюты" />
 
             </LinearLayout>
