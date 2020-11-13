@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
     public void onClickCurancy(View view) {
-        intent = new Intent(this, ThirthActivity.class);
+        intent = new Intent(this, mainCurrency.class);
         startActivity(intent);
     }
     public void showAlertDialogButtonClicked(View view)

@@ -20,7 +20,10 @@ public class CurrencyParser {
         Currency currentCurrency = null;
         boolean inEntry = false;
         String textValue = "";
-
+        String name = "";
+        String charCode = "";
+        String value = "";
+        int flag = 0;
         try{
             int eventType = xpp.getEventType();
 
@@ -30,7 +33,6 @@ public class CurrencyParser {
                     case XmlPullParser.START_TAG:
                         if ("Valute".equalsIgnoreCase(tagName)) {
                             inEntry = true;
-                            currentCurrency = new Currency();
                         }
                         break;
                     case XmlPullParser.TEXT:
@@ -39,27 +41,23 @@ public class CurrencyParser {
                     case XmlPullParser.END_TAG:
                         if (inEntry) {
                             if ("Valute".equalsIgnoreCase(tagName)) {
-                                currencies.add(currentCurrency);
+                                currencies.add(new Currency(R.drawable.usa, name, charCode, value));
                                 inEntry = false;
-                            } else if ("NumCode".equalsIgnoreCase(tagName)) {
-                                currentCurrency.setNumCode(textValue);
                             } else if ("CharCode".equalsIgnoreCase(tagName)) {
-                                currentCurrency.setCharCode(textValue);
-                            } else if ("Nominal".equalsIgnoreCase(tagName)) {
-                                currentCurrency.setNominal(textValue);
+                                charCode = textValue;
                             } else if ("Name".equalsIgnoreCase(tagName)) {
-                                currentCurrency.setName(textValue);
+                                name = textValue;
                             } else if ("Value".equalsIgnoreCase(tagName)) {
-                                currentCurrency.setValue(textValue);
+                                value = textValue;
                             }
                         }
                         break;
                     default:
                 }
+
                 eventType = xpp.next();
 
             }
-            //valuta
         } catch (Exception e){
             status = false;
             e.printStackTrace();

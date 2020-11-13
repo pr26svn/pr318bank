@@ -1,11 +1,28 @@
 package com.example.clone;
 
 public class Currency {
-    private String name;
-    private String nominal;
-    private String numCode;
-    private String charCode;
-    private String value;
+    String name;
+    String nominal;
+    String numCode;
+    String charCode;
+    String value;
+
+    public int getImage() {
+        return Image;
+    }
+
+    public void setImage(int image) {
+        Image = image;
+    }
+
+    int Image;
+
+    public Currency(int image, String name, String charCode, String value) {
+        this.Image = image;
+        this.name = name;
+        this.charCode = charCode;
+        this.value = value;
+    }
 
     public String getName() {
         return name;
