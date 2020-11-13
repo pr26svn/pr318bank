@@ -8,12 +8,14 @@ public class Valuta {
      * id сделал на всякий случай, в приложении он никак не используется,
      * но если буду развивать приложение дальше, он точно понадобится
      */
-    String name, full_name, id;
-    String buy, sell;
+    String name, full_name;
+    int id;
+    double buy;
+    int sell;
 
 
     //Конструктор
-    Valuta(String ID, String Name, String Full_name, String Buy, String Sell){
+    Valuta(int ID, String Name, String Full_name, double Buy, int Sell){
         id = ID;
         name = Name;
         full_name = Full_name;

@@ -2,6 +2,7 @@ package com.example.mobilebank;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.JsonReader;
@@ -61,11 +62,30 @@ public class Otdelenia extends AppCompatActivity implements View.OnClickListener
     //мой список отделений, в дальнейшем буду сюда добавлять объекты "Отделение"
     ArrayList<Otdelenie> otdelenies = new ArrayList<Otdelenie>();
 
+
+    String dayOfTheWeek, curr_time;
+    SimpleDateFormat sdf = new SimpleDateFormat("EEEE");
+    SimpleDateFormat sdf_time = new SimpleDateFormat("kk:mm");
+    SimpleDateFormat full_format = new SimpleDateFormat("dd-M-yyyy hh:mm");
+    Date d = new Date();
+    Date ct;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_otdelenia);
 
+        //убираю верхнюю панель
+        getSupportActionBar().hide();
+
+
+
+
+        dayOfTheWeek = sdf.format(d);
+        curr_time = sdf_time.format(d);
+
+
+        Log.d(TAG, "Day of week - " + dayOfTheWeek + " | " + curr_time);
 
         //инициализирую элементы интерфейса и объекты
         btn_back = (ImageButton) findViewById(R.id.btn_back);
@@ -188,7 +208,7 @@ public class Otdelenia extends AppCompatActivity implements View.OnClickListener
     //метод для парсинга
 
     // в параметры передаю строку JSON
-    private void Parsing(String file_for_parsing) throws ParserConfigurationException, IOException, SAXException, ParseException, JSONException {
+    private void Parsing(String file_for_parsing) throws ParserConfigurationException, IOException, SAXException, ParseException, JSONException, java.text.ParseException {
         /*
          * Для парсинга использую JSON-SIMPLE
          * скачал его с интернета
@@ -200,23 +220,82 @@ public class Otdelenia extends AppCompatActivity implements View.OnClickListener
         // так как в нем, в JSON хранится вся инфа
         JSONArray devices = (JSONArray) jo.get("devices");
 
+
         //итератор для цикла
         Iterator devices_itr = devices.iterator();
-
+        String timetable = "дефолт";
 
         while (devices_itr.hasNext()) {
-            org.json.simple.JSONObject adress_obj = (org.json.simple.JSONObject) devices_itr.next();
+            org.json.simple.JSONObject jsonObject = (org.json.simple.JSONObject) devices_itr.next();
 
 
-            JSONObject tw = (JSONObject) adress_obj.get("tw");
-            String timetable = "00-00";
-            timetable = tw.get("mon").toString();
+            JSONObject days = (JSONObject) jsonObject.get("tw");
+            boolean IsWorking = false;
+            switch (dayOfTheWeek){
+                case "Monday":
+                    Log.d(TAG, "Monday");
+                    timetable= days.get("mon").toString();
 
+                    break;
+                case "Tuesday":
+                    Log.d(TAG, "Tuesday");
+                    timetable= days.get("tue").toString();
+                    break;
+                case "Wednesday":
+                    Log.d(TAG, "Wednesday");
+                    timetable= days.get("wed").toString();
+                    break;
+                case "Thursday":
+                    Log.d(TAG, "Thursday");
+                    timetable= days.get("thu").toString();
+                    break;
+                case "Friday":
+                    Log.d(TAG, "Friday");
+                    timetable= days.get("fri").toString();
+                    if (formatting_date(timetable, d)){
+                        IsWorking = true;
+                    }else {
+                        IsWorking = false;
+                    }
+                    break;
+                case "Saturday":
+                    Log.d(TAG, "Saturday");
+                    timetable= days.get("sat").toString();
+                    break;
+                case "Sunday":
+                    Log.d(TAG, "Sunday");
+                    timetable= days.get("sun").toString();
+                    break;
+            }
+
+
+            //JSONObject tw = (JSONObject) adress_obj.get("tw");
+            //String timetable = "00-00";
+            //timetable = tw.get("mon").toString();
+            Log.d(TAG, "full Adress: " +  jsonObject.get("fullAddressRu").toString()  + " | " + timetable);
             //создаем otdelenie, а в параметры передаем атрибуты из JSON
-            Otdelenie otdelenie = new Otdelenie(adress_obj.get("fullAddressRu").toString(), timetable);
+
+            Otdelenie otdelenie = new Otdelenie(jsonObject.get("fullAddressRu").toString(), timetable, IsWorking);
 
             // добавляем в общий список
             otdelenies.add(otdelenie);
         }
+    }
+
+    boolean formatting_date(String date_from_json, Date curr_date) throws java.text.ParseException {
+        String start_time = "13-11-2020 " + date_from_json.substring(0, 5);
+        String end_time = "13-11-2020 " +  date_from_json.substring(7);
+        // 00:00-00:00
+
+        Date st = full_format.parse(start_time);
+        Date et = full_format.parse(end_time);
+
+        if (!(curr_date.before(st) || curr_date.after(et))) {
+            return true;
+        }else{
+            return  false;
+        }
+
+
     }
 }

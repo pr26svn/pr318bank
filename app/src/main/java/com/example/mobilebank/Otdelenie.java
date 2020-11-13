@@ -6,12 +6,14 @@ public class Otdelenie {
      * Поля буду выводить через собственный BoxAdapter в ListView
      */
     String fullAddressRu, tw;
+    boolean isworking = false;
 
 
     //Конструктор
-    Otdelenie(String adress, String time_work) {
+    Otdelenie(String adress, String time_work, boolean IsWorking) {
         fullAddressRu = adress;
         tw = time_work;
+        isworking = IsWorking;
     }
 
 
@@ -19,6 +21,6 @@ public class Otdelenie {
     // метод выводит данные об объекте
     @Override
     public String toString(){
-        return "[ Adress: " + String.valueOf(fullAddressRu) + ", Time: " + String.valueOf(tw) +" ]";
+        return "[ Adress: " + String.valueOf(fullAddressRu) + ", Time: " + String.valueOf(tw) +" ] " + isworking;
     }
 }

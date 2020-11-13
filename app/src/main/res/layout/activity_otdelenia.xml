@@ -23,10 +23,10 @@
 
         <TextView
             android:id="@+id/tvTest"
-            android:layout_width="wrap_content"
+            android:layout_width="340dp"
             android:layout_height="wrap_content"
             android:padding="5dp"
-            android:text="Отделения и банкоматы"
+            android:text="Главный экран"
             android:textSize="18sp" />
     </LinearLayout>
 

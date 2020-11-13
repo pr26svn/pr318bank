@@ -2,6 +2,7 @@ package com.example.mobilebank;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -34,11 +35,13 @@ import javax.xml.parsers.ParserConfigurationException;
 
 public class Currency extends AppCompatActivity {
 
+
     //Объявляю элементы интерфейса
     ImageButton btn_back;
     TextView curr_date;
     ListView Currency_lv;
     TextView tv;
+
 
 
     // это тэг для того, чтобы различать мои записи в Logcat
@@ -57,6 +60,9 @@ public class Currency extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_currency);
+
+        //убираю верхнюю панель
+        getSupportActionBar().hide();
 
         //Инициализирую элементы интерфейса и поля
         tv = (TextView)findViewById(R.id.tvTest);
@@ -204,7 +210,10 @@ public class Currency extends AppCompatActivity {
 
                 NodeList childNotes = curr.getChildNodes();
 
-                String CharCode = "", Name = "", Value = "", Nominal = "", NumCode = "";
+                String CharCode = "", Name = "";
+                int NumCode = 0;
+                double Value = 0;
+                int Nominal = 0;
 
 
                 for (int j = 0; j < childNotes.getLength(); j++){
@@ -213,7 +222,7 @@ public class Currency extends AppCompatActivity {
 
                         switch (childElement.getNodeName()){
                             case "NumCode":
-                                NumCode = childElement.getTextContent();
+                                NumCode = Integer.parseInt(childElement.getTextContent());
                             case "CharCode":
                                 CharCode = childElement.getTextContent();
                                 break;
@@ -221,10 +230,10 @@ public class Currency extends AppCompatActivity {
                                 Name = childElement.getTextContent();
                                 break;
                             case "Value":
-                                Value = childElement.getTextContent();
+                                Value = Double.parseDouble(childElement.getTextContent().replace("," , "."));
                                 break;
                             case "Nominal":
-                                Nominal = childElement.getTextContent();
+                                Nominal = Integer.parseInt(childElement.getTextContent());
                                 break;
                         }
 

@@ -7,7 +7,10 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
+
+import static com.example.mobilebank.MainActivity.money_format;
 
 public class CurrencyAdapter extends BaseAdapter {
     /**
@@ -57,11 +60,14 @@ public class CurrencyAdapter extends BaseAdapter {
 
         Valuta p = getValuta(position);
 
+
+
         // заполняем View в пункте списка данными из валюты: название, полное название, цена купли/продажи
         ((TextView) view.findViewById(R.id.tvName)).setText(p.name);
         ((TextView) view.findViewById(R.id.tvFullName)).setText(p.full_name);
-        ((TextView) view.findViewById(R.id.tvBuy)).setText(p.buy);
-        ((TextView) view.findViewById(R.id.tvSell)).setText(p.sell);
+        String formattedDouble1 = new DecimalFormat(money_format).format(p.buy);
+        ((TextView) view.findViewById(R.id.tvBuy)).setText(String.valueOf(formattedDouble1));
+        ((TextView) view.findViewById(R.id.tvSell)).setText(String.valueOf(p.sell));
 
         return view;
     }

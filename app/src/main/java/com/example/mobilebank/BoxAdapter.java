@@ -1,6 +1,7 @@
 package com.example.mobilebank;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,10 +11,13 @@ import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 public class BoxAdapter extends BaseAdapter {
 
+    TextView tvIsWorking;
 
     /**
      * Адаптер для Отделений
@@ -63,7 +67,15 @@ public class BoxAdapter extends BaseAdapter {
         // заполняем View в пункте списка данными из отделения: адресс, работает ли, часы работы
         ((TextView) view.findViewById(R.id.tvAdress)).setText(p.fullAddressRu);
         ((TextView) view.findViewById(R.id.tvTimeWork)).setText(p.tw);
-        ((TextView) view.findViewById(R.id.tvIsWorking)).setText("Работает");
+        if (p.isworking){
+            ((TextView) view.findViewById(R.id.tvIsWorking)).setText("Работает");
+            ((TextView) view.findViewById(R.id.tvIsWorking)).setTextColor(Color.parseColor("#FF03DAC5"));
+
+        }else {
+            ((TextView) view.findViewById(R.id.tvIsWorking)).setText("Не работает");
+            ((TextView) view.findViewById(R.id.tvIsWorking)).setTextColor(Color.parseColor("#FFB00020"));
+        }
+
         //((TextView) view.findViewById(R.id.tvTimeWork)).setText("Часы работы " + p.Time_work);
         //((TextView) view.findViewById(R.id.tvType)).setText(p.Type);
 

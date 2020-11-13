@@ -15,6 +15,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:gravity="center"
             android:orientation="horizontal"
             android:paddingTop="50dp">
@@ -25,14 +26,16 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:contentDescription="@string/bank_icon"
-                app:srcCompat="@drawable/bank" />
+                app:srcCompat="@drawable/bank"
+                tools:srcCompat="@drawable/bank" />
 
             <ImageView
                 android:id="@+id/imageView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/header" />
+                app:srcCompat="@drawable/header"
+                tools:srcCompat="@drawable/header" />
         </LinearLayout>
 
         <LinearLayout
@@ -120,7 +123,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/textView3"
+                    android:id="@+id/tvUSD"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -130,7 +133,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textView4"
+                    android:id="@+id/tvEUR"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -144,8 +147,9 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
+            android:layout_weight="1"
             android:orientation="horizontal">
 
             <Button
