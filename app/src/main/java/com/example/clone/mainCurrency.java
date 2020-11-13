@@ -24,6 +24,8 @@ import java.util.Locale;
 
 public class mainCurrency extends AppCompatActivity {
 
+    public String dollar;
+    public String euro;
     ListView listView;
     PersonAdapter currencyAdapter;
     ArrayList<Currency> currencyArrayList= new ArrayList<>();
@@ -46,6 +48,7 @@ public class mainCurrency extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.listCurrency);
 
 
+
         new newThread().execute();
         currencyAdapter = new PersonAdapter(this, R.layout.list_main, currencyArrayList);
 
@@ -60,23 +63,38 @@ public class mainCurrency extends AppCompatActivity {
                 doc = Jsoup.connect("https://www.profinance.ru/currency_usd.asp").get();
                 Elements elements = doc.select("tr.stat");
                 currencyArrayList.clear();
+                String value = "";
 
 
                 for(Element element : elements){
-                    if(flag!= 0){
+                    if(flag > 0){
                         String title = element.child(0).text();
                         String name = element.child(2).text();
-                        String value = element.child(3).text();
+                        value = element.child(3).text();
+
+                        if(flag == 5){
+                            dollar = value;
+                        }else if(flag == 6){
+                            euro = value;
+                        }
+                        switch (flag){
+                            case 1:
+                                currencyArrayList.add(new Currency(R.drawable.gbp_main, name,
+                                        title, value));
+                            case 2:
+                                currencyArrayList.add(new Currency(R.drawable.usa, name,
+                                        title, value));
+                            default:
+                                currencyArrayList.add(new Currency(R.drawable.gbp_main, name,
+                                        title, value));
+
+                        }
 
 
-                        currencyArrayList.add(new Currency(R.drawable.usa, name,
-                                title, value));
-                    } else{
-                        flag = 1;
+
                     }
-
+                    flag++;
                 }
-
 
 
             }catch (IOException e){
@@ -92,6 +110,7 @@ public class mainCurrency extends AppCompatActivity {
     }
 
     public void onClickBack(View view) {
+
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
