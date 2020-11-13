@@ -2,33 +2,39 @@ package com.example.mobileBank;
 
 /**
  * Тип данных Валюта, позволяющий хранить полное и сокращенное название
- * валюты, курс покупки и продажи
+ * валюты, курс покупки и продажи, флаг страны
  */
 public class Currency {
-    private String name;
-    private String fullName;
-    private String buy;
-    private String sell;
 
-    //конструктор
-    Currency(String name, String fullName, String buy, String sell) {
+    private int flag;
+    private String charCode;
+    private String name;
+    private double buy;
+    private double sell;
+
+    // конструктор
+    Currency(int flag, String charCode, String name, double buy, double sell) {
+        this.flag = flag;
+        this.charCode = charCode;
         this.name = name;
-        this.fullName = fullName;
         this.buy = buy;
         this.sell = sell;
     }
 
-    //получение данных из класса
+    // получение данных из класса
+    public int getFlag() {
+        return flag;
+    }
+    public String getCharCode() {
+        return charCode;
+    }
     public String getName() {
         return name;
     }
-    public String getFullName() {
-        return fullName;
-    }
-    public String getBuy() {
+    public double getBuy() {
         return buy;
     }
-    public String getSell() {
+    public double getSell() {
         return sell;
     }
 }

@@ -8,7 +8,7 @@
 
     android:background="@android:color/white"
 
-    tools:context=".AtmActivity">
+    tools:context=".BankActivity">
 
     <TextView
         android:id="@+id/buttonBack1"

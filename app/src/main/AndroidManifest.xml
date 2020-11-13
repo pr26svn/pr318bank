@@ -12,10 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
 
-        <activity android:name="com.example.mobileBank.ExchangeRatesActivity"
+        <activity android:name="com.example.mobileBank.CurrencyActivity"
             android:screenOrientation="portrait"/>
 
-        <activity android:name="com.example.mobileBank.AtmActivity"
+        <activity android:name="com.example.mobileBank.BankActivity"
             android:screenOrientation="portrait"/>
 
         <activity android:name="com.example.mobileBank.MainActivity"

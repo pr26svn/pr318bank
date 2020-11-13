@@ -1,13 +1,12 @@
 package com.example.mobileBank;
 
-import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,7 +17,7 @@ import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
-    android.widget.TextView textViewDate;
+    TextView textViewDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,20 +26,20 @@ public class MainActivity extends AppCompatActivity {
 
         textViewDate = findViewById(R.id.txtDate);
 
-        //добавление даны на стартовый экран
+        //добавление даты на стартовый экран
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
         textViewDate.setText(dateFormat.format(new Date()));
     }
 
     //метод нажатия на кнопку "Отделения и банкоматы"
     public void branchesAndATMs_Click(View view) {
-        Intent intent = new Intent(MainActivity.this, AtmActivity.class);
+        Intent intent = new Intent(MainActivity.this, BankActivity.class);
         startActivity(intent);
     }
 
     //метод нажатия на кнопку "Курсы валют"
     public void exchangeRates_Click(View view) {
-        Intent intent = new Intent(MainActivity.this, ExchangeRatesActivity.class);
+        Intent intent = new Intent(MainActivity.this, CurrencyActivity.class);
         startActivity(intent);
     }
 
