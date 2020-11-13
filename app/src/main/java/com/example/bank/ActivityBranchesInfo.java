@@ -14,7 +14,7 @@ public class ActivityBranchesInfo extends AppCompatActivity {
         setContentView(R.layout.activity_branches_info);
     }
 
-    public void onClick(View view) {
+    public void onMain(View view) {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }

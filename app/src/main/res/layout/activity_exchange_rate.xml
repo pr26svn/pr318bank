@@ -23,12 +23,11 @@
 
             <ImageView
                 android:id="@+id/previousImageView"
-
                 android:layout_width="43dp"
                 android:layout_height="wrap_content"
-
                 android:background="#EEEEEE"
-                app:srcCompat="@drawable/previous" />
+                app:srcCompat="@drawable/previous"
+                android:onClick="OnMain"/>
 
             <TextView
                 android:id="@+id/onMainText"
@@ -37,7 +36,7 @@
                 android:background="#EEEEEE"
                 android:gravity="center_vertical"
                 android:text="@string/on_main"
-                android:textColor="#1A64A3"
+                android:textColor="#238DE8"
                 android:textStyle="bold" />
         </LinearLayout>
 

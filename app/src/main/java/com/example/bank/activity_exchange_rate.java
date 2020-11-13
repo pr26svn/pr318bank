@@ -18,11 +18,6 @@ public class activity_exchange_rate extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exchange_rate);
-    }
-
-    public void OnMain(View view) {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
 
         Date date;
         TextView setDate;
@@ -31,5 +26,10 @@ public class activity_exchange_rate extends AppCompatActivity {
         String dateText = dateFormat.format(date);
         setDate = (TextView) findViewById(R.id.today);
         setDate.setText(dateText);
+    }
+
+    public void OnMain(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 }

@@ -3,6 +3,7 @@ package com.example.bank;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.content.DialogInterface;
@@ -30,6 +31,18 @@ public class MainActivity extends AppCompatActivity {
         String dateText = dateFormat.format(date);
         setDate = (TextView) findViewById(R.id.today);
         setDate.setText(dateText);
+    }
+
+    //Обработчик события перехода к окну курса валют
+    public void OnRates(View view) {
+        Intent intent = new Intent(this, activity_exchange_rate.class);
+        startActivity(intent);
+    }
+
+    //Обработчик события перехода к окну информации об отделениях
+    public void OnBranches(View view) {
+        Intent intent = new Intent(this, activity_exchange_rate.class);
+        startActivity(intent);
     }
 
     public void showAlertDialogButtonClicked(View view)

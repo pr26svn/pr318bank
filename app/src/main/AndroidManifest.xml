@@ -15,21 +15,18 @@
         <activity android:name=".activity_exchange_rate">
             <intent-filter>
                 <action android:name=".activity_exchange_rate" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity android:name=".ActivityBranchesInfo">
             <intent-filter>
                 <action android:name=".ActivityBranchesInfo" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

@@ -54,7 +54,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:background="@drawable/buttonstyle"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:onClick="OnBranches">
 
                 <ImageView
                     android:id="@+id/branchesIcon"
@@ -80,7 +81,8 @@
                 android:layout_height="100dp"
                 android:layout_marginTop="30dp"
                 android:background="@drawable/buttonstyle"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:onClick="OnRates">
 
                 <LinearLayout
                     android:id="@+id/dateTitleLayout"
