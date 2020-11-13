@@ -27,7 +27,7 @@ public class currencyParser {
                     case XmlPullParser.START_TAG:
                     if ("Valute".equalsIgnoreCase(tagName)) {
                         inEntry = true;
-                        currentCurrency = new Currency();
+                        //currentCurrency = new Currency();
                     }
                     break;
                     case XmlPullParser.TEXT:

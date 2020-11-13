@@ -6,8 +6,24 @@ public class Currency {
         private String numCode;
         private String charCode;
         private String value;
+        int Image;
 
-        public String getName() {
+    public Currency(String name, String charCode, String value, int Image) {
+        this.name = name;
+        this.charCode = charCode;
+        this.value = value;
+        this.Image = Image;
+    }
+
+    public int getImage() {
+        return Image;
+    }
+
+    public void setImage(int image) {
+        Image = image;
+    }
+
+    public String getName() {
             return name;
         }
 

@@ -34,12 +34,12 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void OnClickBankomats(View view) {
-        Intent intent = new Intent(this, secondActivity.class);
+        Intent intent = new Intent(this, firstActivity.class);
         startActivity(intent);
     }
 
     public void OnClickCurrency(View view) {
-        Intent intent = new Intent(this, firstActivity.class);
+        Intent intent = new Intent(this, secondActivity.class);
         startActivity(intent);
     }
 
