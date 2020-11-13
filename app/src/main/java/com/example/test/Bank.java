@@ -113,7 +113,7 @@ public class Bank extends AppCompatActivity {
 
     private void parsing(String file_for_parsing) throws ParserConfigurationException, IOException, SAXException, ParseException, JSONException {
 
-        Object obj = null;
+        /*Object obj = null;
         try {
             obj = new JSONParser().parse(file_for_parsing);
         } catch (org.json.simple.parser.ParseException e) {
@@ -136,7 +136,7 @@ public class Bank extends AppCompatActivity {
             timetable = tw.get("mon").toString();
 
             Banks banks = new Banks(adress_obj.get("fullAddressRu").toString(), timetable);
-            bankArrayList.add(banks.getAllData());
+            bankArrayList.add(banks.getAllData());*/
 
 
         }
