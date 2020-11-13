@@ -40,8 +40,6 @@ public class CurrencyActivity extends AppCompatActivity {
     // адаптер для заполнения ListView списком валют currencies
     private CurrencyAdapter currencyAdapter;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,7 +73,7 @@ public class CurrencyActivity extends AppCompatActivity {
                     // создание соединения с get запросом
                     connection = (HttpsURLConnection) url.openConnection();
                     connection.setRequestMethod("GET");
-                    connection.setRequestProperty("User-Agent", "my-rest-app-v0.1");
+                    connection.setRequestProperty("Test", "test");
                     connection.connect();  // запуск соединения
 
                     // проверка результата соединения
