@@ -27,20 +27,20 @@ import javax.net.ssl.HttpsURLConnection;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button changeBankButton;
-    Button valueCourseButton;
-    Button signInButton;
+    Button changeBankButton; // <- кнопка перехода в отделения и банкоматы
+    Button valueCourseButton; // <- кнопка перехода на курсы и валюты
+    Button signInButton; // <- кнопка входа
 
-    TextView usdText;
-    TextView eurText;
-    TextView dateText;
+    TextView dateText; // <- текст для отображения даты
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // инициализация кнопок
         changeBankButton = (Button)findViewById(R.id.button_1);
+        // переход на отделения и банкоматы
         changeBankButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         valueCourseButton = (Button)findViewById(R.id.button_2);
+        // переход на курсы и валюты
         valueCourseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,11 +58,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         signInButton = (Button)findViewById(R.id.button_3);
+        // переход на диалоговое окно входа
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final EditText editText = findViewById(R.id.editText_1);
-                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this); // <- создание диалогового окна
                 LayoutInflater inflater = MainActivity.this.getLayoutInflater();
                 builder.setView(inflater.inflate(R.layout.activity_login, null));
                 builder.setCancelable(false);
@@ -85,10 +87,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        usdText = (TextView) findViewById(R.id.text_usd);
-        eurText = (TextView) findViewById(R.id.text_eur);
+        // инициализация даты
         dateText = (TextView) findViewById(R.id.text_date);
-
         SimpleDateFormat dateFormat = new SimpleDateFormat();
         dateText.setText(dateFormat.format(new Date()));
     }
