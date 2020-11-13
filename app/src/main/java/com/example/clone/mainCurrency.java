@@ -2,21 +2,20 @@ package com.example.clone;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import org.xmlpull.v1.XmlPullParser;
+import androidx.appcompat.app.AppCompatActivity;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -26,6 +25,8 @@ import java.util.Locale;
 public class mainCurrency extends AppCompatActivity {
 
     ListView listView;
+    PersonAdapter currencyAdapter;
+    ArrayList<Currency> currencyArrayList= new ArrayList<>();
     @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,26 +46,49 @@ public class mainCurrency extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.listCurrency);
 
 
-       /* ArrayList<Currency> currencyArrayList = new ArrayList<>();
-        currencyArrayList.add(new Currency(R.drawable.usa, "Американский доллар", "USD", "77,19"));
-        currencyArrayList.add(new Currency(R.drawable.usa, "Американский доллар", "USD", "77,19"));
-        currencyArrayList.add(new Currency(R.drawable.usa, "Американский доллар", "USD", "77,19"));
-        currencyArrayList.add(new Currency(R.drawable.usa, "Американский доллар", "USD", "77,19"));
-        currencyArrayList.add(new Currency(R.drawable.usa, "Американский доллар", "USD", "77,19"));
-        currencyArrayList.add(new Currency(R.drawable.usa, "Американский доллар", "USD", "77,19"));
-        currencyArrayList.add(new Currency(R.drawable.usa, "Американский доллар", "USD", "77,19"));
-        currencyArrayList.add(new Currency(R.drawable.usa, "Американский доллар", "USD", "77,19"));
-        */
+        new newThread().execute();
+        currencyAdapter = new PersonAdapter(this, R.layout.list_main, currencyArrayList);
+
+    }
+
+    public class newThread extends AsyncTask<String,  Void, String>{
+        @Override
+        protected String doInBackground(String... strings) {
+            Document doc;
+            int flag = 0;
+            try{
+                doc = Jsoup.connect("https://www.profinance.ru/currency_usd.asp").get();
+                Elements elements = doc.select("tr.stat");
+                currencyArrayList.clear();
+
+
+                for(Element element : elements){
+                    if(flag!= 0){
+                        String title = element.child(0).text();
+                        String name = element.child(2).text();
+                        String value = element.child(3).text();
+
+
+                        currencyArrayList.add(new Currency(R.drawable.usa, name,
+                                title, value));
+                    } else{
+                        flag = 1;
+                    }
+
+                }
 
 
 
-        String blockXml = "";
-        XmlPullParser xpp = getResources().getXml(R.xml.currancy);
-        CurrencyParser currencyParser = new CurrencyParser();
-        currencyParser.parse(xpp);
-        PersonAdapter currencyAdapter = new PersonAdapter(this, R.layout.list_main, currencyParser.currencies);
+            }catch (IOException e){
+                e.printStackTrace();
+            }
+            return null;
+        }
 
-        listView.setAdapter(currencyAdapter);
+        @Override
+        protected void onPostExecute(String s) {
+            listView.setAdapter(currencyAdapter);
+        }
     }
 
     public void onClickBack(View view) {
