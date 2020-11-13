@@ -29,80 +29,36 @@ public class MainActivity extends AppCompatActivity {
     TextView mainDate;
     Date date;
 
-     /*   URL url;
-
-    {
-        try {
-            url = new URL("http://www.cbr.ru/scripts/XML_daily.asp?date_req=09/11/2020");
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    HttpsURLConnection connection;
-
-    {
-        try {
-            connection = (HttpsURLConnection) url.openConnection();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-      */
-
-
-
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         date = new Date();
-        DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
+        DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());//получаем дату
         String dateText = dateFormat.format(date);
         mainDate = (TextView) findViewById(R.id.data);
-        mainDate.setText(dateText);
+        mainDate.setText(dateText);//записываем дату
         //new Process().execute();
     }
 
 
     public void onClick(View view) {
 
-        Intent intent = new Intent(this, secondpage.class);
+        Intent intent = new Intent(this, secondpage.class);//переходы на другие страницы
         startActivity(intent);
     }
 
     public void onClick2(View view) {
 
-        Intent intent2 = new Intent(this, thirdactivity.class);
+        Intent intent2 = new Intent(this, thirdactivity.class);//переход на другую стрицу
         startActivity(intent2);
     }
 
 
     public void Dialog(View view) {
 
-        /*AlertDialog.Builder a_bulder= new AlertDialog.Builder(MainActivity.this, AppCompatAlertDialogStyle);
-        a_bulder.setMessage("Введите ваш логин и пароль")
-                .setCancelable(false)
-                .setPositiveButton("Войти", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                     dialog.cancel();
-                    }
-                })
-                .setNegativeButton("Отмена", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.cancel();
-                    }
-                });
-        AlertDialog alert=a_bulder.create();
-        alert.setTitle("Авторизация");
-        alert.show();*/
+        //вывоз диалогового окна
         AlertDialog.Builder bulBuilder=new AlertDialog.Builder(this,R.style.mainLogin);
         final View customLayout= getLayoutInflater().inflate(R.layout.activity_login,null);
         bulBuilder.setView(customLayout);
@@ -117,14 +73,7 @@ public class MainActivity extends AppCompatActivity {
 }
 
 
-/*class Process extends AsyncTask{
 
-    @Override
-    protected Object doInBackground(Object[] objects) {
-
-        return null;
-    }
-}*/
 
 
 

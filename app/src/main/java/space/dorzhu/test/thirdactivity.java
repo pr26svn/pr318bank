@@ -22,32 +22,51 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 import java.nio.channels.AsynchronousByteChannel;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 import javax.net.ssl.HttpsURLConnection;
 import javax.xml.parsers.ParserConfigurationException;
 
 public class thirdactivity extends AppCompatActivity {
-
+    TextView mainDate;
     XmlParser parser = new XmlParser();
     ListView listView;
     public KAdapter adapter;
+    Date date;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_thirdactivity);
         listView = findViewById(R.id.setadapter);
-
         DownloadData downloadData = new DownloadData();
-        downloadData.execute("https://www.cbr.ru/scripts/XML_daily.asp?date_req=12/11/2020");
+        date = new Date();
+        DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());//получаем дату
+        String dateText = dateFormat.format(date);
+        mainDate = (TextView) findViewById(R.id.textView11);
+        mainDate.setText(dateText);
+        downloadData.execute("https://www.cbr.ru/scripts/XML_daily.asp?date_req=" +dateText);
+
 
 
     }
 
-    public void fuck() {
+
+//вывод
+    public void vivod() {
         adapter = new KAdapter(this, parser.getCourses());
         listView.setAdapter(adapter);
     }
+    //переход на главную страницу
+    public void vihod(View view) {
+        finish();
+    }
+
+
+
 
     private class DownloadData extends AsyncTask<String, Void, String> {
         private static final String TAG = "DownloadFile";
@@ -57,7 +76,7 @@ public class thirdactivity extends AppCompatActivity {
             super.onPostExecute(s);
             Log.d(TAG, "xml document: " + s);
             if (s != null && parser.parse(s)) {
-                fuck();
+                vivod();
             }
         }
 

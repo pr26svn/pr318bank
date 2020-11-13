@@ -54,9 +54,9 @@
 
                 <Button
                     android:id="@+id/button"
-                    android:layout_width="359dp"
-                    android:layout_height="85dp"
-                    android:background="@drawable/rounded_button2"
+                    android:layout_width="387dp"
+                    android:layout_height="88dp"
+                    android:background="@drawable/rounded_button1"
                     android:clickable="false"
                     android:drawableLeft="@drawable/iconsize"
                     android:duplicateParentState="false"
@@ -79,8 +79,8 @@
                 android:orientation="vertical">
 
                 <LinearLayout
-                    android:layout_width="359dp"
-                    android:layout_height="85dp"
+                    android:layout_width="387dp"
+                    android:layout_height="88dp"
                     android:layout_marginTop="5dp"
                     android:background="@drawable/rounded_button1"
                     android:gravity="center"
@@ -237,8 +237,8 @@
 
                 <Button
                     android:id="@+id/button3"
-                    android:layout_width="342dp"
-                    android:layout_height="66dp"
+                    android:layout_width="387dp"
+                    android:layout_height="88dp"
                     android:layout_marginTop="15dp"
                     android:background="@drawable/rounded_button3"
                     android:gravity="center"
