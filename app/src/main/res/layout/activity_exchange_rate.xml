@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     tools:context=".activity_exchange_rate">
 
     <LinearLayout
@@ -26,8 +27,8 @@
                 android:layout_width="43dp"
                 android:layout_height="wrap_content"
                 android:background="#EEEEEE"
-                app:srcCompat="@drawable/previous"
-                android:onClick="OnMain"/>
+                android:onClick="OnMain"
+                app:srcCompat="@drawable/previous" />
 
             <TextView
                 android:id="@+id/onMainText"
