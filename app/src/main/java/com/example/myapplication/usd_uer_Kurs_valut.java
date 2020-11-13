@@ -1,18 +1,20 @@
 package com.example.myapplication;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
 
+import java.io.File;
 import java.io.IOException;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
 
 public class usd_uer_Kurs_valut extends AppCompatActivity {
 
