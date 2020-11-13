@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        dateView = (TextView) findViewById(R.id.tvDate);
+        dateView = (TextView) findViewById(R.id.tvToday);
         // Текущее время
         Date currentDate = new Date();
         // Форматирование времени как "день.месяц.год"

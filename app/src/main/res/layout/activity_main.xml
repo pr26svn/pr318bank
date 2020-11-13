@@ -4,153 +4,203 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
     tools:context=".MainActivity">
 
     <LinearLayout
-        android:id="@+id/linearLayout4"
-        android:layout_width="378dp"
-        android:layout_height="127dp"
-        android:layout_marginBottom="30dp"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/button7"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:background="@drawable/layout_bg"
-        app:layout_constraintStart_toStartOf="parent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background"
+        android:orientation="vertical">
+
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="58dp"
+            android:layout_height="146dp"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingTop="50dp">
 
             <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="5dp"
+                android:id="@+id/imageView"
+                android:layout_width="69dp"
+                android:layout_height="68dp"
+                android:layout_marginLeft="50dp"
+                app:srcCompat="@drawable/bank" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="194dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/dollar" />
+                android:gravity="center"
+                android:text="WorldSkills Bank"
+                android:textColor="@color/purple_200"
+                android:textSize="30sp" />
 
-            <TextView
-                android:id="@+id/textView5"
-                android:layout_width="119dp"
-                android:layout_height="32dp"
-                android:layout_weight="1"
-                android:gravity="center|top|left"
-                android:text="Курсы валют"
-                android:textColor="@color/black"
-                android:textSize="18sp" />
+        </LinearLayout>
 
-            <TextView
-                android:id="@+id/textView6"
+        <LinearLayout
+            android:id="@+id/btn_otdelenia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/layout_bg"
+            android:backgroundTint="@color/white"
+            android:gravity="center"
+            android:onClick="onClickOtd"
+            android:orientation="horizontal"
+            android:paddingLeft="20dp"
+            android:paddingTop="20dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="30dp">
+
+            <ImageView
+                android:id="@+id/imageView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5px"
-                android:layout_marginLeft="5px"
+                android:layout_weight="2"
+                app:srcCompat="@drawable/mappin" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="10"
+                android:text="Отделения и банкоматы"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btn_currency"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/layout_bg"
+            android:backgroundTint="@color/white"
+            android:onClick="onClickCur"
+            android:orientation="vertical"
+            android:paddingLeft="15dp"
+            android:paddingTop="15dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="30dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center|top"
-                android:text="09.11.2020" />
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/dollar" />
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="10"
+                    android:gravity="left"
+                    android:text="Курсы валют"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+
+                    android:id="@+id/tvDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:text="08.11.2020"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="30dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center|right"
+                    android:text="USD "
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvUSD"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="65.2"
+                    android:textColor="@color/gray" />
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center|right"
+                    android:text="EUR "
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvEUR"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center|left"
+                    android:text="75.14"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="14sp"
+                    android:textStyle="normal" />
+            </LinearLayout>
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="61dp"
-            android:gravity="center"
+            android:layout_height="100dp"
+            android:layout_gravity="top"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/blue_layout_bg"
+            android:onClick="onClickEnter"
             android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/textView7"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="53dp"
+                android:layout_gravity="center"
                 android:layout_weight="1"
-                android:gravity="center"
-                android:text="USD 77,2"
-                android:textColor="@color/black" />
-
-            <TextView
-                android:id="@+id/textView8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="EUR 91,3"
-                android:textColor="@color/black" />
+                android:gravity="center|top"
+                android:text="ВОЙТИ"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
         </LinearLayout>
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/button7"
-        android:layout_width="374dp"
-        android:layout_height="91dp"
-        android:layout_marginBottom="96dp"
-        android:text="ВОЙТИ"
-        android:textSize="18sp"
-        app:backgroundTint="@color/purple_700"
-        app:cornerRadius="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.486"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginLeft="56dp"
-        android:layout_marginBottom="24dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout5"
-        app:layout_constraintEnd_toStartOf="@+id/textView2"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/museum" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:text="WorldSkills Bank"
-        android:textColor="@color/purple_300"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.677"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout5"
-        android:layout_width="377dp"
-        android:layout_height="97dp"
-        android:layout_marginBottom="10dp"
-        android:gravity="center"
-        android:background="@drawable/layout_bg"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="51dp"
-            android:layout_height="40dp"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/mappin" />
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="256dp"
-            android:layout_height="39dp"
-            android:layout_weight="1"
-            android:gravity="center|top|left"
-            android:text="Отделения и банкоматы"
-            android:textColor="@color/black"
-            android:textSize="18sp" />
 
     </LinearLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
