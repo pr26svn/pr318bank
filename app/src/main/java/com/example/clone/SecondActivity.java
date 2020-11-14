@@ -28,8 +28,6 @@ public class SecondActivity extends AppCompatActivity {
 
         listView = (ListView) findViewById(R.id.listBranches);
 
-
-
         new SecondActivity.newThreadTwo().execute();
         bancomatsAdapter = new BancomatsAdapter(this, R.layout.cusmom_list_branches, mainBancomats);
 
@@ -45,21 +43,34 @@ public class SecondActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(String... strings) {
             Document doc;
+            String title = "";
+            String time = "";
+
+            ArrayList<String> titles = new ArrayList<>();
+            ArrayList<String> times = new ArrayList<>();
             try{
 
                 doc =
                         Jsoup.connect("https://tnkfb.ru/adresa/gorod/omsk/").get();
-                Elements elements = doc.select("div.bank_title");
+                Elements elementsTitle = doc.select("div.bank_title");
+                Elements elementsTime = doc.select("div.vr");
 
                 mainBancomats.clear();
                 String value = "";
 
-                for(Element element : elements){
-                    String title = element.child(0).text();
-                    mainBancomats.add(new MainBancomats(title, "", "", "Отделение"));
 
-
+                for(Element element : elementsTitle){
+                    title = element.child(0).text();
+                    titles.add(title);
                 }
+                for(Element element : elementsTime){
+                    time  = element.text();
+                    times.add(time);
+                }
+                for(int i = 0; i < titles.size(); i++)
+                    mainBancomats.add(new MainBancomats(titles.get(i), times.get(i), "Работает", "Отделение"));
+
+
 
 
             }catch (IOException e){
