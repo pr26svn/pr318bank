@@ -26,7 +26,7 @@ public class ThirthActivity extends AppCompatActivity {
         date = new Date();
         DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
         String dateText = dateFormat.format(date);
-        mainDate = (TextView) findViewById(R.id.textViewOfDate);
+        mainDate = (TextView) findViewById(R.id.txtDate);
         mainDate.setText(dateText);
 
         String blockXml = "";

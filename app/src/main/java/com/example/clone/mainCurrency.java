@@ -24,8 +24,7 @@ import java.util.Locale;
 
 public class mainCurrency extends AppCompatActivity {
 
-    public String dollar;
-    public String euro;
+
     ListView listView;
     PersonAdapter currencyAdapter;
     ArrayList<Currency> currencyArrayList= new ArrayList<>();
@@ -42,7 +41,7 @@ public class mainCurrency extends AppCompatActivity {
         date = new Date();
         DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
         String dateText = dateFormat.format(date);
-        mainDate = (TextView) findViewById(R.id.textViewOfDate);
+        mainDate = (TextView) findViewById(R.id.txtDate);
         mainDate.setText(dateText);
 
         listView = (ListView) findViewById(R.id.listCurrency);
@@ -72,11 +71,6 @@ public class mainCurrency extends AppCompatActivity {
                         String name = element.child(2).text();
                         value = element.child(3).text();
 
-                        if(flag == 5){
-                            dollar = value;
-                        }else if(flag == 6){
-                            euro = value;
-                        }
                         switch (flag){
                             case 1:
                                 currencyArrayList.add(new Currency(R.drawable.gbp_main, name,
@@ -89,8 +83,6 @@ public class mainCurrency extends AppCompatActivity {
                                         title, value));
 
                         }
-
-
 
                     }
                     flag++;

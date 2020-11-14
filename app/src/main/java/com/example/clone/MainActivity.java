@@ -50,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
         txtEuro = (TextView) findViewById(R.id.txtEuro);
 
         new MainActivity.newThreadOne().execute();
-        dollar = String.format("%.2f",dollar);
     }
 
     public void onClickFirst(View view) {
@@ -116,8 +115,6 @@ public class MainActivity extends AppCompatActivity {
                 String value;
                 for(Element element : elements){
                     if(flag > 0){
-                        String title = element.child(0).text();
-                        String name = element.child(2).text();
                         value = element.child(3).text();
 
                         if(flag == 5){
