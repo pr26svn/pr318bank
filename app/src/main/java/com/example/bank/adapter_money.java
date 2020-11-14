@@ -25,6 +25,7 @@ public class adapter_money extends ArrayAdapter<Money> {
         this.resource = resource;
     }
 
+    //Поиск нужных элементов TextView и заполнение их информацией
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
@@ -40,9 +41,6 @@ public class adapter_money extends ArrayAdapter<Money> {
 
         TextView sell = convertView.findViewById(R.id.textView18);
 
-        //TextView USD = convertView.findViewById(R.id.textView6);
-
-        //TextView EUR = convertView.findViewById(R.id.textView7);
 
         currency.setText(getItem(position).getCurrency());
 
@@ -51,10 +49,6 @@ public class adapter_money extends ArrayAdapter<Money> {
         buy.setText(getItem(position).getBuy());
 
         sell.setText(getItem(position).getBuy());
-
-       // USD.setText(getItem(position).getDollars());
-
-       // EUR.setText(getItem(position).getEuros());
 
         return convertView;
     }

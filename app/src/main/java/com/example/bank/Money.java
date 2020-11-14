@@ -1,12 +1,11 @@
 package com.example.bank;
 
+//Объявление полей и организация доступа к ним с помощью свойств
 public class Money {
     private String currency;
     private String abbreviation;
     private String buy;
     private String sell;
-    //private String dollars;
-    //private String euros;
 
     public String getCurrency(){
         return currency;
@@ -32,8 +31,4 @@ public class Money {
     public String setSell(String sell){
         return this.sell = sell;
     }
-    /*public String getDollars() {return dollars;}
-    public String setDollars(String dollars) {return this.dollars = dollars;}
-    public String getEuros() {return euros;}
-    public String setEuros(String euros) {return this.euros = euros;}*/
 }
