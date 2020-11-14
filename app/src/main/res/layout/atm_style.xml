@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/textView16"
+        style="@android:style/Widget.DeviceDefault.Light.TextView.SpinnerItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/textView17"
+        style="@android:style/Widget.DeviceDefault.Light.TextView.SpinnerItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView16"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/textView18"
+        style="@android:style/Widget.DeviceDefault.Light.TextView.SpinnerItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView16"
+        android:layout_toRightOf="@id/textView17"
+        android:textColor="@color/teal_200"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/textView19"
+        style="@android:style/Widget.DeviceDefault.Light.TextView.SpinnerItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView16"
+        android:layout_marginLeft="50dp"
+        android:layout_toRightOf="@id/textView18"
+        android:text="Часы работы"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/textView20"
+        style="@android:style/Widget.DeviceDefault.Light.TextView.SpinnerItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView16"
+        android:layout_toRightOf="@id/textView19"
+        android:textSize="12sp" />
+</RelativeLayout>
