@@ -138,52 +138,34 @@ public class CurrencyActivity extends AppCompatActivity {
 
         // просмотр всех элементов списка валют
         for (int i = 0; i < nodeList.getLength(); i++) {
-            Node node = nodeList.item(i);
+            Element element = (Element) nodeList.item(i);
 
             // если нода не текст, то это валюта, работа продолжается
-            if (node.getNodeType() != Node.TEXT_NODE) {
-
-                // список значений валюты
-                NodeList childNodes = node.getChildNodes();
+            if (element.getNodeType() != Node.TEXT_NODE) {
 
                 // переменные для записи значений по каждой валюте
-                int flag = 0;
-                String charCode = null;
-                String name = null;
-                double buy = 0.0;
-                double sell = 0.0;
-
-                // просмотр всех значений конкретной валюты
-                for (int j = 0; j < childNodes.getLength(); j++) {
-                    if (childNodes.item(j).getNodeType() != Node.TEXT_NODE) {
-                        Element childElement = (Element) childNodes.item(j);
-
-                        // если тэг хранит необходимые данные, они присваиваются объявленным выше переменным
-                        switch (childElement.getNodeName()) {
-                            case "CharCode":
-                                flag = getResources().getIdentifier(
-                                        childElement.getTextContent().toLowerCase() + "_flag",
-                                        "mipmap",
-                                        getApplicationContext().getOpPackageName());
-
-                                charCode = childElement.getTextContent();
-                                break;
-                            case "Name":
-                                name = childElement.getTextContent();
-                                break;
-                            case "Value":
-                                buy = Double.parseDouble(childElement.getTextContent().replace(',', '.'));
-                                sell = Double.parseDouble(childElement.getTextContent().replace(',', '.'));
-                                break;
-                        }
-                    }
-                }
+                String charCode = getValueByTag("CharCode", element);
+                String name = getValueByTag("Name", element);
+                String value = getValueByTag("Value", element);
+                double buy = Double.parseDouble(value.replace(',', '.'));
+                double sell = Double.parseDouble(value.replace(',', '.'));
+                int flag = getResources().getIdentifier(
+                        charCode.toLowerCase() + "_flag",
+                        "mipmap",
+                        getApplicationContext().getOpPackageName());
 
                 // создание объекта с полученными данными и добавление в список валют
                 Currency currency = new Currency(flag, charCode, name, sell, buy);
                 currencies.add(currency);
             }
         }
+    }
+
+    /**
+     * метод для получения элемента по тэгу
+     */
+    private String getValueByTag(String tag, Element element) {
+        return element.getElementsByTagName(tag).item(0).getTextContent();
     }
 
     /**
