@@ -3,6 +3,7 @@ package com.example.test;
 public class Banks {
     private String mStreet;
     private String mWorkTime;
+    boolean isworking=false;
 
     public Banks() {
         mStreet= "";

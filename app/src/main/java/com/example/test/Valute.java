@@ -37,8 +37,8 @@ import javax.xml.parsers.ParserConfigurationException;
 public class Valute extends AppCompatActivity {
 
     ListView listView;
-    ArrayList<String> valuteList = new ArrayList<>();
-    ArrayAdapter<String> adapter;
+    ArrayList<Valutes> valuteList = new ArrayList<>();
+    ArrayAdapter<Valutes> adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,7 +67,7 @@ public class Valute extends AppCompatActivity {
                 try {
                     connection = (HttpsURLConnection) new URL(query).openConnection();
 
-                    connection.setRequestMethod("getXMLFile");
+                    connection.setRequestMethod("GET");
                     connection.setRequestProperty("User-Agent", "my-rest-app-v0.1");
 
                     connection.connect();
@@ -149,7 +149,7 @@ public class Valute extends AppCompatActivity {
                     }
                 }
                 Valutes val = new Valutes(charCode, name, value);
-                valuteList.add(val.getCharCode() + " " + val.getName() + " " + val.getValue());
+                valuteList.add(val);
             }
         }
     }

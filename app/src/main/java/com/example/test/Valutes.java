@@ -13,14 +13,14 @@ public class Valutes {
     }
 
     public String getCharCode()
-    {
-        return charCode;
-    }
-    public  String getName(){
-        return  name;
-    }
-    public  String getValue(){
-        return  value;
+        {
+            return charCode;
+        }
+        public  String getName(){
+            return  name;
+        }
+        public  String getValue(){
+            return  value;
     }
 
 

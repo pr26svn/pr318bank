@@ -34,11 +34,11 @@ import javax.xml.parsers.ParserConfigurationException;
 
 public class Bank extends AppCompatActivity {
 
-    ArrayAdapter<String> adapter;
+    ArrayAdapter<Banks> adapter;
     TextView textView;
     String text;
     ListView listView;
-    ArrayList<String> bankArrayList = new ArrayList<String>();
+    ArrayList<Banks> bankArrayList = new ArrayList<Banks>();
     final String TAG="";
 
     @Override
@@ -55,7 +55,7 @@ public class Bank extends AppCompatActivity {
             }
         });
         listView = (ListView) findViewById(R.id.listView1);
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, bankArrayList);
+        adapter = new ArrayAdapter<Banks>(this, android.R.layout.simple_list_item_1, bankArrayList);
 
         AsyncTask.execute(new Runnable() {
             @Override
@@ -67,7 +67,7 @@ public class Bank extends AppCompatActivity {
                 try {
                     connection = (HttpsURLConnection) new URL(query).openConnection();
 
-                    connection.setRequestMethod("getXMLFile");
+                    connection.setRequestMethod("GET");
                     connection.setRequestProperty("User-Agent", "my-rest-app-v0.1");
 
                     connection.connect();
@@ -113,7 +113,7 @@ public class Bank extends AppCompatActivity {
 
     private void parsing(String file_for_parsing) throws ParserConfigurationException, IOException, SAXException, ParseException, JSONException {
 
-        /*Object obj = null;
+        Object obj = null;
         try {
             obj = new JSONParser().parse(file_for_parsing);
         } catch (org.json.simple.parser.ParseException e) {
@@ -131,14 +131,13 @@ public class Bank extends AppCompatActivity {
             org.json.simple.JSONObject adress_obj = (org.json.simple.JSONObject) devices_itr.next();
 
 
-            JSONObject tw = (JSONObject) adress_obj.get("tw");
+            org.json.simple.JSONObject tw = (org.json.simple.JSONObject) adress_obj.get("tw");
             String timetable = "00-00";
             timetable = tw.get("mon").toString();
 
             Banks banks = new Banks(adress_obj.get("fullAddressRu").toString(), timetable);
-            bankArrayList.add(banks.getAllData());*/
-
-
+            Log.d(TAG, "Успешно");
+            bankArrayList.add(banks);
         }
     }
 }
