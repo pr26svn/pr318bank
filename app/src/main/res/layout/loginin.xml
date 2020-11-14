@@ -8,8 +8,6 @@
     android:background="@drawable/rectangle_loginin"
 
     android:orientation="vertical"
-
-    tools:context=".Login"
     >
 
 
@@ -46,16 +44,15 @@
         android:layout_width="335dp"
         android:layout_height="wrap_content"
 
-        android:layout_marginLeft="40dp"
+        android:layout_marginLeft="30dp"
 
         android:hint="Username"
-        android:textColorHint="@android:color/black"
-
         android:padding="10dp"
 
-        android:textSize="14dp"
         android:textColor="@android:color/black"
-        >
+
+        android:textColorHint="@android:color/black"
+        android:textSize="14dp">
 
         <requestFocus />
     </EditText>
@@ -65,17 +62,17 @@
         android:layout_width="335dp"
         android:layout_height="wrap_content"
 
-        android:layout_marginLeft="40dp"
+        android:layout_marginLeft="30dp"
         android:layout_marginBottom="10dp"
 
         android:hint="Password"
-        android:textColorHint="@android:color/black"
         android:inputType="textPassword"
-
         android:padding="10dp"
 
-        android:textSize="14dp"
-        android:textColor="@android:color/black">
+        android:textColor="@android:color/black"
+
+        android:textColorHint="@android:color/black"
+        android:textSize="14dp">
 
         <requestFocus />
     </EditText>

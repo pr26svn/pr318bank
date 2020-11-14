@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        /* Метод отображения текущей даты */
         date = new Date();
         DateFormat dateFormat=new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
         String dataText=dateFormat.format(date);
@@ -36,24 +37,31 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    /* Метод перехода на окно с "Отделениями и банкоматами" */
     public void onClick(View view) {
         Intent intent = new Intent(this, Branches.class);
         startActivity(intent);
     }
 
-
+    /* Метод перехода на окно с "Курсами валют" */
     public void BuyesPage(View view) {
         Intent intent = new Intent(this, BuyseAndSales.class);
         startActivity(intent);
     }
 
+
+
+    /* Метод для отображение диалогового окна и реализация кнопок */
     public void forLogin(View view) {
+        /* Создание диалогового окна */
         AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.builder);
         final View customLayout = getLayoutInflater().inflate(R.layout.loginin, null);
         builder.setView(customLayout);
+        /* Реализация кнопок */
         builder.setPositiveButton("Войти", (dialog, which) -> dialog.cancel());
         builder.setNegativeButton("Отмена", (dialog, which) -> dialog.cancel());
         AlertDialog dialog=builder.create();
+        /* Вывод кастомного диалогового окна */
         dialog.show();
     }
 }
