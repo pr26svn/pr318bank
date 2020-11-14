@@ -243,7 +243,7 @@
                         <TextView
                             android:id="@+id/txtEurRate"
 
-                            android:layout_width="1dp"
+                            android:layout_width="65dp"
                             android:layout_height="28dp"
                             android:layout_marginStart="5sp"
                             android:layout_marginLeft="5sp"

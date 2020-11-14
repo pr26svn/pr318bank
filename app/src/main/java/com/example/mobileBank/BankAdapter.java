@@ -1,6 +1,7 @@
 package com.example.mobileBank;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,7 +41,7 @@ public class BankAdapter extends ArrayAdapter<Bank> {
         //получение объектов по id из созданного элемента View
         TextView address = (TextView) view.findViewById(R.id.txtAddress);
         TextView type = (TextView) view.findViewById(R.id.txtType);
-        TextView working = (TextView) view.findViewById(R.id.txtWorking);
+        TextView isWorking = (TextView) view.findViewById(R.id.txtWorking);
         TextView workingHours = (TextView) view.findViewById(R.id.txtWorkingHours);
 
         //получение элемента, для которого создается разметка
@@ -49,8 +50,14 @@ public class BankAdapter extends ArrayAdapter<Bank> {
         //заполнение элементов из объекта Currency
         address.setText(bank.getAddress());
         type.setText(bank.getType());
-        working.setText(bank.getWorking());
-        workingHours.setText(bank.getWorkingHours());
+        workingHours.setText("Часы работы " + bank.getWorkingHours());
+        if (bank.getIsWorking()) {
+            isWorking.setText("Работает");
+            isWorking.setTextColor(Color.parseColor("#019E1B"));
+        } else {
+            isWorking.setText("Закрыто");
+            isWorking.setTextColor(Color.parseColor("#9B111E"));
+        }
 
         return view;
     }

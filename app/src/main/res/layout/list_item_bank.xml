@@ -30,7 +30,7 @@
                 android:textColor="@android:color/black"
                 android:textSize="12sp"
                 android:textStyle="bold"
-                tools:text="Москва, улю Вавилова, д.7" />
+                tools:text="Москва, ул. Вавилова, д.7" />
 
             <LinearLayout
                 android:layout_width="match_parent"
