@@ -44,6 +44,9 @@ public class AdapterBank extends BaseAdapter {
             view = lInflater.inflate(R.layout.activity_list_row, parent, false);
         }
         Bankomat p = getBankomats(position);
+
+
+        //Заполняем данные
         ((TextView) view.findViewById(R.id.litv11)).setText(p.getAddress());
         ((TextView) view.findViewById(R.id.litv12)).setText(p.getType());
         ((TextView) view.findViewById(R.id.litv13)).setText(p.getWork());

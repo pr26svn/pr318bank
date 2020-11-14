@@ -13,9 +13,15 @@ import java.util.Currency;
 import java.util.zip.Inflater;
 
 public class KAdapter extends BaseAdapter {
+
+    //класс который поможет мне отобоазить валюты в LIstView
+
+    //объявление переменных
     Context ctx;
     LayoutInflater layoutInflater;
     ArrayList<Course> objects;
+
+
 
     public KAdapter(Context context, ArrayList<Course> courses){
         ctx = context;
@@ -40,6 +46,8 @@ public class KAdapter extends BaseAdapter {
         return position;
     }
 
+
+    //вывод на экран
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View view = convertView;
@@ -49,7 +57,7 @@ public class KAdapter extends BaseAdapter {
         Course c = getCourse(position);
 
 
-
+        //Заполняем данные
         ((TextView) view.findViewById(R.id.charCode)).setText(c.getCharCode());
         ((TextView) view.findViewById(R.id.name)).setText(c.getName());
         ((TextView) view.findViewById(R.id.buy)).setText(c.getValue());

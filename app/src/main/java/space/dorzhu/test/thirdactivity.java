@@ -42,12 +42,16 @@ public class thirdactivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_thirdactivity);
         listView = findViewById(R.id.setadapter);
-        DownloadData downloadData = new DownloadData();
+
         date = new Date();
         DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());//получаем дату
         String dateText = dateFormat.format(date);
         mainDate = (TextView) findViewById(R.id.textView11);
         mainDate.setText(dateText);
+        //При создании MainActivity будет создаваться объект DownloadData, который представляет AsyncTask, то есть асинхронную задачу.
+        // Далее с помощью метода execute() эта задача выполняется:
+
+        DownloadData downloadData = new DownloadData();
         downloadData.execute("https://www.cbr.ru/scripts/XML_daily.asp?date_req=" +dateText);
 
 
@@ -95,6 +99,9 @@ public class thirdactivity extends AppCompatActivity {
             StringBuilder xmlResult = new StringBuilder();
             BufferedReader reader = null;
             try {
+
+                //С помощью класса BufferedReader получаемые с сервера данные загружаются в буфер
+                //а с помощью класса StringBuilder из них формируется единая строка.
                 URL url = new URL(urlPath);
                 HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
                 reader = new BufferedReader(new InputStreamReader(connection.getInputStream(), "cp1251"));
@@ -109,7 +116,10 @@ public class thirdactivity extends AppCompatActivity {
                 Log.e(TAG, "downloadXML: IO Exception reading data: " + e.getMessage());
             } catch (SecurityException e) {
                 Log.e(TAG, "downloadXML: Security Exception.  Needs permisson? " + e.getMessage());
-            } finally {
+            }
+
+
+            finally {
                 if (reader != null) {
                     reader.close();
                 }

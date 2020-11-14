@@ -4,10 +4,8 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,12 +13,8 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -46,7 +40,7 @@ public class secondpage extends AppCompatActivity implements View.OnClickListene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_branches);
         listView=(ListView)findViewById(R.id.ListView2);
-        linearLayout=(LinearLayout)findViewById(R.id.linearLayout1);
+        linearLayout=(LinearLayout)findViewById(R.id.vihod);
         linearLayout.setOnClickListener(this);
         go();
     }
@@ -65,7 +59,7 @@ public class secondpage extends AppCompatActivity implements View.OnClickListene
     @Override
         public void onClick(View v) {
             switch (v.getId()) {
-            case R.id.linearLayout1:
+            case R.id.vihod:
                 finish();
         }
     }
@@ -88,6 +82,9 @@ public class secondpage extends AppCompatActivity implements View.OnClickListene
                     JSONObject jsonObject = (JSONObject) object;
                     JSONArray jsonArray = (JSONArray) jsonObject.get("devices");
 
+
+
+                    //Парсит json и сохраняет данные в объект класса
                     Iterator deviceItr = jsonArray.iterator();
                     Log.e("dssd","devises:");
                     while(deviceItr.hasNext()){
@@ -112,8 +109,5 @@ public class secondpage extends AppCompatActivity implements View.OnClickListene
             }
         });
     }
-        //переход на главную страницу
-    public void vihod(View view) {
-        finish();
-    }
+
 }

@@ -8,15 +8,17 @@
     tools:context=".secondpage">
 
     <LinearLayout
-        android:id="@+id/linearLayout1"
+        android:id="@+id/vihod"
         android:layout_width="408dp"
         android:layout_height="39dp"
-        android:onClick="vihod"
+        android:onClick="onClick"
         android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="OnClick">
+        app:layout_constraintVertical_bias="0.0">
 
         <ImageView
             android:id="@+id/imageView6"
@@ -44,13 +46,16 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout1">
+        app:layout_constraintTop_toBottomOf="@+id/vihod">
 
         <ListView
             android:id="@+id/ListView2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingTop="40dp" />
+            android:paddingTop="40dp" >
+
+        </ListView>
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

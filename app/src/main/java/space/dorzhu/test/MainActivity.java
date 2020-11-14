@@ -63,8 +63,8 @@ public class MainActivity extends AppCompatActivity {
         final View customLayout= getLayoutInflater().inflate(R.layout.activity_login,null);
         bulBuilder.setView(customLayout);
         bulBuilder
-                .setPositiveButton("Ок", (dialog, which) -> dialog.cancel())
-                .setNegativeButton("Отмена", (dialog, which) -> dialog.cancel());
+                .setPositiveButton("Ок", (dialog, which) -> dialog.cancel())//добавление кнопок OK
+                .setNegativeButton("Отмена", (dialog, which) -> dialog.cancel());//добавление кнопок Отменаф
         AlertDialog dialog=bulBuilder.create();
         dialog.show();
 

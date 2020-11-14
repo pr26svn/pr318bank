@@ -20,6 +20,8 @@ public class XmlParser {
         return courses;
     }
 
+
+
     public boolean parse(String xmlData) {
         boolean status = true;
         Course tempCourse = null;
@@ -27,6 +29,8 @@ public class XmlParser {
         String textValue = "";
 
         try {
+
+            //Для парсинга xml здесь используется класс XmlPullParser
             XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
             factory.setNamespaceAware(true);
             XmlPullParser xpp = factory.newPullParser();

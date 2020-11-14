@@ -29,7 +29,6 @@
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:autoText="false"
                 android:gravity="center|clip_vertical|center_vertical"
                 android:text="Авторизация"
                 android:textAllCaps="false"
