@@ -63,10 +63,11 @@ public class Otdelenia extends AppCompatActivity implements View.OnClickListener
     ArrayList<Otdelenie> otdelenies = new ArrayList<Otdelenie>();
 
 
-    String dayOfTheWeek, curr_time;
+    String dayOfTheWeek, curr_time, curr_date, result_date;
     SimpleDateFormat sdf = new SimpleDateFormat("EEEE");
     SimpleDateFormat sdf_time = new SimpleDateFormat("kk:mm");
-    SimpleDateFormat full_format = new SimpleDateFormat("dd-M-yyyy hh:mm");
+    SimpleDateFormat full_format = new SimpleDateFormat("dd-MM-yyyy HH:mm");
+
     Date d = new Date();
     Date ct;
 
@@ -85,7 +86,8 @@ public class Otdelenia extends AppCompatActivity implements View.OnClickListener
         curr_time = sdf_time.format(d);
 
 
-        Log.d(TAG, "Day of week - " + dayOfTheWeek + " | " + curr_time);
+        result_date = full_format.format(d);
+
 
         //инициализирую элементы интерфейса и объекты
         btn_back = (ImageButton) findViewById(R.id.btn_back);
@@ -233,24 +235,38 @@ public class Otdelenia extends AppCompatActivity implements View.OnClickListener
             boolean IsWorking = false;
             switch (dayOfTheWeek){
                 case "Monday":
-                    Log.d(TAG, "Monday");
                     timetable= days.get("mon").toString();
-
+                    if (formatting_date(timetable, d)){
+                        IsWorking = true;
+                    }else {
+                        IsWorking = false;
+                    }
                     break;
                 case "Tuesday":
-                    Log.d(TAG, "Tuesday");
                     timetable= days.get("tue").toString();
+                    if (formatting_date(timetable, d)){
+                        IsWorking = true;
+                    }else {
+                        IsWorking = false;
+                    }
                     break;
                 case "Wednesday":
-                    Log.d(TAG, "Wednesday");
                     timetable= days.get("wed").toString();
+                    if (formatting_date(timetable, d)){
+                        IsWorking = true;
+                    }else {
+                        IsWorking = false;
+                    }
                     break;
                 case "Thursday":
-                    Log.d(TAG, "Thursday");
                     timetable= days.get("thu").toString();
+                    if (formatting_date(timetable, d)){
+                        IsWorking = true;
+                    }else {
+                        IsWorking = false;
+                    }
                     break;
                 case "Friday":
-                    Log.d(TAG, "Friday");
                     timetable= days.get("fri").toString();
                     if (formatting_date(timetable, d)){
                         IsWorking = true;
@@ -259,21 +275,23 @@ public class Otdelenia extends AppCompatActivity implements View.OnClickListener
                     }
                     break;
                 case "Saturday":
-                    Log.d(TAG, "Saturday");
                     timetable= days.get("sat").toString();
+                    if (formatting_date(timetable, d)){
+                        IsWorking = true;
+                    }else {
+                        IsWorking = false;
+                    }
                     break;
                 case "Sunday":
-                    Log.d(TAG, "Sunday");
                     timetable= days.get("sun").toString();
+                    if (formatting_date(timetable, d)){
+                        IsWorking = true;
+                    }else {
+                        IsWorking = false;
+                    }
                     break;
             }
 
-
-            //JSONObject tw = (JSONObject) adress_obj.get("tw");
-            //String timetable = "00-00";
-            //timetable = tw.get("mon").toString();
-            Log.d(TAG, "full Adress: " +  jsonObject.get("fullAddressRu").toString()  + " | " + timetable);
-            //создаем otdelenie, а в параметры передаем атрибуты из JSON
 
             Otdelenie otdelenie = new Otdelenie(jsonObject.get("fullAddressRu").toString(), timetable, IsWorking);
 
@@ -283,14 +301,19 @@ public class Otdelenia extends AppCompatActivity implements View.OnClickListener
     }
 
     boolean formatting_date(String date_from_json, Date curr_date) throws java.text.ParseException {
-        String start_time = "13-11-2020 " + date_from_json.substring(0, 5);
-        String end_time = "13-11-2020 " +  date_from_json.substring(7);
+
+        SimpleDateFormat date_format = new SimpleDateFormat("dd-M-yyyy");
+        String cudate = date_format.format(d);
+
+
+
+        String start_time = cudate + " " +  date_from_json.substring(0, 5);
+        String end_time = cudate + " " +  date_from_json.substring(7);
         // 00:00-00:00
 
         Date st = full_format.parse(start_time);
         Date et = full_format.parse(end_time);
-
-        if (!(curr_date.before(st) || curr_date.after(et))) {
+        if (!(d.before(st) || d.after(et))) {
             return true;
         }else{
             return  false;

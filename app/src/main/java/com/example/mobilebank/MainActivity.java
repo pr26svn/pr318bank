@@ -249,6 +249,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //Создаем AlertDialog:
         AlertDialog alertDialog = mDialogBuilder.create();
 
+        alertDialog.getWindow().setBackgroundDrawableResource(R.drawable.registration_background);
         //и отображаем его:
         alertDialog.show();
     }
@@ -268,7 +269,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //прохожу по всем элементам списка
         for (int i = 0; i < nodeListValute.getLength(); i++){
-            Log.d(TAG, "1");
             if (nodeListValute.item(i).getNodeType() == Node.ELEMENT_NODE){
 
                 Element curr = (Element) nodeListValute.item(i);
@@ -283,18 +283,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
                 for (int j = 0; j < childNotes.getLength(); j++){
-                    Log.d(TAG, "2");
                     if (childNotes.item(j).getNodeType() == Node.ELEMENT_NODE){
-                        Log.d(TAG, "3");
+
                         Element childElement = (Element) childNotes.item(j);
 
                         switch (childElement.getNodeName()){
                             case "CharCode":
-                                Log.d(TAG, "4");
+
                                 CharCode = childElement.getTextContent();
                                 break;
                             case "Value":
-                                Log.d(TAG, "5");
+
                                 Value = Double.parseDouble(childElement.getTextContent().replace("," , "."));
                                 break;
                         }
@@ -304,13 +303,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
 
-                Log.d(TAG, "CharCode is " + CharCode);
+
                 if (CharCode.equals(USD)){
-                    Log.d(TAG, "I find USD!!!");
+
                     String formattedDouble = new DecimalFormat(money_format).format(Value);
                     tvUSD.setText("USD " + formattedDouble);
                 } else if (CharCode.equals(EUR)){
-                    Log.d(TAG, "I find EUR!!!");
                     String formattedDouble = new DecimalFormat(money_format).format(Value);
                     tvEUR.setText("EUR "  + formattedDouble);
 
