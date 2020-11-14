@@ -32,8 +32,8 @@ import javax.xml.parsers.ParserConfigurationException;
 public class changeBank extends AppCompatActivity {
 
     private Button buttonBack; // <- кнопка возврата
-    public ArrayList<String> banksArray; // <- список банков для listView
-    private ArrayAdapter<String> adapter; // <- адаптер для listView
+    public ArrayList<BankTerminals> banksArray; // <- список банков для listView
+    private BankAdapter adapter; // <- адаптер для listView
     private ListView listView; // <- список для отображения банков и терминалов
     private String text; // <- json код
 
@@ -54,10 +54,10 @@ public class changeBank extends AppCompatActivity {
         });
 
         // инициализация списка банков
-        banksArray = new ArrayList<String>();
+        banksArray = new ArrayList<>();
 
         // инициализация адаптера
-        adapter = new ArrayAdapter<String>(this, R.layout.list_view_modify_item, banksArray);
+        adapter = new BankAdapter(this, banksArray);
         // инициализация listView
         listView = (ListView) findViewById(R.id.listView_1);
 
@@ -95,7 +95,7 @@ public class changeBank extends AppCompatActivity {
             // установка соединения с сайтом, хранящий json файл
             connection = (HttpURLConnection) new URL("https://api.privatbank.ua/p24api/infrastructure?json&atm&address=&city=").openConnection();
 
-            connection.setRequestMethod("getJSONFile"); // <- установка метода запроса
+            connection.setRequestMethod("GET"); // <- установка метода запроса
             connection.setRequestProperty("User-Agent", "my-rest-app-v0.1"); // <- установка агента
             connection.setUseCaches(false); // <- отключение использования кэша
             connection.setConnectTimeout(250); // <- время подключения
@@ -106,7 +106,7 @@ public class changeBank extends AppCompatActivity {
             builder = new StringBuilder(); // переменая создания строки
             if (HttpURLConnection.HTTP_OK == connection.getResponseCode()) { // <- проверка на подключение
                 // считывание данных
-                BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream(), "cp1251"));
+                BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
                 String line; // строка для чтения
                 // цикл чтения данных
                 while ((line = reader.readLine()) != null) {
@@ -151,7 +151,7 @@ public class changeBank extends AppCompatActivity {
             }
             // создаем объект класса BankTerminals, который хранит информацию об отделении или терминале
             BankTerminals bt = new BankTerminals(adress_obj.get("fullAddressRu").toString(), timetable);
-            banksArray.add(bt.getBankData()); // <- добавляем эту информацию в список банков
+            banksArray.add(bt); // <- добавляем эту информацию в список банков
         }
     }
 }

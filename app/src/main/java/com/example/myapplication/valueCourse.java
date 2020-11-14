@@ -41,8 +41,8 @@ public class valueCourse extends AppCompatActivity {
 
     private Button bankButton;
     private ListView listView;
-    private ArrayList<String> valuteList = new ArrayList<>();
-    private ArrayAdapter<String> adapter;
+    private ArrayList<Valutes> valuteList = new ArrayList<>();
+    private ValuteAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +50,7 @@ public class valueCourse extends AppCompatActivity {
         setContentView(R.layout.activity_value_course);
 
         listView = (ListView)findViewById(R.id.listView_2);
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, valuteList);
+        adapter = new ValuteAdapter(this, valuteList);
 
         bankButton = (Button)findViewById(R.id.button_5);
         bankButton.setOnClickListener(new View.OnClickListener() {
@@ -73,7 +73,7 @@ public class valueCourse extends AppCompatActivity {
                 try {
                     connection = (HttpsURLConnection) new URL(query).openConnection();
 
-                    connection.setRequestMethod("getXMLFile");
+                    connection.setRequestMethod("GET");
                     connection.setRequestProperty("User-Agent", "my-rest-app-v0.1");
 
                     connection.connect();
@@ -95,6 +95,7 @@ public class valueCourse extends AppCompatActivity {
                                 is.setEncoding("Cp1251");
 
                                 parsingXMLFiles(is);
+                                listView.setAdapter(adapter);
 
                             } catch (SAXException e) {
                                 e.printStackTrace();
@@ -117,7 +118,6 @@ public class valueCourse extends AppCompatActivity {
             }
         });
 
-        listView.setAdapter(adapter);
     }
 
     private void parsingXMLFiles(InputSource filePath) throws SAXException, IOException, ParserConfigurationException {
@@ -125,9 +125,6 @@ public class valueCourse extends AppCompatActivity {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
         Document document = builder.parse(filePath);
-
-        Element valueCourseElement = (Element) document.getElementsByTagName("ValCurs");
-        String currentDate = valueCourseElement.getAttribute("Date");
 
         NodeList valuteNodeList = document.getElementsByTagName("Valute");
 
@@ -144,19 +141,19 @@ public class valueCourse extends AppCompatActivity {
                         Element childElement = (Element) childNodes.item(j);
                         switch (childElement.getNodeName()) {
                             case "CharCode": {
-                                charCode = childElement.getNodeName();
+                                charCode = childElement.getTextContent();
                             }break;
                             case "Name": {
-                                name = childElement.getNodeName();
+                                name = childElement.getTextContent();
                             }break;
                             case "Value": {
-                                value = childElement.getNodeName();
+                                value = childElement.getTextContent();
                             }break;
                         }
                     }
                 }
                 Valutes val = new Valutes(charCode, name, value);
-                valuteList.add(val.getValueCode() + " " + val.getName() + " " + val.getValue());
+                valuteList.add(val);
             }
         }
     }
