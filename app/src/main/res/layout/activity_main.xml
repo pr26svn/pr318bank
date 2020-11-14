@@ -98,13 +98,13 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/linearLayout6"
+                android:id="@+id/linearLayout7"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
                 <LinearLayout
-                    android:id="@+id/linearLayout7"
+                    android:id="@+id/linearLayout8"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="30dp">
@@ -127,7 +127,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/linearLayout8"
+                    android:id="@+id/linearLayout9"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@color/white"
@@ -137,14 +137,12 @@
                     <TextView
                         android:id="@+id/textView3"
                         android:layout_width="145dp"
-                        android:layout_height="wrap_content"
-                        android:text="USD"></TextView>
+                        android:layout_height="wrap_content"></TextView>
 
                     <TextView
                         android:id="@+id/textView4"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="EUR"></TextView>
+                        android:layout_height="wrap_content"></TextView>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
@@ -162,7 +160,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/button2"
             android:layout_width="match_parent"
             android:layout_height="110dp"
             android:background="@drawable/plus"

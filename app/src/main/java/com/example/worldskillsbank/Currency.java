@@ -1,11 +1,12 @@
 package com.example.worldskillsbank;
 
-public class Currency {
+import java.io.Serializable;
+
+// создание класса валют
+public class Currency implements Serializable {
     private String name;
     private String littleName;
-    private int nominal;
-    private double price;
-    private int numCode;
+    private String price;
 
     public String getName() {
         return name;
@@ -15,16 +16,8 @@ public class Currency {
         return littleName;
     }
 
-    public int getNominal() {
-        return nominal;
-    }
-
-    public double getPrice() {
+    public String getPrice() {
         return price;
-    }
-
-    public int getNumCode() {
-        return numCode;
     }
 
     public void setName(String name) {
@@ -35,19 +28,14 @@ public class Currency {
         this.littleName = littleName;
     }
 
-    public void setNominal(int nominal) {
-        this.nominal = nominal;
-    }
-
-    public void setPrice(double price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 
-    public void setNumCode(int numCode) {
-        this.numCode = numCode;
-    }
-
-    String result(){
-        return name + " - " + littleName + " - " + nominal + " - " + price;
+    public String getCell(){
+        price.replace(',', '.');
+        double cell = Double.parseDouble(price);
+        cell *= 1.15;
+        return String.valueOf(cell);
     }
 }
