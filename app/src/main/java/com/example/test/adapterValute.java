@@ -1,7 +1,6 @@
 package com.example.test;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,20 +9,17 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class boxAdapter extends BaseAdapter {
-
-    TextView tvIsWorking;
+public class adapterValute extends BaseAdapter {
     Context ctx;
     LayoutInflater lInflater;
-    ArrayList<Banks> objects;
+    ArrayList<Valutes> objects;
 
-    boxAdapter(Context context, ArrayList<Banks> otdelenies) {
+    adapterValute(Context context, ArrayList<Valutes> otdelenies) {
         ctx = context;
         objects = otdelenies;
         lInflater = (LayoutInflater) ctx
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
-
     @Override
     public int getCount() {
         return objects.size();
@@ -43,27 +39,18 @@ public class boxAdapter extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view == null) {
             //меняю layout на свой собственный
-            view = lInflater.inflate(R.layout.itembank, viewGroup, false);
+            view = lInflater.inflate(R.layout.item, viewGroup, false);
         }
 
-        Banks p = getBanks(i);
+        Valutes p = getValute(i);
 
         // заполняем View в пункте списка данными из отделения: адресс, работает ли, часы работы
-        ((TextView) view.findViewById(R.id.tvAdress)).setText(p.getStreet());
-        ((TextView) view.findViewById(R.id.tvTimeWork)).setText(p.getWorkTime());
-        if (p.isworking){
-            ((TextView) view.findViewById(R.id.tvIsWorking)).setText("Работает");
-            ((TextView) view.findViewById(R.id.tvIsWorking)).setTextColor(Color.parseColor("#FF03DAC5"));
-
-        }else {
-            ((TextView) view.findViewById(R.id.tvIsWorking)).setText("Не работает");
-            ((TextView) view.findViewById(R.id.tvIsWorking)).setTextColor(Color.parseColor("#FFB00020"));
-        }
-
-
+        ((TextView) view.findViewById(R.id.charCode)).setText(p.getCharCode());
+        ((TextView) view.findViewById(R.id.name)).setText(p.getName());
+        ((TextView) view.findViewById(R.id.value)).setText(p.getValue());
         return view;
     }
-    Banks getBanks(int position) {
-        return ((Banks) getItem(position));
+    Valutes getValute(int position) {
+        return ((Valutes) getItem(position));
     }
 }

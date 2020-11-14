@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -36,13 +37,15 @@ import javax.xml.parsers.ParserConfigurationException;
 
 public class Valute extends AppCompatActivity {
 
+    adapterValute adapter;
     ListView listView;
     ArrayList<Valutes> valuteList = new ArrayList<>();
-    ArrayAdapter<Valutes> adapter;
+    final String TAG="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_valute);
+        getSupportActionBar().hide();
 
         Button button4 = (Button) findViewById(R.id.button8);
         button4.setOnClickListener(new View.OnClickListener() {
@@ -53,7 +56,7 @@ public class Valute extends AppCompatActivity {
             }
         });
         listView=(ListView) findViewById(R.id.listView);
-        adapter=new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, valuteList);
+        adapter=new adapterValute(this, valuteList);
 
         AsyncTask.execute(new Runnable() {
             @Override
@@ -66,6 +69,7 @@ public class Valute extends AppCompatActivity {
                 final StringBuilder sb = new StringBuilder();
                 try {
                     connection = (HttpsURLConnection) new URL(query).openConnection();
+                    Log.d(TAG, "-1");
 
                     connection.setRequestMethod("GET");
                     connection.setRequestProperty("User-Agent", "my-rest-app-v0.1");
@@ -73,6 +77,7 @@ public class Valute extends AppCompatActivity {
                     connection.connect();
 
                     if (HttpsURLConnection.HTTP_OK == connection.getResponseCode()) {
+                        Log.d(TAG, "-1");
 
                         BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream(), "cp1251"));
                         String line;
@@ -89,6 +94,7 @@ public class Valute extends AppCompatActivity {
                                 is.setEncoding("Cp1251");
 
                                 parsingXMLFiles(is);
+                                listView.setAdapter(adapter);
 
                             } catch (SAXException e) {
                                 e.printStackTrace();
@@ -110,21 +116,19 @@ public class Valute extends AppCompatActivity {
                 }
             }
         });
-        listView.setAdapter(adapter);
     }
 
     private void parsingXMLFiles(InputSource file) throws SAXException, IOException, ParserConfigurationException {
 
+        Log.d(TAG, "0");
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
         Document document = builder.parse(file);
 
-        Element valueCourseElement = (Element) document.getElementsByTagName("ValCurs");
-        String currentDate = valueCourseElement.getAttribute("Date");
-
         NodeList valuteNodeList = document.getElementsByTagName("Valute");
 
         for (int i = 0; i < valuteNodeList.getLength(); i++) {
+            Log.d(TAG, "1");
             if (valuteNodeList.item(i).getNodeType() == Node.ELEMENT_NODE) {
                 Element valute = (Element)valuteNodeList.item(i);
                 NodeList childNodes = valute.getChildNodes();
@@ -137,17 +141,18 @@ public class Valute extends AppCompatActivity {
                         Element childElement = (Element) childNodes.item(j);
                         switch (childElement.getNodeName()) {
                             case "CharCode": {
-                                charCode = childElement.getNodeName();
+                                charCode = childElement.getTextContent();
                             }break;
                             case "Name": {
-                                name = childElement.getNodeName();
+                                name = childElement.getTextContent();
                             }break;
                             case "Value": {
-                                value = childElement.getNodeName();
+                                value = childElement.getTextContent();
                             }break;
                         }
                     }
                 }
+                Log.d(TAG, "2");
                 Valutes val = new Valutes(charCode, name, value);
                 valuteList.add(val);
             }

@@ -34,7 +34,7 @@ import javax.xml.parsers.ParserConfigurationException;
 
 public class Bank extends AppCompatActivity {
 
-    ArrayAdapter<Banks> adapter;
+    boxAdapter adapter;
     TextView textView;
     String text;
     ListView listView;
@@ -45,6 +45,7 @@ public class Bank extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bank);
+        getSupportActionBar().hide();
 
         Button button3 = (Button) findViewById(R.id.button8);
         button3.setOnClickListener(new View.OnClickListener() {
@@ -55,7 +56,7 @@ public class Bank extends AppCompatActivity {
             }
         });
         listView = (ListView) findViewById(R.id.listView1);
-        adapter = new ArrayAdapter<Banks>(this, android.R.layout.simple_list_item_1, bankArrayList);
+        adapter = new boxAdapter(this, bankArrayList);
 
         AsyncTask.execute(new Runnable() {
             @Override
@@ -73,8 +74,9 @@ public class Bank extends AppCompatActivity {
                     connection.connect();
 
                     if (HttpsURLConnection.HTTP_OK == connection.getResponseCode()) {
+                        Log.d(TAG, "-1");
 
-                        BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream(), "cp1251"));
+                        BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
                         String line;
                         while ((line = in.readLine()) != null) {
                             sb.append(line);
@@ -87,6 +89,7 @@ public class Bank extends AppCompatActivity {
                         @Override
                         public void run() {
                             try {
+                                System.out.println("0");
                                 parsing(sb.toString());
                                 listView.setAdapter(adapter);
 
@@ -112,6 +115,7 @@ public class Bank extends AppCompatActivity {
     }
 
     private void parsing(String file_for_parsing) throws ParserConfigurationException, IOException, SAXException, ParseException, JSONException {
+        System.out.println("1");
 
         Object obj = null;
         try {
@@ -125,9 +129,11 @@ public class Bank extends AppCompatActivity {
 
 
         Iterator devices_itr = devices.iterator();
+        System.out.println("2");
 
 
         while (devices_itr.hasNext()) {
+            System.out.println("3");
             org.json.simple.JSONObject adress_obj = (org.json.simple.JSONObject) devices_itr.next();
 
 
