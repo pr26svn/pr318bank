@@ -1,14 +1,17 @@
 package com.example.myapplication;
 
-import android.graphics.Color;
+/*
+    Класс банкоматов и отделений, предназначенный для удобного использования данных
+ */
 
 public class AtmsBuildings {
-    String address;
-    String name;
-    String state;
-    String time;
-    int color;
+    String address; // Адрес объекта
+    String name; // Тип объекта
+    String state; // Состояние объекта
+    String time; // Время работы
+    int color; // Цвет состояния
 
+    // Конструктор класса
     public AtmsBuildings(String address, String name, String state, String time, int color) {
         this.address = address;
         this.name = name;
@@ -17,6 +20,7 @@ public class AtmsBuildings {
         this.color = color;
     }
 
+    // Свойства полей класса
     public int getColor() {
         return color;
     }

@@ -29,6 +29,8 @@ import java.util.TimeZone;
 
 import javax.net.ssl.HttpsURLConnection;
 
+
+// Класс окна с банкоматами и отделениями
 public class Atms extends AppCompatActivity implements View.OnClickListener {
 
     ListView listView;
@@ -41,7 +43,7 @@ public class Atms extends AppCompatActivity implements View.OnClickListener {
 
         listView = findViewById(R.id.list);
 
-
+        // Создание потока, для получения данных с сайта
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
@@ -50,11 +52,13 @@ public class Atms extends AppCompatActivity implements View.OnClickListener {
                 StringBuffer responseContent = new StringBuffer();
                 HttpsURLConnection connection = null;
                 try{
+                    // Подключение к сайту
                     URL url = new URL("https://api.privatbank.ua/p24api/infrastructure?json&atm&address=&city=");
                     connection = (HttpsURLConnection) url.openConnection();
 
                     connection.setRequestMethod("GET");
 
+                    // Получение данных из json
                     if (connection.getResponseCode() > 299){
                         reader = new BufferedReader(new InputStreamReader(connection.getErrorStream()));
                         while((line = reader.readLine()) !=null) {
@@ -68,7 +72,7 @@ public class Atms extends AppCompatActivity implements View.OnClickListener {
                         reader.close();
                     }
 
-
+                    // Создание еще одного потока для вывода на экран
                     runOnUiThread(new Runnable() {
                         @RequiresApi(api = Build.VERSION_CODES.KITKAT)
                         @Override
@@ -95,10 +99,12 @@ public class Atms extends AppCompatActivity implements View.OnClickListener {
 
     }
 
-
+    //  Метод для получения и форматирования данных из json
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public static ArrayList<AtmsBuildings> parse(String responseBody) throws JSONException {
         ArrayList<AtmsBuildings> arrayList = new ArrayList<>();
+
+        // Получение дня недели
         Calendar c = Calendar.getInstance();
         Date currentDate = new Date();
         c.setTime(currentDate);
@@ -128,28 +134,31 @@ public class Atms extends AppCompatActivity implements View.OnClickListener {
             default:
                 dayOfWeek = "none";
         }
+
+        // Чтение из json
         JSONObject response = new JSONObject(responseBody);
         JSONArray js = response.getJSONArray("devices");
         for (int i = 0; i < js.length(); i++) {
             JSONObject typeAndAddress = js.getJSONObject(i);
             JSONObject time = typeAndAddress.getJSONObject("tw");
 
+            // Добавление данных в список
             arrayList.add(new AtmsBuildings(typeAndAddress.getString("fullAddressRu"),
                     "Банкомат",
                     isDateState((String)time.get(dayOfWeek)),
                     "Часы работы " + time.get(dayOfWeek),
                     isDateColor((String) time.get(dayOfWeek))));
-
         }
-
         return arrayList;
     }
 
+    // Метод выхода на главное окно
     @Override
     public void onClick(View v) {
         finish();
     }
 
+    // Метод получения статуса работы отделения или банкомата
     public static String isDateState(String date){
         String res = "Не работает";
         Date currentDate = new Date();
@@ -179,6 +188,8 @@ public class Atms extends AppCompatActivity implements View.OnClickListener {
 
         return res;
     }
+
+    // Метод получения цвета статуса работы отделения или банкомата
     public static int isDateColor(String date){
         int res = Color.RED;
         Date currentDate = new Date();

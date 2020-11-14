@@ -12,16 +12,22 @@ import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 
+/*
+    Класс адаптера банкоматов и отделений, предназначенный для вывода значений объектов на экран
+        телефона
+ */
+
 public class AtmsAdapter extends ArrayAdapter<AtmsBuildings> {
     private Context mContext;
     private int mResourse;
 
-
+    // Конструктор адаптера
     public AtmsAdapter(@NonNull Context context, int resource, @NonNull ArrayList<AtmsBuildings> objects) {
         super(context, resource, objects);
         this.mContext = context;
         this.mResourse = resource;
     }
+        // Вывод на экран
         @NonNull
         @Override
         public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent){

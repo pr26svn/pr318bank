@@ -1,22 +1,16 @@
 package com.example.myapplication;
 
+/*
+    Класс валют, предназначенный для удобного использования данных
+ */
 public class CurrencyClass {
-    int flag;
-    String  currency;
-    String name;
-    String buy;
-    String sell;
+    int flag; // Флаг валюты
+    String  currency; // Код валюты
+    String name; // Название валюты
+    String buy; // Курс покупки валюты
+    String sell; // Курс продажи валюты
 
-    @Override
-    public String toString() {
-        return "CurrencyClass{" +
-                ", currency='" + currency + '\'' +
-                ", name='" + name + '\'' +
-                ", buy='" + buy + '\'' +
-                ", sell='" + sell + '\'' +
-                '}';
-    }
-
+    // Конструктор класса
     public CurrencyClass(int flag, String currency, String name, String buy, String sell) {
         this.flag = flag;
         this.currency = currency;
@@ -25,6 +19,7 @@ public class CurrencyClass {
         this.sell = sell;
     }
 
+    // Свойства полей класса
     public int getFlag() {
         return flag;
     }

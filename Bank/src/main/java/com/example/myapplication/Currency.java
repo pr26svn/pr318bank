@@ -27,12 +27,15 @@ import java.util.Locale;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
+//Класс окна валют
+
 public class Currency extends AppCompatActivity implements View.OnClickListener {
-    private static final String TAG = "Currency";
+
     ListView listView;
     TextView dateView;
     ArrayList<CurrencyClass> arrayList = new ArrayList<>();
     CurrencyAdapter currencyAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,32 +49,39 @@ public class Currency extends AppCompatActivity implements View.OnClickListener 
         dateView.setText(dateText);
         listView = findViewById(R.id.list);
 
-
+        // Создание потока, для получения данных с сайта
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
                 HttpURLConnection connection = null;
                 try {
+                    // Форматирование времени как "день/месяц/год"
                     DateFormat df = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
                     String time = df.format(currentDate);
+
                     DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
                     DocumentBuilder builder;
+
+                    // Подключение к сайту
                     URL cbr = new URL("http://www.cbr.ru/scripts/XML_daily.asp?date_req=" + time);
                     connection = (HttpURLConnection) cbr.openConnection();
                     connection.setRequestMethod("GET");
-                    connection.setRequestProperty("Test", "test.v1");
-                    InputStream stream = connection.getInputStream();
 
+                    InputStream stream = connection.getInputStream();
+                    // Начало парсинга сайта
                     builder = factory.newDocumentBuilder();
                     Document document = builder.parse(stream);
 
+                    // Получение элементов по тегу "Valute"
                     NodeList nodeList = document.getElementsByTagName("Valute");
 
-                    List<CurrencyClass> langList = new ArrayList<CurrencyClass>();
+                    //Заполнение списка отформатированными данными
                     for (int i = 0; i < nodeList.getLength(); i++) {
                         arrayList.add(getCurrency(nodeList.item(i)));
+
                     }
 
+                    // Создание еще одного потока для вывода на экран
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
@@ -93,11 +103,13 @@ public class Currency extends AppCompatActivity implements View.OnClickListener 
 
     }
 
+    // Метод для получения и форматирования данных из xml
     private static CurrencyClass getCurrency(Node node) {
         CurrencyClass cc = null;
         if (node.getNodeType() == Node.ELEMENT_NODE) {
             Element element = (Element) node;
             int flag;
+            // Изменения флага валюты
             switch (getTagValue("CharCode", element)){
                 case "AUD":
                     flag = R.mipmap.aud_flag;
@@ -120,7 +132,7 @@ public class Currency extends AppCompatActivity implements View.OnClickListener 
                 case "BRL":
                     flag = R.mipmap.brl_flag;
                     break;
-                case "HUD":
+                case "HUF":
                     flag = R.mipmap.huf_flag;
                     break;
                 case "HKD":
@@ -216,13 +228,13 @@ public class Currency extends AppCompatActivity implements View.OnClickListener 
         return cc;
     }
 
-    // получаем значение элемента по указанному тегу
+    // Получение значения элемента по указанному тегу
     private static String getTagValue(String tag, Element element) {
         NodeList nodeList = element.getElementsByTagName(tag).item(0).getChildNodes();
         Node node = (Node) nodeList.item(0);
         return node.getNodeValue();
     }
-
+    // Метод для перехода на главный экран
     @Override
     public void onClick(View v) {
         finish();

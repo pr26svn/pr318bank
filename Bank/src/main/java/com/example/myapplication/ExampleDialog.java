@@ -11,13 +11,17 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDialogFragment;
 
+// Класс диалогового окна
 public class ExampleDialog extends AppCompatDialogFragment {
+    // Создание диалогового окна
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(),R.style.Test);
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.layout_login_fragment, null);
+
+        // Форматирование дизайна диалогового окна
         builder.setView(view)
                 .setPositiveButton("Войти", new DialogInterface.OnClickListener() {
                     @Override

@@ -13,17 +13,22 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
+/*
+    Класс адаптера валют, предназначенный для вывода значений валют на экран
+ */
 
 public class CurrencyAdapter extends ArrayAdapter<CurrencyClass> {
     private Context mContext;
     private int mResourse;
 
-
+    // Конструктор адаптера
     public CurrencyAdapter(@NonNull Context context, int resource, @NonNull ArrayList<CurrencyClass> objects) {
         super(context, resource, objects);
         this.mContext = context;
         this.mResourse = resource;
     }
+
+    // Вывод на экран
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent){
