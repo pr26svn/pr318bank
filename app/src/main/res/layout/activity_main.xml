@@ -44,6 +44,8 @@
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -105,9 +107,9 @@
                         android:textColor="@color/black" />
 
                     <TextView
+                        android:id="@+id/data"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/data"
                         android:layout_marginRight="10dp"
                         android:gravity="right"
                         android:text="дата" />
@@ -130,9 +132,10 @@
                             android:textColor="@color/black" />
 
                         <TextView
+                            android:id="@+id/usd"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="1" />
+                            android:text="79.8323" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -150,19 +153,21 @@
                             android:textColor="@color/black" />
 
                         <TextView
+                            android:id="@+id/eur"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="1" />
+                            android:text="83.9234" />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
 
         <Button
-            android:layout_marginTop="20dp"
             android:id="@+id/button6"
             android:layout_width="match_parent"
             android:layout_height="80dp"
+            android:layout_marginTop="20dp"
+            android:onClick="onClick_Login"
             android:text="вход"
             android:textColor="#000000"
             app:backgroundTint="#7B00A8" />
