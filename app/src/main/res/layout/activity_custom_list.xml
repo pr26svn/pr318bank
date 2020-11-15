@@ -37,9 +37,10 @@ android:layout_height="match_parent">
 
                 <TextView
                     android:id="@+id/charCode"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="173dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:gravity="right|fill"
                     android:text="Код"
                     android:textColor="@color/black" />
             </LinearLayout>
@@ -61,10 +62,11 @@ android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/buy"
-                android:layout_width="match_parent"
+                android:layout_width="224dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
                 android:background="@color/cardview_shadow_end_color"
+                android:gravity="fill_horizontal"
                 android:text="buy"
                 android:textColor="@color/black" />
 

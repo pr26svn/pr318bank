@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.Currency;
 import java.util.zip.Inflater;
@@ -61,6 +63,8 @@ public class KAdapter extends BaseAdapter {
         ((TextView) view.findViewById(R.id.charCode)).setText(c.getCharCode());
         ((TextView) view.findViewById(R.id.name)).setText(c.getName());
         ((TextView) view.findViewById(R.id.buy)).setText(c.getValue());
+        ((TextView)view.findViewById(R.id.sell)).setText(c.getValue());
+
 
 
         return view;

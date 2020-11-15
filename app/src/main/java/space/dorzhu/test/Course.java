@@ -1,7 +1,5 @@
 package space.dorzhu.test;
 
-import java.text.DecimalFormat;
-
 public class Course {
     private String numCode;
     private  String charCode;
@@ -50,11 +48,11 @@ public class Course {
         this.value = value;
     }
 
-    public Double getSell() {
+    public int getSell() {
         double a = Double.parseDouble(value);
         double b = 0.1;
         double c = (a+(a*b));
-        return c;
+        return (int) c;
     }
 
     public String result(){
