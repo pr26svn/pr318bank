@@ -10,8 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".usd_uer_Kurs_valut"></activity>
-        <activity android:name=".branches_atm"/>
+        <activity android:name=".Valut"/>
+        <activity android:name=".Bank"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

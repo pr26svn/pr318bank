@@ -6,18 +6,34 @@ import java.sql.Time;
 
 public class Banks {
 
-    private String Street;
-    private String TimeWork;
+    private String mStreet;
+    private String mWorkTime;
+    boolean isworking=false;
 
-    public Banks(String street,String timeWork){
-        this.Street=street;
-        this.TimeWork=timeWork;
+    public Banks() {
+        mStreet= "";
+        mWorkTime = "";
     }
-    public String returnStreet(){
-        return Street;
-    }
-    public String returntimeWork(){
-        return TimeWork;
+    public Banks(String street, String workTime) {
+        mStreet = street;
+        mWorkTime=workTime;
     }
 
+    public void setStreet(String street) {
+        mStreet = street;
+    }
+    public String getStreet() {
+        return mStreet;
+    }
+
+    public void setWorkTime(String workTime) {
+        mWorkTime = workTime;
+    }
+    public String getWorkTime() {
+        return mWorkTime;
+    }
+
+    public String getAllData() {
+        return mStreet + "\t" + mWorkTime;
+    }
 }

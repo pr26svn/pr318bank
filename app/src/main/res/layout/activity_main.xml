@@ -52,7 +52,7 @@
             android:layout_width="363dp"
             android:layout_height="match_parent"
             android:background="@drawable/rounded_ll_1"
-            android:onClick="StartBranchAtm"
+            android:onClick="onBank"
             android:orientation="horizontal"
             android:paddingLeft="15dp"
             android:paddingTop="17dp">
@@ -72,10 +72,11 @@
                 android:layout_weight="1"
 
                 android:gravity="center"
+                android:onClick="onBank"
                 android:text="Отделения и банкоматы"
                 android:textAllCaps="true"
-                android:textColor="@android:color/black"
 
+                android:textColor="@android:color/black"
                 android:textSize="18dp"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -229,7 +230,7 @@
             android:layout_width="363dp"
             android:layout_height="79dp"
             android:layout_marginLeft="15dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="50dp"
             android:background="@drawable/rounded_ll_3"
             android:orientation="vertical">
 
