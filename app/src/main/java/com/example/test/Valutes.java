@@ -1,10 +1,12 @@
 package com.example.test;
 
 public class Valutes {
+    //переменные
     private String charCode;
     private String  name;
     private String value;
 
+    //конструктор класса
     public Valutes(String charCode, String name, String value)
     {
         this.charCode=charCode;
@@ -12,6 +14,7 @@ public class Valutes {
         this.value=value;
     }
 
+    //геттеры для работы с данными
     public String getCharCode()
         {
             return charCode;

@@ -32,6 +32,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -42,25 +43,32 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
 public class MainActivity extends AppCompatActivity {
+    //необходимые переменные
     TextView usdText;
     TextView eurText;
+    private static final String USD = "USD";
+    private static final String EUR = "EUR";
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //спрятала шторку с названием проекта
         getSupportActionBar().hide();
 
 
 
+        //переменная для вывода даты на кнопке "валюты"
         SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy");
+        //инициализация
         TextView Date_txt = findViewById(R.id.textView9);
         Date_txt.setText((format.format(new Date())));
         usdText = (TextView)findViewById(R.id.textView4);
         eurText = (TextView)findViewById(R.id.textView7);
 
         Button button2 = (Button) findViewById(R.id.button);
+        //диалоговое окно на кнопке "войти"
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -88,13 +96,17 @@ public class MainActivity extends AppCompatActivity {
                 builder.show();
             }
         });
+        //выволнение в фоне скачивания файла
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
+                //обработка времени на компбютере для скачивания файла сегодняшней даты
                 SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
                 String date = sdf.format(new Date(System.currentTimeMillis()));
                 String query = "https://www.cbr.ru/scripts/XML_daily.asp?date_req=" + date;
 
+
+                //работа с соедниением
                 HttpsURLConnection connection = null;
                 final StringBuilder sb = new StringBuilder();
                 try {
@@ -105,22 +117,29 @@ public class MainActivity extends AppCompatActivity {
 
                     connection.connect();
 
+                    //если соединение успешно, то работаем с ним
                     if (HttpsURLConnection.HTTP_OK == connection.getResponseCode()) {
 
+
+                        //объявление reader'a, который будет читать мой файл и кодировки cp1251
                         BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream(), "cp1251"));
                         String line;
+                        //проверка строчки на пустоту. Если она не пустая, переносим её в наш билдер
                         while ((line = in.readLine()) != null) {
                             sb.append(line);
                             sb.append('\n');
                         }
                     }
+                    //метод для добавления моих данных в ListView
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
                             try {
+                                //указываю мой билдер (источник данных для вывода)
                                 InputSource is = new InputSource(new StringReader(sb.toString()));
                                 is.setEncoding("Cp1251");
 
+                                //парсинг
                                 parsingXMLFiles(is);
 
                             } catch (SAXException e) {
@@ -144,60 +163,70 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+    //метод парсинга
     private void parsingXMLFiles(InputSource filePath) throws SAXException, IOException, ParserConfigurationException {
+
 
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
         Document document = builder.parse(filePath);
 
+        //поиск значения Valute для дальнейшей работы с ним
         NodeList valuteNodeList = document.getElementsByTagName("Valute");
 
+        //цикл для поиска необходимых данных с файлы
         for (int i = 0; i < valuteNodeList.getLength(); i++) {
             if (valuteNodeList.item(i).getNodeType() == Node.ELEMENT_NODE) {
-                Element valute = (Element)valuteNodeList.item(i);
+                Element valute = (Element) valuteNodeList.item(i);
                 NodeList childNodes = valute.getChildNodes();
 
                 String charCode = "";
                 String name = "";
                 String value = "";
+                //создание листа данных
                 ArrayList<Valutes> valuteList = new ArrayList<>();
+                //прохождение по всем элементам списка и нахожу нужные, а так же их дальнейший вывод
                 for (int j = 0; j < childNodes.getLength(); j++) {
                     if (childNodes.item(j).getNodeType() == Node.ELEMENT_NODE) {
                         Element childElement = (Element) childNodes.item(j);
                         switch (childElement.getNodeName()) {
                             case "CharCode": {
                                 charCode = childElement.getTextContent();
-                            }break;
+                            }
+                            break;
                             case "Name": {
                                 name = childElement.getTextContent();
-                            }break;
+                            }
+                            break;
                             case "Value": {
                                 value = childElement.getTextContent();
-                            }break;
+                            }
+                            break;
                         }
 
                         Valutes val = new Valutes(charCode, name, value);
                         valuteList.add(val);
                     }
                 }
+                //вывод значений доллара и евро на кнопку "Валюты"
 
-                for (int j = 0; j < valuteList.size(); j++) {
-                    if (valuteList.get(j).getCharCode() == "USD") {
-                        usdText.setText(valuteList.get(j).getValue());
-                    }
-                    else if (valuteList.get(j).getCharCode() == "EUR") {
-                        eurText.setText(valuteList.get(j).getValue());
-                    }
+                if (charCode.equals(USD)) {
+                    String formattedDouble = value;
+                    usdText.setText(formattedDouble);
+                } else if (charCode.equals(EUR)) {
+                    String formattedDouble =value;
+                    eurText.setText(formattedDouble);
                 }
             }
 
         }
     }
-
+    //переход с мэйна на окно с банкоматами
     public void ATM(View view) {
         Intent intent = new Intent(MainActivity.this, Bank.class);
         startActivity(intent);    }
 
+    //переход с мэйна на окно с валютами
     public void valute(View view) {
         Intent intent = new Intent(MainActivity.this, Valute.class);
         startActivity(intent);

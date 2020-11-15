@@ -34,6 +34,7 @@ import javax.xml.parsers.ParserConfigurationException;
 
 public class Bank extends AppCompatActivity {
 
+    //переменные
     boxAdapter adapter;
     TextView textView;
     String text;
@@ -47,6 +48,7 @@ public class Bank extends AppCompatActivity {
         setContentView(R.layout.activity_bank);
         getSupportActionBar().hide();
 
+        //переход с окна "банкоматы и отедления" на мэйн окно
         Button button3 = (Button) findViewById(R.id.button8);
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,11 +60,13 @@ public class Bank extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.listView1);
         adapter = new boxAdapter(this, bankArrayList);
 
+        //фоновая заугрзка данных
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
                 String query = "https://api.privatbank.ua/p24api/infrastructure?json&atm&address=&city=";
 
+                //работа с соединением
                 HttpsURLConnection connection = null;
                 final StringBuilder sb = new StringBuilder();
                 try {
@@ -73,11 +77,14 @@ public class Bank extends AppCompatActivity {
 
                     connection.connect();
 
+                    //проверка на успешность соединения
                     if (HttpsURLConnection.HTTP_OK == connection.getResponseCode()) {
                         Log.d(TAG, "-1");
 
+                        //создание reader'a
                         BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
                         String line;
+                        //проверка строчки на пустоту. Если она не пустая, переносим её в наш билдер
                         while ((line = in.readLine()) != null) {
                             sb.append(line);
 
@@ -85,6 +92,7 @@ public class Bank extends AppCompatActivity {
                         }
                         in.close();
                     }
+                    //метод для добавления данных в ListView
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
@@ -114,24 +122,27 @@ public class Bank extends AppCompatActivity {
 
     }
 
+//метод парсинга
     private void parsing(String file_for_parsing) throws ParserConfigurationException, IOException, SAXException, ParseException, JSONException {
         System.out.println("1");
 
         Object obj = null;
+        //использую библиоетку json-simple
         try {
             obj = new JSONParser().parse(file_for_parsing);
         } catch (org.json.simple.parser.ParseException e) {
             e.printStackTrace();
         }
+        //инициализирую объект, в котором будет хранится вся информация
         org.json.simple.JSONObject jo = (org.json.simple.JSONObject) obj;
-
         org.json.simple.JSONArray devices = (org.json.simple.JSONArray) jo.get("devices");
 
-
+        //итератор
         Iterator devices_itr = devices.iterator();
         System.out.println("2");
 
 
+        //цикл для поиска нужных значений и их вывод
         while (devices_itr.hasNext()) {
             System.out.println("3");
             org.json.simple.JSONObject adress_obj = (org.json.simple.JSONObject) devices_itr.next();

@@ -12,11 +12,13 @@ import java.util.ArrayList;
 
 public class boxAdapter extends BaseAdapter {
 
+    //переменные
     TextView tvIsWorking;
     Context ctx;
     LayoutInflater lInflater;
     ArrayList<Banks> objects;
 
+    //создание своего адаптера
     boxAdapter(Context context, ArrayList<Banks> otdelenies) {
         ctx = context;
         objects = otdelenies;
@@ -24,6 +26,7 @@ public class boxAdapter extends BaseAdapter {
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
+    //заполнение методов базового адаптера
     @Override
     public int getCount() {
         return objects.size();
@@ -48,7 +51,7 @@ public class boxAdapter extends BaseAdapter {
 
         Banks p = getBanks(i);
 
-        // заполняем View в пункте списка данными из отделения: адресс, работает ли, часы работы
+        // заполняю view данными
         ((TextView) view.findViewById(R.id.tvAdress)).setText(p.getStreet());
         ((TextView) view.findViewById(R.id.tvTimeWork)).setText(p.getWorkTime());
         if (p.isworking){

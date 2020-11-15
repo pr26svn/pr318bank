@@ -22,13 +22,14 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
                 android:orientation="horizontal">
+
                 <ImageView
                     android:id="@+id/countryIcon"
                     android:layout_width="40dp"
                     android:layout_height="35dp"
-                    android:layout_weight="0.2"
                     android:layout_gravity="left|top"
-                    />
+                    android:layout_weight="0.2"
+                    app:srcCompat="@drawable/an" />
                 <TextView
                     android:id="@+id/charCode"
                     android:layout_weight="1"

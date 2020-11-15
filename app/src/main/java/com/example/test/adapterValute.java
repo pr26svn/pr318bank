@@ -10,16 +10,19 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class adapterValute extends BaseAdapter {
+    //переменные
     Context ctx;
     LayoutInflater lInflater;
     ArrayList<Valutes> objects;
 
+    //создание своего адаптера
     adapterValute(Context context, ArrayList<Valutes> otdelenies) {
         ctx = context;
         objects = otdelenies;
         lInflater = (LayoutInflater) ctx
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
+    //заполнение методов базового адаптера
     @Override
     public int getCount() {
         return objects.size();
@@ -44,7 +47,7 @@ public class adapterValute extends BaseAdapter {
 
         Valutes p = getValute(i);
 
-        // заполняем View в пункте списка данными из отделения: адресс, работает ли, часы работы
+        // заполняю view данными
         ((TextView) view.findViewById(R.id.charCode)).setText(p.getCharCode());
         ((TextView) view.findViewById(R.id.name)).setText(p.getName());
         ((TextView) view.findViewById(R.id.value)).setText(p.getValue());

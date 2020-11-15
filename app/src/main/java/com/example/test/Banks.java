@@ -1,9 +1,10 @@
 package com.example.test;
 
 public class Banks {
+    //переменные
     private String mStreet;
     private String mWorkTime;
-    boolean isworking=false;
+    boolean isworking=true;
 
     public Banks() {
         mStreet= "";
@@ -14,6 +15,7 @@ public class Banks {
         mWorkTime=workTime;
     }
 
+    //геттеры и сеттеры для работы с данными
     public void setStreet(String street) {
         mStreet = street;
     }

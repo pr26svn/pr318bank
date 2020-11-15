@@ -23,7 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-medium"
-            android:text="г. Москва, ул. Вавилова, д. 4"
+            android:text="Адрес"
             android:textSize="12sp"
             android:textStyle="bold"></TextView>
 
@@ -64,7 +64,7 @@
             android:fontFamily="sans-serif-medium"
             android:gravity="right"
 
-            android:text="Работает с 00:00-00:00"
+            android:text="время"
             android:textSize="12sp"
             android:textStyle="bold"></TextView>
     </LinearLayout>
