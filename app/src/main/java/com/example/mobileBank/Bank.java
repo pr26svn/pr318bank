@@ -1,7 +1,9 @@
 package com.example.mobileBank;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
@@ -21,7 +23,7 @@ public class Bank {
         this.type = type;
         this.workingHours = workingHours;
         // передача часов и минут в качестве массива
-        setIsWorking(workingHours.split("-"));
+        setIsWorking(workingHours.split(" - "));
     }
 
     //получение данных из класса и запись данных в него
@@ -37,6 +39,20 @@ public class Bank {
         return isWorking;
     }
 
+    /*private void setIsWorking(String str) {
+        int a = Integer.parseInt(str.substring(0,2));//внимание костыль
+        int b = Integer.parseInt(str.substring(8,10));
+        Date currentTime = Calendar.getInstance().getTime();
+        DateFormat df = new SimpleDateFormat("hh");
+        String s = df.format(currentTime);
+        int now = Integer.parseInt(s);
+
+        if( a < now && now < b){
+            isWorking = true;
+        }else{
+            isWorking = false;
+        }
+    }*/
     // проверяет, работает ли банк в данный момент
     private void setIsWorking(String[] time) {
         // текущая дата и формат даты для сравнения

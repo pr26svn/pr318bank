@@ -71,8 +71,6 @@ public class MainActivity extends AppCompatActivity {
 
                     // создание соединения с get запросом
                     connection = (HttpsURLConnection) url.openConnection();
-                    connection.setRequestMethod("GET");
-                    connection.setRequestProperty("Test", "test");
                     connection.connect();  // запуск соединения
 
                     // проверка результата соединения
@@ -86,25 +84,12 @@ public class MainActivity extends AppCompatActivity {
                             sb.append(str).append("\n");
                         }
 
-                        // передача данных в ListView в основном потоке
-                        runOnUiThread(new Runnable() {
+                        br.close();
 
-                            @Override
-                            public void run() {
-                                try {
-                                    // источник данных
-                                    InputSource is = new InputSource(new StringReader(sb.toString()));
-                                    // парсинг
-                                    parser(is);
-                                } catch (ParserConfigurationException e) {
-                                    e.printStackTrace();
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                } catch (SAXException e) {
-                                    e.printStackTrace();
-                                }
-                            }
-                        });
+                        // источник данных
+                        InputSource is = new InputSource(new StringReader(sb.toString()));
+                        // парсинг
+                        parser(is);
                     }
                 } catch (Throwable cause) {
                     cause.printStackTrace();

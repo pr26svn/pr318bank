@@ -49,13 +49,11 @@ public class CurrencyActivity extends AppCompatActivity {
         listViewCurrency = findViewById(R.id.listViewExchangeRates);
 
         currencies = new ArrayList<>();
-        currencyAdapter = new CurrencyAdapter(this, R.layout.list_item_currency, currencies);
 
         // добавление текущей даты на активити
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
         final String date = dateFormat.format(new Date());
         textViewDate.setText(date);
-
 
         // StringBuilder для хранения строк из XML
         final StringBuilder sb = new StringBuilder();
@@ -72,8 +70,6 @@ public class CurrencyActivity extends AppCompatActivity {
 
                     // создание соединения с get запросом
                     connection = (HttpsURLConnection) url.openConnection();
-                    connection.setRequestMethod("GET");
-                    connection.setRequestProperty("Test", "test");
                     connection.connect();  // запуск соединения
 
                     // проверка результата соединения
@@ -87,27 +83,20 @@ public class CurrencyActivity extends AppCompatActivity {
                             sb.append(str).append("\n");
                         }
 
+                        br.close();
+
+                        // источник данных
+                        InputSource is = new InputSource(new StringReader(sb.toString()));
+                        // парсинг
+                        parser(is);
+
                         // передача данных в ListView в основном потоке
                         runOnUiThread(new Runnable() {
-
                             @Override
                             public void run() {
-                                try {
-                                    // источник данных
-                                    InputSource is = new InputSource(new StringReader(sb.toString()));
-
-                                    // парсинг
-                                    parser(is);
-
-                                    // вывод данных в ListView
-                                    listViewCurrency.setAdapter(currencyAdapter);
-                                } catch (ParserConfigurationException e) {
-                                    e.printStackTrace();
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                } catch (SAXException e) {
-                                    e.printStackTrace();
-                                }
+                                // заполнение адаптера и вывод данных в ListView
+                                currencyAdapter = new CurrencyAdapter(CurrencyActivity.this, R.layout.list_item_currency, currencies);
+                                listViewCurrency.setAdapter(currencyAdapter);
                             }
                         });
                     }

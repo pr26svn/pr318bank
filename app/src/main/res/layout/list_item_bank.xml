@@ -40,22 +40,25 @@
                 <TextView
                     android:id="@+id/txtType"
 
-                    android:layout_width="72dp"
+                    android:layout_width="165dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
 
+                    android:layout_weight="1"
                     android:textColor="@android:color/black"
                     android:textSize="12sp"
-                    android:textStyle="bold"
+                    android:textStyle="italic"
                     tools:text="Банкомат" />
 
                 <TextView
                     android:id="@+id/txtWorking"
 
-                    android:layout_width="124dp"
+                    android:layout_width="123dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
 
+                    android:layout_weight="1"
+                    android:gravity="center"
                     android:textColor="@color/turquoise"
                     android:textSize="12sp"
                     android:textStyle="bold"
@@ -64,15 +67,17 @@
                 <TextView
                     android:id="@+id/txtWorkingHours"
 
-                    android:layout_width="164dp"
+                    android:layout_width="229dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
 
+                    android:layout_weight="1"
                     android:gravity="right"
                     android:textColor="@android:color/black"
                     android:textSize="12sp"
-                    tools:text="Часы работы 00:00-00:00"
-                    tools:ignore="RtlHardcoded" />
+                    android:textStyle="italic"
+                    tools:ignore="RtlHardcoded"
+                    tools:text="Часы работы 00:00-00:00" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
