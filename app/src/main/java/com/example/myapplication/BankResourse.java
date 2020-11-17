@@ -4,21 +4,22 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.sql.Time;
 
-public class Banks {
-
+public class BankResourse {
+    //перменные
     private String mStreet;
     private String mWorkTime;
     boolean isworking=false;
 
-    public Banks() {
+    public BankResourse() {
         mStreet= "";
         mWorkTime = "";
     }
-    public Banks(String street, String workTime) {
+    public BankResourse(String street, String workTime) {
         mStreet = street;
         mWorkTime=workTime;
     }
 
+    //возврат данных
     public void setStreet(String street) {
         mStreet = street;
     }

@@ -11,18 +11,20 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class BankAdapter extends BaseAdapter {
-    TextView tvIsWorking;
+    //переменные
     Context ctx;
     LayoutInflater lInflater;
-    ArrayList<Banks> objects;
+    ArrayList<BankResourse> objects;
 
-    BankAdapter(Context context, ArrayList<Banks> otdelenies) {
+    //адаптер
+    BankAdapter(Context context, ArrayList<BankResourse> otdelenies) {
         ctx = context;
         objects = otdelenies;
         lInflater = (LayoutInflater) ctx
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
+    //базовые методы и их заполнение
     @Override
     public int getCount() {
         return objects.size();
@@ -41,28 +43,28 @@ public class BankAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view == null) {
-            //меняю layout на свой собственный
+            //меняем layout на свой собственный
             view = lInflater.inflate(R.layout.list_item_bank, viewGroup, false);
         }
 
-        Banks p = getBanks(i);
+        BankResourse p = getBanks(i);
 
-        // заполняем View в пункте списка данными из отделения: адресс, работает ли, часы работы
-        ((TextView) view.findViewById(R.id.tvAdress)).setText(p.getStreet());
-        ((TextView) view.findViewById(R.id.tvTimeWork)).setText(p.getWorkTime());
+        // заполняем View в пункте списка данными: адресс, работает-не работает, часы работы
+        ((TextView) view.findViewById(R.id.adress)).setText(p.getStreet());
+        ((TextView) view.findViewById(R.id.timeWork)).setText(p.getWorkTime());
         if (p.isworking){
-            ((TextView) view.findViewById(R.id.tvIsWorking)).setText("Работает");
-            ((TextView) view.findViewById(R.id.tvIsWorking)).setTextColor(Color.parseColor("#FF03DAC5"));
+            ((TextView) view.findViewById(R.id.working)).setText("Работает");
+            ((TextView) view.findViewById(R.id.working)).setTextColor(Color.parseColor("#FF03DAC5"));
 
         }else {
-            ((TextView) view.findViewById(R.id.tvIsWorking)).setText("Не работает");
-            ((TextView) view.findViewById(R.id.tvIsWorking)).setTextColor(Color.parseColor("#FFB00020"));
+            ((TextView) view.findViewById(R.id.working)).setText("Не работает");
+            ((TextView) view.findViewById(R.id.working)).setTextColor(Color.parseColor("#FFB00020"));
         }
 
 
         return view;
     }
-    Banks getBanks(int position) {
-        return ((Banks) getItem(position));
+    BankResourse getBanks(int position) {
+        return ((BankResourse) getItem(position));
     }
 }

@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, Valut.class);
         startActivity(intent);
     }
-    //Создание диалогового окна,и добавление кнопок на AlertDialog
+    //добавление кнопок на AlertDialog
     public void AlertDialog(View view) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this,R.style.builder);
         final View customLayout = getLayoutInflater().inflate(R.layout.login_activity, null);

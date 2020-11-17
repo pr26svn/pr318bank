@@ -16,8 +16,7 @@
             android:layout_height="wrap_content"
             android:background="#FFFFFF">
 
-            <Button
-                android:id="@+id/button8"
+            <TextView
                 android:layout_width="233dp"
                 android:layout_height="39dp"
 

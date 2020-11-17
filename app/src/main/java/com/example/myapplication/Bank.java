@@ -28,12 +28,13 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.xml.parsers.ParserConfigurationException;
 
 public class Bank extends AppCompatActivity {
+    //переменные класса Bank
     BankAdapter adapter;
     TextView textView;
     String text;
+    final String tag="";
     ListView listView;
-    ArrayList<Banks> bankArrayList = new ArrayList<Banks>();
-    final String TAG="";
+    ArrayList<BankResourse> bankArrayList = new ArrayList<BankResourse>();
     @Override
 
     //Представляет собой первоначальную настройку activity,в частности, создаются объекты визуального интерфейса
@@ -44,22 +45,21 @@ public class Bank extends AppCompatActivity {
         adapter = new BankAdapter(this, bankArrayList);
         AsyncTask.execute(new Runnable() {
             @Override
+            //Указываем ссылку на сайт,работаем с данными из АPI файла, происходит фоновая загрузка
             public void run(){
                 String query = "https://api.privatbank.ua/p24api/infrastructure?json&atm&address=&city=";
-
+                //соединение
                 HttpsURLConnection connection = null;
                 final StringBuilder sb = new StringBuilder();
                 try {
                     connection = (HttpsURLConnection) new URL(query).openConnection();
-
                     connection.setRequestMethod("GET");
                     connection.setRequestProperty("User-Agent", "my-rest-app-v0.1");
 
                     connection.connect();
-
+                    //проверка успешности соединения
                     if (HttpsURLConnection.HTTP_OK == connection.getResponseCode()) {
-                        Log.d(TAG, "-1");
-
+                        Log.d(tag, "-1");
                         BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
                         String line;
                         while ((line = in.readLine()) != null) {
@@ -69,6 +69,7 @@ public class Bank extends AppCompatActivity {
                         }
                         in.close();
                     }
+                    //обновление данных в списке ListView
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
@@ -95,24 +96,26 @@ public class Bank extends AppCompatActivity {
             }
         });
     }
+    //Парсинг данных
     private void parsing(String file_for_parsing) throws ParserConfigurationException, IOException, SAXException, ParseException, JSONException {
         System.out.println("1");
 
         Object obj = null;
+        //применяем библиотеку json-simple
         try {
             obj = new JSONParser().parse(file_for_parsing);
         } catch (org.json.simple.parser.ParseException e) {
             e.printStackTrace();
         }
+        //перменные для хранения информации с сайта
         org.json.simple.JSONObject jo = (org.json.simple.JSONObject) obj;
-
         org.json.simple.JSONArray devices = (org.json.simple.JSONArray) jo.get("devices");
 
 
-        Iterator devices_itr = devices.iterator();
+        Iterator devices_itr = devices.iterator();//итератор
         System.out.println("2");
 
-
+        //поиск нужных значений и их вывод
         while (devices_itr.hasNext()) {
             System.out.println("3");
             org.json.simple.JSONObject adress_obj = (org.json.simple.JSONObject) devices_itr.next();
@@ -122,8 +125,8 @@ public class Bank extends AppCompatActivity {
             String timetable = "00-00";
             timetable = tw.get("mon").toString();
 
-            Banks banks = new Banks(adress_obj.get("fullAddressRu").toString(), timetable);
-            Log.d(TAG, "Успешно");
+            BankResourse banks = new BankResourse(adress_obj.get("fullAddressRu").toString(), timetable);
+            Log.d(tag, "Успешно");
             bankArrayList.add(banks);
         }
     }

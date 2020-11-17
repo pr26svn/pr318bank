@@ -9,16 +9,19 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class adapterValut extends BaseAdapter{
+public class ValutAdapter extends BaseAdapter{
+    //переменные
     Context ctx;
     LayoutInflater lInflater;
-    ArrayList<Valutes> objects;
-    adapterValut(Context context, ArrayList<Valutes> otdelenies) {
+    ArrayList<ValutResourse> objects;
+    //адпатер
+    ValutAdapter(Context context, ArrayList<ValutResourse> otdelenies) {
         ctx = context;
         objects = otdelenies;
         lInflater = (LayoutInflater) ctx
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
+    //базовые методы и их заполнение
     @Override
     public int getCount() {
         return objects.size();
@@ -41,15 +44,15 @@ public class adapterValut extends BaseAdapter{
             view = lInflater.inflate(R.layout.item_valut, viewGroup, false);
         }
 
-        Valutes p = getValute(i);
+        ValutResourse p = getValute(i);
 
-        // заполняем View в пункте списка данными из отделения: адресс, работает ли, часы работы
-        ((TextView) view.findViewById(R.id.charCode)).setText(p.getCharCode());
+        // заполняем View в пункте списка данными из отделения: адресс, работает-не работает, часы работы
+        ((TextView) view.findViewById(R.id.code)).setText(p.getCharCode());
         ((TextView) view.findViewById(R.id.name)).setText(p.getName());
-        ((TextView) view.findViewById(R.id.value)).setText(p.getValue());
+        ((TextView) view.findViewById(R.id.values)).setText(p.getValue());
         return view;
     }
-    Valutes getValute(int position) {
-        return ((Valutes) getItem(position));
+    ValutResourse getValute(int position) {
+        return ((ValutResourse) getItem(position));
     }
 }
