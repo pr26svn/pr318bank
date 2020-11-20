@@ -17,12 +17,7 @@ public class Valute {
         Value = value;
         sell = Sell;
     }
-    public String ConvToDouble(String buy){
-        double chislo = Double.parseDouble(buy);
-        double result = chislo+(chislo*60);
-        String otvet = Double.toString(result);
-        return otvet;
-    }
+
     public void SetName(String Name){
         name = Name;
     }

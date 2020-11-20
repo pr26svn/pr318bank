@@ -1,28 +1,18 @@
  package com.example.mobilebank;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
-import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import org.json.JSONException;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -39,7 +29,6 @@ import java.net.URL;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Iterator;
 
 import javax.net.ssl.HttpsURLConnection;
 import javax.xml.parsers.DocumentBuilder;
@@ -50,13 +39,11 @@ public class MainActivity extends AppCompatActivity {
     TextView tvDate,tvUSD, tvEUR;
     boolean var_USD = false, var_EUR = false;
     //String curr_USD, curr_EUR;
-
     private static final String USD = "USD";
     private static final String EUR = "EUR";
     public static final String cours_format = "#0.00";
-
-    // переменная для уменьшения кода
     final Context context = this;
+    private LinearLayout button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
         tvDate = (TextView) findViewById(R.id.tvDate);
         tvUSD = (TextView) findViewById(R.id.tvUSD);
         tvEUR = (TextView) findViewById(R.id.tvEUR);
+        button = (LinearLayout) findViewById(R.id.createCustomDialog);
+
         SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
         String date = sdf.format(new Date(System.currentTimeMillis()));
         tvDate.setText(date);
@@ -145,15 +134,27 @@ public class MainActivity extends AppCompatActivity {
     }
     //Запуск кастомного диалога
     public void onClickEnter(View view){
-        myCustomDialog();
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+
+                // custom dialog
+                final Dialog dialog = new Dialog(context);
+                dialog.setContentView(R.layout.my_dialog);
+                Button dialogButton = (Button) dialog.findViewById(R.id.dialogButtonOK);
+                // if button is clicked, close the custom dialog
+                dialogButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+                dialog.show();
+            }
+        });
     }
     //Создаем кастомный диалог
-    private void myCustomDialog(){
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        ConstraintLayout cl = (ConstraintLayout) getLayoutInflater().inflate(R.layout.my_dialog, null);
-        builder.setView(cl);
-        builder.show();
-    }
+
     //Парсинг
     private void Parsing(InputSource file_for_parsing) throws ParserConfigurationException, IOException, SAXException, ParseException, JSONException {
         //старт парсинга
@@ -162,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
         Document document  = builder.parse(file_for_parsing);
         // Список валют
         NodeList nodeListValute = document.getElementsByTagName("Valute");
-        //проход по всем элементам сиска
+        //проход по всем элементам списка
         for (int i = 0; i < nodeListValute.getLength(); i++){
             if (nodeListValute.item(i).getNodeType() == Node.ELEMENT_NODE){
                 Element curr = (Element) nodeListValute.item(i);

@@ -4,9 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.simple.JSONArray;
@@ -19,42 +26,63 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 
 import javax.net.ssl.HttpsURLConnection;
 import javax.xml.parsers.ParserConfigurationException;
-
 public class a_t_ms extends AppCompatActivity implements View.OnClickListener {
-    String toast_result;
     LinearLayout btn_back;
-    private static final String TAG = "myLogs";
-    ArrayList<a_t_m> otdeleniya = new ArrayList<a_t_m>();
+    ListView lvMain;
+    //Адаптер для кастомного ListView
     ATMAdapter atmAdapter;
-    a_t_m otd = new a_t_m("г. Москва, ул. Вавилова, д. 4", "00:00-00:00");
 
+    //Список объектов a_t_m
+    ArrayList<a_t_m> otdeleniya = new ArrayList<a_t_m>();
+    String dayOfTheWeek, curr_time,
+           // curr_date,
+            result_date;
+    SimpleDateFormat sdf = new SimpleDateFormat("EEEE");
+    SimpleDateFormat sdf_time = new SimpleDateFormat("kk:mm");
+    SimpleDateFormat full_format = new SimpleDateFormat("dd-MM-yyyy HH:mm");
+
+    Date data = new Date();
+        // Date ct;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_a_t_ms);
+//инициализирую элементы интерфейса и объекты
+        dayOfTheWeek = sdf.format(data);
+        curr_time = sdf_time.format(data);
+        result_date = full_format.format(data);
         btn_back = (LinearLayout) findViewById(R.id.btn_back);
         btn_back.setOnClickListener(this);
         atmAdapter = new ATMAdapter(this, otdeleniya);
-        // настраиваем список
-        ListView lvMain = (ListView) findViewById(R.id.lvMain);
-//запуск асинхронного метода
+        lvMain = (ListView) findViewById(R.id.lvMain);
+
+        //выполнение подкючения в фоновом режиме
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
-                String query = "https://api.privatbank.ua/p24api/infrastructure?json&atm&address=&city=";
+                // URL в котором лежит JSON
+                String query = "https://api.privatbank.ua/p24api/infrastructure?json&atm&address=&city=Черкассы";
+
                 HttpsURLConnection connection = null;
                 try {
+                    //объявле HTTPS соединение
+                    //открываю соединение
                     connection = (HttpsURLConnection) new URL(query).openConnection();
                     connection.setRequestMethod("GET");
+                    //задание заголовка для идентификации
                     connection.setRequestProperty("User-Agent", "my-rest-app-v0.1");
+                    //начало соединение
                     connection.connect();
+                    // проверка на успешность соединения
                     if (HttpsURLConnection.HTTP_OK == connection.getResponseCode()){
-
+                        //объявление ридера, для чтение XMl и передачи кодировки ch1251(для руссификации)
                         BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
                         String inputLine;
                         StringBuffer response = new StringBuffer();
@@ -65,65 +93,133 @@ public class a_t_ms extends AppCompatActivity implements View.OnClickListener {
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-
                                 try {
-                                    //запуск парсинга и адаптера
+                                    // вызов парсинга
                                     Parsing(response.toString());
+                                    //передача данных из JSON в ListView
                                     lvMain.setAdapter(atmAdapter);
-
                                 } catch (Exception e) {
                                     e.printStackTrace();
                                 }
-
-
                             }
                         });
                     }else{
                     }
+                    //вылавливание исключений
                 } catch (Throwable cause){
                     cause.printStackTrace();
                 }finally {
+                    // отключение
                     if (connection != null){
                         connection.disconnect();
                     }
                 }
             }
         });
+    }
 
-//окно со статусом отделения
-     /*   lvMain.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                LayoutInflater inflater = getLayoutInflater();
-                View layout = inflater.inflate(R.layout.toast_for_otdelenia, (ViewGroup) findViewById(R.id.custom_toast_container));
-                Toast toast = new Toast(getApplicationContext());
-                toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
-                toast.setDuration(Toast.LENGTH_LONG);
-                toast.setView(layout);
-                toast.show();
-            }
-        });
+    //вспомогательный метод для вычисления времени работы
+    boolean formatting_date(String date_from_json, Date curr_date) throws java.text.ParseException {
 
-      */
+        SimpleDateFormat date_format = new SimpleDateFormat("dd-M-yyyy");
+        String cudate = date_format.format(data);
+        String start_time = cudate + " " +  date_from_json.substring(0, 5);
+        String end_time = cudate + " " +  date_from_json.substring(7);
+        Date st = full_format.parse(start_time);
+        Date et = full_format.parse(end_time);
+        if (!(data.before(st) || data.after(et))) {
+            return true;
+        }else{
+            return  false;
+        }
     }
     @Override
     public void onClick(View v) {
         finish();
     }
-    private void Parsing(String file_for_parsing) throws ParserConfigurationException, IOException, SAXException, ParseException, JSONException {
+    //метод парсинга
+    private void Parsing(String file_for_parsing) throws ParserConfigurationException, IOException, SAXException, ParseException, JSONException, java.text.ParseException {
+        //создание объекта json для считывания файла
         Object obj = new JSONParser().parse(file_for_parsing);
+        //получение json объекта из файла
         org.json.simple.JSONObject jo = (org.json.simple.JSONObject) obj;
+        //инициализация массива devices
         JSONArray devices = (JSONArray) jo.get("devices");
+        //итератор для цикла
         Iterator devices_itr = devices.iterator();
+        //переменная для времени работы
+        String timetable = "";
+        //цикл для прохождения по массиву devices
         while (devices_itr.hasNext()) {
-            org.json.simple.JSONObject adress_obj = (org.json.simple.JSONObject) devices_itr.next();
+            //получение объекта массива
+            org.json.simple.JSONObject jsonObject = (org.json.simple.JSONObject) devices_itr.next();
+            //получение объекта "время работы"
+            JSONObject days = (JSONObject) jsonObject.get("tw");
+            boolean works = false;
+            switch (dayOfTheWeek){
+                //получение информации, работает ли данное отделение сейчас
+                case "Monday":
+                    timetable= days.get("mon").toString();
+                    if (formatting_date(timetable, data)){
+                        works = true;
+                    }else {
+                        works = false;
+                    }
+                    break;
+                case "Tuesday":
+                    timetable= days.get("tue").toString();
+                    if (formatting_date(timetable, data)){
+                        works = true;
+                    }else {
+                        works = false;
+                    }
+                    break;
+                case "Wednesday":
+                    timetable= days.get("wed").toString();
+                    if (formatting_date(timetable, data)){
+                        works = true;
+                    }else {
+                        works = false;
+                    }
+                    break;
+                case "Thursday":
+                    timetable= days.get("thu").toString();
+                    if (formatting_date(timetable, data)){
+                        works = true;
+                    }else {
+                        works = false;
+                    }
+                    break;
+                case "Friday":
+                    timetable= days.get("fri").toString();
+                    if (formatting_date(timetable, data)){
+                        works = true;
+                    }else {
+                        works = false;
+                    }
+                    break;
+                case "Saturday":
+                    timetable= days.get("sat").toString();
+                    if (formatting_date(timetable, data)){
+                        works = true;
+                    }else {
+                        works = false;
+                    }
+                    break;
+                case "Sunday":
+                    timetable= days.get("sun").toString();
+                    if (formatting_date(timetable, data)){
+                        works = true;
+                    }else {
+                        works = false;
+                    }
+                    break;
+            }
 
-            JSONObject tw = (JSONObject) adress_obj.get("tw");
-            String timetable = "00-00";
-            timetable = tw.get("mon").toString();
-
-            a_t_m otdelenie = new a_t_m(adress_obj.get("fullAddressRu").toString(), timetable);
-            otdeleniya.add(otdelenie);
+            a_t_m bankomat = new a_t_m(jsonObject.get("fullAddressRu").toString(), timetable, works);
+            // добавляем  в общий список
+            otdeleniya.add(bankomat);
         }
     }
+
 }

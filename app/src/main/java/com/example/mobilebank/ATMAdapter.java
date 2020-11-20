@@ -1,6 +1,7 @@
 package com.example.mobilebank;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,9 +15,9 @@ public class ATMAdapter extends BaseAdapter {
     LayoutInflater lInflater;
     ArrayList<a_t_m> objects;
 
-    ATMAdapter(Context context, ArrayList<a_t_m> otdelenies) {
+    ATMAdapter(Context context, ArrayList<a_t_m> otdeleniya) {
         ctx = context;
-        objects = otdelenies;
+        objects = otdeleniya;
         lInflater = (LayoutInflater) ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
     // банкоматов по позиции
@@ -50,7 +51,14 @@ public class ATMAdapter extends BaseAdapter {
         // заполняем View в пункте списка данными из отделения
         ((TextView) view.findViewById(R.id.tvAdress)).setText(p.fullAddressRu);
         ((TextView) view.findViewById(R.id.tvTimeWork)).setText(p.TW);
-        ((TextView) view.findViewById(R.id.tvIsWorking)).setText("Работает");
+        if (p.works){
+            ((TextView) view.findViewById(R.id.tvIsWorking)).setText("Работает");
+           ((TextView) view.findViewById(R.id.tvIsWorking)).setTextColor(Color.parseColor("#4CF108"));
+
+        }else {
+            ((TextView) view.findViewById(R.id.tvIsWorking)).setText("Не работает");
+            ((TextView) view.findViewById(R.id.tvIsWorking)).setTextColor(Color.parseColor("#F10823"));
+        }
         return view;
     }
 }

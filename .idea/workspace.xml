@@ -6,13 +6,27 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="debug" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="31c04e27-8b25-4703-b692-60cefe6e7718" name="Default Changelist" comment="" />
+    <list default="true" id="31c04e27-8b25-4703-b692-60cefe6e7718" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mobilebank/ATMAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mobilebank/ATMAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mobilebank/Currency.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mobilebank/Currency.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mobilebank/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mobilebank/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mobilebank/Valute.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mobilebank/Valute.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mobilebank/a_t_m.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mobilebank/a_t_m.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mobilebank/a_t_ms.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mobilebank/a_t_ms.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/currency_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/currency_item.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/my_dialog.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/my_dialog.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/toast_for_otdelenia.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,6 +50,9 @@
       </state>
     </system>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1k91XIhxQ6NF3DuounmRe8czkg7" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -46,7 +63,7 @@
     <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-11-12T05:19:43.890Z" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/AndroidStudioProjects/pr318bank" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/pr318bank-pr318radchenko" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -136,10 +153,14 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="92" y="122" width="1736" height="866" key="AVDManager" timestamp="1605098322186">
+    <state x="76" y="118" width="1736" height="866" key="AVDManager" timestamp="1605867723997">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
-    <state x="92" y="122" width="1736" height="866" key="AVDManager/0.30.1920.1050/-1280.501.1280.994@0.30.1920.1050" timestamp="1605098322186" />
+    <state x="76" y="118" width="1736" height="866" key="AVDManager/0.30.1920.1050/-1280.501.1280.994@0.30.1920.1050" timestamp="1605867723997" />
+    <state x="540" y="309" key="AndroidCreateResourceFileDialog" timestamp="1605854956280">
+      <screen x="0" y="30" width="1920" height="1050" />
+    </state>
+    <state x="540" y="309" key="AndroidCreateResourceFileDialog/0.30.1920.1050/-1280.501.1280.994@0.30.1920.1050" timestamp="1605854956280" />
     <state x="804" y="345" key="AndroidCreateXmlResourceDialog" timestamp="1605168094863">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
@@ -148,30 +169,42 @@
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
     <state x="758" y="301" key="AndroidProcessChooserDialog/0.30.1920.1050/-1280.501.1280.994@0.30.1920.1050" timestamp="1605175083163" />
-    <state x="740" y="310" key="FileChooserDialogImpl" timestamp="1605263642470">
+    <state x="540" y="259" key="AndroidThemeDialog" timestamp="1605865787771">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
-    <state x="-787" y="766" key="FileChooserDialogImpl/0.30.1920.1050/-1280.501.1280.994@-1280.501.1280.994" timestamp="1605196080586" />
-    <state x="740" y="310" key="FileChooserDialogImpl/0.30.1920.1050/-1280.501.1280.994@0.30.1920.1050" timestamp="1605263642470" />
-    <state width="1876" height="433" key="GridCell.Tab.0.bottom" timestamp="1605255040331">
+    <state x="540" y="259" key="AndroidThemeDialog/0.30.1920.1050/-1280.501.1280.994@0.30.1920.1050" timestamp="1605865787771" />
+    <state x="740" y="310" key="FileChooserDialogImpl" timestamp="1605864296067">
+      <screen x="0" y="30" width="1920" height="1050" />
+    </state>
+    <state x="-787" y="766" key="FileChooserDialogImpl/0.30.1920.1050/-1280.501.1280.994@-1280.501.1280.994" timestamp="1605342674971" />
+    <state x="740" y="310" key="FileChooserDialogImpl/0.30.1920.1050/-1280.501.1280.994@0.30.1920.1050" timestamp="1605864296067" />
+    <state width="1876" height="433" key="GridCell.Tab.0.bottom" timestamp="1605873754859">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
     <state width="1236" height="224" key="GridCell.Tab.0.bottom/0.30.1920.1050/-1280.501.1280.994@-1280.501.1280.994" timestamp="1605160401940" />
-    <state width="1876" height="433" key="GridCell.Tab.0.bottom/0.30.1920.1050/-1280.501.1280.994@0.30.1920.1050" timestamp="1605255040331" />
-    <state width="1876" height="433" key="GridCell.Tab.0.center" timestamp="1605255040330">
+    <state width="1876" height="433" key="GridCell.Tab.0.bottom/0.30.1920.1050/-1280.501.1280.994@0.30.1920.1050" timestamp="1605873754859" />
+    <state width="1876" height="433" key="GridCell.Tab.0.center" timestamp="1605873754859">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
     <state width="1236" height="224" key="GridCell.Tab.0.center/0.30.1920.1050/-1280.501.1280.994@-1280.501.1280.994" timestamp="1605160401940" />
-    <state width="1876" height="433" key="GridCell.Tab.0.center/0.30.1920.1050/-1280.501.1280.994@0.30.1920.1050" timestamp="1605255040330" />
-    <state width="1876" height="433" key="GridCell.Tab.0.left" timestamp="1605255040330">
+    <state width="1876" height="433" key="GridCell.Tab.0.center/0.30.1920.1050/-1280.501.1280.994@0.30.1920.1050" timestamp="1605873754859" />
+    <state width="1876" height="433" key="GridCell.Tab.0.left" timestamp="1605873754859">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
     <state width="1236" height="224" key="GridCell.Tab.0.left/0.30.1920.1050/-1280.501.1280.994@-1280.501.1280.994" timestamp="1605160401940" />
-    <state width="1876" height="433" key="GridCell.Tab.0.left/0.30.1920.1050/-1280.501.1280.994@0.30.1920.1050" timestamp="1605255040330" />
-    <state width="1876" height="433" key="GridCell.Tab.0.right" timestamp="1605255040330">
+    <state width="1876" height="433" key="GridCell.Tab.0.left/0.30.1920.1050/-1280.501.1280.994@0.30.1920.1050" timestamp="1605873754859" />
+    <state width="1876" height="433" key="GridCell.Tab.0.right" timestamp="1605873754859">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
     <state width="1236" height="224" key="GridCell.Tab.0.right/0.30.1920.1050/-1280.501.1280.994@-1280.501.1280.994" timestamp="1605160401940" />
-    <state width="1876" height="433" key="GridCell.Tab.0.right/0.30.1920.1050/-1280.501.1280.994@0.30.1920.1050" timestamp="1605255040330" />
+    <state width="1876" height="433" key="GridCell.Tab.0.right/0.30.1920.1050/-1280.501.1280.994@0.30.1920.1050" timestamp="1605873754859" />
+    <state x="461" y="199" key="SettingsEditor" timestamp="1605867621838">
+      <screen x="0" y="30" width="1920" height="1050" />
+    </state>
+    <state x="461" y="199" key="SettingsEditor/0.30.1920.1050/-1280.501.1280.994@0.30.1920.1050" timestamp="1605867621838" />
+    <state x="552" y="288" key="Vcs.Push.Dialog.v2" timestamp="1605264631454">
+      <screen x="0" y="30" width="1920" height="1050" />
+    </state>
+    <state x="552" y="288" key="Vcs.Push.Dialog.v2/0.30.1920.1050/-1280.501.1280.994@0.30.1920.1050" timestamp="1605264631454" />
   </component>
 </project>

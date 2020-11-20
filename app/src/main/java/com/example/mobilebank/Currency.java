@@ -156,6 +156,5 @@ public class Currency extends AppCompatActivity {
         }
         //конец парсинга
     }
-
 }
 
