@@ -14,6 +14,37 @@
         tools:context=".MainActivity2">
 
 
+        <!--Кнопка назад-->
+
+        <LinearLayout
+            android:id="@+id/layout1"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:background="@drawable/main_border_bg">
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:color="@color/colorWhiteBlue"
+                app:srcCompat="@drawable/arrowleft2" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/main_screen"
+                android:textColor="@color/colorWhiteBlue"
+                android:textSize="18dp"
+                android:gravity="left"
+                android:layout_gravity="center"
+                android:paddingLeft="10dp"/>
+        </LinearLayout>
+
+
         <!--Информации о Курсах-->
 
         <LinearLayout

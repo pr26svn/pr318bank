@@ -8,7 +8,6 @@
     android:background="@drawable/_379050160_2022xiphone"
     android:contextClickable="true"
     android:orientation="vertical"
-
     android:paddingLeft="10dp"
     android:paddingTop="80dp"
     android:paddingRight="10dp"
@@ -37,7 +36,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/layout_main"
+        android:id="@+id/layout_bank"
 
         android:layout_width="427dp"
         android:layout_height="102dp"
@@ -79,6 +78,7 @@
 
 
     <LinearLayout
+        android:id="@+id/layout_course"
         android:layout_width="match_parent"
         android:layout_height="101dp"
         android:layout_gravity="center"
@@ -202,8 +202,9 @@
 
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:text="Войти"
         android:backgroundTint="@color/blue"
+        android:onClick="AlertDialog"
+        android:text="Войти"
         android:textColor="@color/white"
         android:textSize="20sp" />
 
