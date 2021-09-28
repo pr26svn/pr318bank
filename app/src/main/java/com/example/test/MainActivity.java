@@ -226,10 +226,12 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, Bank.class);
         startActivity(intent);    }
 
+
+//    Intent intent = new Intent(MainActivity.this, Valute.class);
+//    startActivity(intent);
     //переход с мэйна на окно с валютами
     public void valute(View view) {
-        Intent intent = new Intent(MainActivity.this, Valute.class);
-        startActivity(intent);
+
     }
 }
 
